@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdky7ogotuuoq" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_orange_512x512.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
+[ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/Interactable.tscn" id="6_tefeu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -71,3 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 0.6346844, 0.7727715, 0, -0.7727715, 0.63468
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=611473376]
 environment = SubResource("Environment_g4v7s")
+
+[node name="Interactible" parent="World" unique_id=2132515151 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4553132, 1.5671972, -2.3140926)
