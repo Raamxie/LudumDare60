@@ -3,7 +3,7 @@ extends Node
 @export var MAXIMUM_ROTATION: float = 360.0
 @export var STARTING_POSITION: float = 0.0
 @export var GOAL_ROTATION: float = 360.0
-@export var ROTATION_SPEED: float = 2.0      # Degrees added per mouse event
+@export var ROTATION_SPEED: float = 2.5      # Degrees added per mouse event
 @export var SMOOTHING_SPEED: float = 10.0    # Higher = snappier, Lower = heavier/smoother
 
 var is_interacting: bool = false
@@ -39,13 +39,11 @@ func _apply_pivot_rotation(angle_deg: float) -> void:
 	$Mesh.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("control_interaction"):
 		is_interacting = true
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		pre_interact()
-	elif Input.is_action_just_released("interact"):
+	elif Input.is_action_just_released("control_interaction"):
 		is_interacting = false
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 	if is_interacting and event is InputEventMouseMotion:
 		current_mouse_position = event.position
