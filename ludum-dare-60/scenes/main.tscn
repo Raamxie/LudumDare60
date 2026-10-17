@@ -1,3 +1,73 @@
 [gd_scene format=3 uid="uid://bbyp32w8jvd3w"]
 
+[ext_resource type="PackedScene" uid="uid://bxbc5sp54a44f" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bovt6dxvfuuxj" path="res://addons/godot-prototype-texture/PNG/checker_512x512/checker_blue_512x512.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://cdky7ogotuuoq" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_orange_512x512.png" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_texture = ExtResource("2_tbgi4")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
+albedo_texture = ExtResource("3_tefeu")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya4ey"]
+albedo_texture = ExtResource("4_o6xl0")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
+albedo_texture = ExtResource("5_tipki")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
+
+[sub_resource type="Sky" id="Sky_yf5fn"]
+sky_material = SubResource("ProceduralSkyMaterial_57qmd")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_yf5fn")
+
 [node name="Main" type="Node3D" unique_id=628576902]
+
+[node name="Player" parent="." unique_id=1630401320 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023413122, 1.4007372, 0.24968147)
+collision_layer = 3
+AIR_CONTROL = 2.0
+
+[node name="Map" type="Node3D" parent="." unique_id=848868923]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map" unique_id=1394501222]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_85g3d")
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map" unique_id=727477940]
+transform = Transform3D(7.7412596, 0, 0, 0, 7.3041153, 0, 0, 0, 8.011621, 0, 0.7297021, -8.074278)
+material_override = SubResource("StandardMaterial3D_choun")
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map" unique_id=2102762223]
+transform = Transform3D(4.3006263, 0, 0, 0, 3.543577, 0, 0, 0, 3.570664, 9.6678505, -0.39419484, 4.1866646)
+material_override = SubResource("StandardMaterial3D_ya4ey")
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map" unique_id=1568187537]
+transform = Transform3D(4.3006263, 0, 0, 0, 3.543577, 0, 0, 0, 3.570664, -2.649983, 0.3096465, 5.8610706)
+material_override = SubResource("StandardMaterial3D_eb6dy")
+use_collision = true
+
+[node name="World" type="Node3D" parent="." unique_id=1367489528]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=977028041]
+transform = Transform3D(1, 0, 0, 0, 0.6346844, 0.7727715, 0, -0.7727715, 0.6346844, 0, 0.93603176, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=611473376]
+environment = SubResource("Environment_g4v7s")
