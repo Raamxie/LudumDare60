@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c57ilwxn5ebss"]
+
+[ext_resource type="Shader" uid="uid://eu6qi4df04jx" path="res://resources/object_highlight.gdshader" id="1_vi6gw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vi6gw")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.05

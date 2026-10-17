@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://g0q447400fx4"]
+
+[ext_resource type="PackedScene" uid="uid://b6y7nl7qsqql5" path="res://scenes/interaction_component.tscn" id="2_k7waj"]
+
+[node name="InteractableItem" type="RigidBody3D" unique_id=691295588]
+
+[node name="InteractionComponent" parent="." unique_id=1003491539 instance=ExtResource("2_k7waj")]
+
+[connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted"]

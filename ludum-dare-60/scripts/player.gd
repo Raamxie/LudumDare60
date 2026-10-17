@@ -28,6 +28,8 @@ var head_bob_time: float = 0.0
 var speed: float = 0.0
 var direction: Vector3
 
+var focused_object: InteractionComponent
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -97,8 +99,19 @@ func _calculate_fov(delta: float) -> void:
 
 
 func _handle_interaction() -> void:
-	pass
-	#if interact_ray.is_colliding() and Input.is_action_just_pressed("interact"):
-		#var collider: Interactable = interact_ray.get_collider()
-		#collider.interact()
+	if not interact_ray.is_colliding():
+		if focused_object:
+			focused_object.unfocus()
+		focused_object = null
+		return
+		
+	focused_object = interact_ray.get_collider()
+	
+	if focused_object == null:
+		return
+		
+	focused_object.focus()
+	
+	if Input.is_action_just_pressed("interact"):
+		focused_object.interact()
 		
