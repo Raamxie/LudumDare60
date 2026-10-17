@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 enum Track { Normal, Tense, SuperTense }  # each value loads res://music/<value in lowercase>.ogg
 
 const BPM := 70.0
-const WAIT_BEATS := 1     # transition snaps to the next multiple of N beats
+const WAIT_BEATS := 2     # transition snaps to the next multiple of N beats
 const FADE_BEATS := 5.0   # fade-out length of the previous track, in beats
 
 var _music := AudioStreamInteractive.new()
@@ -31,6 +31,6 @@ func set_music(track: Track) -> void:
 
         
 # Test keys 1/2/3 to play song normal, tense and supertense respectively
-#func _unhandled_input(e: InputEvent) -> void:
-	#if e is InputEventKey and e.pressed and not e.echo and e.physical_keycode in [KEY_1, KEY_2, KEY_3]:
-		#set_music((e.physical_keycode - KEY_1) as Track)
+# func _unhandled_input(e: InputEvent) -> void:
+# 	if e is InputEventKey and e.pressed and not e.echo and e.physical_keycode in [KEY_1, KEY_2, KEY_3]:
+# 		set_music((e.physical_keycode - KEY_1) as Track)
