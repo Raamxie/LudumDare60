@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dqkmbtx00qkb4" path="res://scenes/box_object.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c24eum0t5phaq" path="res://scenes/box_item.tscn" id="8_tipki"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="9_85g3d"]
-=======
 [ext_resource type="PackedScene" uid="uid://bnpp22klghplr" path="res://assets/models/Room/Pressure_panel/Button_OK.fbx" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://c8a0bfo4b6rde" path="res://assets/models/Room/Pressure_panel/Button_Pressure.fbx" id="10_muem4"]
 [ext_resource type="PackedScene" uid="uid://jfulkkbstv6a" path="res://assets/models/Room/Pressure_panel/Pressure_Arrow.fbx" id="11_dp3eg"]
@@ -19,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ysx705riraa" path="res://assets/models/Room/Pressure_panel/Screw.fbx" id="14_yc10j"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://12l1lay55fa7" path="res://assets/models/Room/Pressure_panel/Cables_blockout.fbx" id="15_jscy8"]
->>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -92,16 +89,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2786644, 1, 3.075509)
 [node name="BoxItem" parent="." unique_id=691295588 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3757997, 1.9971693, 1.5190607)
 
-<<<<<<< Updated upstream
 [node name="BoxObject2" parent="." unique_id=419380444 instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9193854, 1.853781, -1.6747487)
 
 [node name="InteractableObject" parent="." unique_id=162394750 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.008759)
 
-[node name="Flashlight" parent="." unique_id=1373616021 instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88297844, 1.8907819, 1.2715597)
-=======
 [node name="Button_OK" parent="." unique_id=1313615649 instance=ExtResource("9_jbj1t")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.15227, 1.4457299, 22.193748)
 
@@ -134,4 +127,6 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.078434, 1.0670372, 2
 
 [node name="Room_blockout" parent="." unique_id=1735600828 instance=ExtResource("15_jkv2x")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.4177046, -0.33072412, 22.954878)
->>>>>>> Stashed changes
+
+[node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293905, 2.6734576, 2.1744196)
