@@ -24,6 +24,13 @@ extends CharacterBody3D
 @onready var interact_ray: RayCast3D = %InteractRay
 
 
+@onready var hand_right: Marker3D = $Head/Camera3D/HandRight
+@onready var hand_left: Marker3D = $Head/Camera3D/HandLeft
+
+var held: Pickable
+var tool: Pickable
+var key_items: Dictionary[StringName, bool] = {}
+
 var head_bob_time: float = 0.0
 var speed: float = 0.0
 var direction: Vector3
@@ -44,6 +51,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			deg_to_rad(CAMERA_X_ANGLE_MIN),
 			deg_to_rad(CAMERA_X_ANGLE_MAX)
 			)
+	
+	if Input.is_action_just_pressed("drop"):
+		drop_held()
+		
+	if tool and Input.is_action_just_pressed("use_tool"):
+		tool.use()
 		
 		
 func _physics_process(delta: float) -> void:
@@ -113,5 +126,42 @@ func _handle_interaction() -> void:
 	focused_object.focus()
 	
 	if Input.is_action_just_pressed("interact"):
-		focused_object.interact()
+		focused_object.interact(self)
 		
+
+func pick_up(item: Pickable) -> void:
+	match item.data.slot:
+		ItemData.Slot.KEY:
+			key_items[item.data.id] = true
+			item.queue_free()
+		ItemData.Slot.TOOL:
+			if tool: _drop(tool, 1.0)
+			tool = item
+			_attach(item, hand_left)
+		ItemData.Slot.HAND:
+			if held: _drop(held, 1.0)
+			held = item
+			_attach(item, hand_right)
+
+
+func _attach(item: Pickable, hand: Marker3D) -> void:
+	item.on_picked_up()
+	item.reparent(hand, false)
+	item.transform = item.data.hold_transform
+
+
+func _drop(item: Pickable, strength: float) -> void:
+	item.reparent(get_tree().current_scene)
+	item.on_dropped(-camera.global_basis.z * strength)
+
+
+func drop_held() -> void:
+	if held:
+		_drop(held, 3.0)
+		held = null
+
+
+func consume_held() -> void:
+	if held:
+		held.queue_free()
+		held = null

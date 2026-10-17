@@ -2,7 +2,7 @@ class_name InteractionComponent
 extends StaticBody3D
 
 
-signal interacted
+signal interacted(interactor: Node)
 signal focused
 signal unfocused
 
@@ -12,8 +12,8 @@ var is_focusable: bool = true
 const OBJECT_HIGHLIGHT = preload("uid://c57ilwxn5ebss")
 
 
-func interact() -> void:
-	interacted.emit()
+func interact(interactor: Node = null) -> void:
+	interacted.emit(interactor)
 	
 	
 func focus() -> void:

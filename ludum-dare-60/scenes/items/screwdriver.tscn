@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://00d082wm22h"]
+
+[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_m8fr4"]
+[ext_resource type="Script" uid="uid://dcqw14v4ilouk" path="res://scripts/items/screwdriver.gd" id="2_doe80"]
+
+[node name="Screwdriver" unique_id=691295588 instance=ExtResource("1_m8fr4")]
+script = ExtResource("2_doe80")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c75p12xjpq5ar"]
+
+[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_vf5ug"]
+[ext_resource type="Script" uid="uid://csep5whq3gvi0" path="res://scripts/items/tape.gd" id="2_vctv2"]
+
+[node name="Tape" unique_id=691295588 instance=ExtResource("1_vf5ug")]
+script = ExtResource("2_vctv2")

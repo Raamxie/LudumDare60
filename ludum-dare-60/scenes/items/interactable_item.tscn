@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://g0q447400fx4"]
 
+[ext_resource type="Script" uid="uid://dln8ojbxq8d71" path="res://scripts/items/pickable.gd" id="1_g3ofv"]
 [ext_resource type="PackedScene" uid="uid://b6y7nl7qsqql5" path="res://scenes/interaction_component.tscn" id="2_k7waj"]
 
 [node name="InteractableItem" type="RigidBody3D" unique_id=691295588]
+script = ExtResource("1_g3ofv")
 
 [node name="InteractionComponent" parent="." unique_id=1003491539 instance=ExtResource("2_k7waj")]
 

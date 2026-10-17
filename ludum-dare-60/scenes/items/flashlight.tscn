@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://diixd6fgdph0i"]
+
+[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_7qwfo"]
+[ext_resource type="Script" uid="uid://c7a5e8einmfue" path="res://scripts/items/flashlight.gd" id="2_7qwfo"]
+[ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_2d5re"]
+
+[sub_resource type="Resource" id="Resource_7qwfo"]
+script = ExtResource("3_2d5re")
+id = &"flashlight"
+display_name = "Flashlight"
+slot = 1
+metadata/_custom_type_script = "uid://bup1f701ht0xs"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
+[node name="Flashlight" unique_id=691295588 instance=ExtResource("1_7qwfo")]
+script = ExtResource("2_7qwfo")
+data = SubResource("Resource_7qwfo")
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=479496426]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1" unique_id=1387480554]
+light_energy = 5.0
+spot_range = 10.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=891155389]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=2132240319]
+mesh = SubResource("SphereMesh_g4v7s")

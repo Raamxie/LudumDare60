@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c24eum0t5phaq"]
 
-[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/interactable_item.tscn" id="1_7bnv7"]
+[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_7bnv7"]
 [ext_resource type="Script" uid="uid://cachuntryhx26" path="res://scripts/box_item.gd" id="2_aj4kb"]
-[ext_resource type="PackedScene" uid="uid://dks73i3hpj0wg" path="res://assets/models/Rocks/Rock_Medium_1.gltf" id="3_35f27"]
+[ext_resource type="PackedScene" uid="uid://s7nb0jexnb1s" path="res://assets/models/Rocks/Rock_Medium_1.gltf" id="3_35f27"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_35f27"]
 radius = 1.6125742
