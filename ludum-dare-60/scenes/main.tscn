@@ -8,7 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://dqkmbtx00qkb4" path="res://scenes/box_object.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c24eum0t5phaq" path="res://scenes/box_item.tscn" id="8_tipki"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="9_85g3d"]
+=======
+[ext_resource type="PackedScene" uid="uid://bnpp22klghplr" path="res://assets/models/Room/Pressure_panel/Button_OK.fbx" id="9_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://c8a0bfo4b6rde" path="res://assets/models/Room/Pressure_panel/Button_Pressure.fbx" id="10_muem4"]
+[ext_resource type="PackedScene" uid="uid://jfulkkbstv6a" path="res://assets/models/Room/Pressure_panel/Pressure_Arrow.fbx" id="11_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://ct7wy4p56tvav" path="res://assets/models/Room/Pressure_panel/Pressure_Panel_Doors.fbx" id="13_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://dvicnjh6j8a6v" path="res://assets/models/Room/Pressure_Panel.fbx" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://d1ysx705riraa" path="res://assets/models/Room/Pressure_panel/Screw.fbx" id="14_yc10j"]
+[ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://12l1lay55fa7" path="res://assets/models/Room/Pressure_panel/Cables_blockout.fbx" id="15_jscy8"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -81,6 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2786644, 1, 3.075509)
 [node name="BoxItem" parent="." unique_id=691295588 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3757997, 1.9971693, 1.5190607)
 
+<<<<<<< Updated upstream
 [node name="BoxObject2" parent="." unique_id=419380444 instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9193854, 1.853781, -1.6747487)
 
@@ -89,3 +101,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.0087
 
 [node name="Flashlight" parent="." unique_id=1373616021 instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88297844, 1.8907819, 1.2715597)
+=======
+[node name="Button_OK" parent="." unique_id=1313615649 instance=ExtResource("9_jbj1t")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.15227, 1.4457299, 22.193748)
+
+[node name="Button_Pressure" parent="." unique_id=1900022679 instance=ExtResource("10_muem4")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.997029, 1.4470888, 22.196085)
+
+[node name="Pressure_Arrow" parent="." unique_id=964362895 instance=ExtResource("11_dp3eg")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.078606, 1.4445354, 22.080786)
+
+[node name="Pressure_Panel_Doors" parent="." unique_id=1982461232 instance=ExtResource("13_gqmmt")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.262167, 1.0071381, 22.36216)
+
+[node name="Screw4" parent="." unique_id=2011695269 instance=ExtResource("14_yc10j")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.926992, 0.6882538, 22.33835)
+
+[node name="Screw3" parent="." unique_id=1744910706 instance=ExtResource("14_yc10j")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.232584, 0.68805355, 22.33816)
+
+[node name="Screw2" parent="." unique_id=1727111826 instance=ExtResource("14_yc10j")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.232874, 1.3264211, 22.339369)
+
+[node name="Screw" parent="." unique_id=1130252916 instance=ExtResource("14_yc10j")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.9267707, 1.3259696, 22.33943)
+
+[node name="Cables_blockout" parent="." unique_id=1264249907 instance=ExtResource("15_jscy8")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.077266, 0.6225513, 22.113424)
+
+[node name="Pressure_Panel" parent="." unique_id=1222248090 instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.078434, 1.0670372, 22.08714)
+
+[node name="Room_blockout" parent="." unique_id=1735600828 instance=ExtResource("15_jkv2x")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.4177046, -0.33072412, 22.954878)
+>>>>>>> Stashed changes
