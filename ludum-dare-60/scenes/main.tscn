@@ -210,7 +210,7 @@ area_attenuation = 1.926
 area_size = Vector2(4.56, 0.039222717)
 
 [node name="AreaLight3D2" type="AreaLight3D" parent="Room/Room_blockout" unique_id=150791411]
-transform = Transform3D(0.8, 0, 0, 0, -3.4969116e-08, 0.8, 0, -0.8, -3.4969116e-08, 0, 3.733726, 2.9821777)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.733726, 2.9821777)
 light_color = Color(0.62528825, 0.7377513, 0.6054448, 1)
 light_energy = 0.123
 area_range = 61.868
@@ -233,9 +233,6 @@ mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
-
-[node name="Flashlight2" parent="." unique_id=21670338 instance=ExtResource("17_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.971376, 2.6734576, 27.26478)
 
 [node name="Node3D2" parent="." unique_id=542521742 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.07827355, -0.0444213, -1.9417166e-09, 0, -3.9340247e-09, 0.09, -0.0444213, -0.07827355, -3.4214453e-09, -16.93709, 1.940326, 33.983006)
