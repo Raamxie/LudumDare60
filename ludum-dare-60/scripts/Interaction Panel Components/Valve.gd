@@ -5,6 +5,8 @@ extends Node
 @export var GOAL_ROTATION: float = 360.0
 @export var ROTATION_SPEED: float = 2.5      # Degrees added per mouse event
 @export var SMOOTHING_SPEED: float = 10.0    # Higher = snappier, Lower = heavier/smoother
+@export var MESH: StaticBody3D
+@export var PIVOT_POINT: Node3D
 
 var is_interacting: bool = false
 var valve_position: float = 0.0
@@ -14,29 +16,27 @@ var previous_mouse_position: Vector2
 var initial_offset: Vector3
 var initial_mesh_basis: Basis
 
-@onready var pivot_point: Node3D = $PivotPoint
 
 func _ready() -> void:
 	valve_position = STARTING_POSITION
 	target_valve_position = STARTING_POSITION
 	
 	# Save the starting offset between the Mesh and the PivotPoint
-	initial_offset = $Mesh.position - pivot_point.position
-	initial_mesh_basis = $Mesh.transform.basis
+	initial_offset = MESH.position - PIVOT_POINT.position
+	initial_mesh_basis = MESH.transform.basis
 	_apply_pivot_rotation(valve_position)
 
 func _process(delta: float) -> void:
 	if not is_equal_approx(valve_position, target_valve_position):
 		valve_position = lerpf(valve_position, target_valve_position, 1.0 - exp(-SMOOTHING_SPEED * delta))
 		_apply_pivot_rotation(valve_position)
-		$Label3D.text = str(snapped(valve_position, 0.1))
 
 func _apply_pivot_rotation(angle_deg: float) -> void:
 	var angle_rad: float = deg_to_rad(angle_deg)
 	var axis := Vector3(0, 0, -1)
 	
-	$Mesh.position = pivot_point.position + initial_offset.rotated(axis, angle_rad)
-	$Mesh.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
+	MESH.position = PIVOT_POINT.position + initial_offset.rotated(axis, angle_rad)
+	MESH.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("control_interaction"):
@@ -61,7 +61,7 @@ func pre_interact() -> void:
 
 func get_cross_product() -> float:
 	var cam: Camera3D = get_viewport().get_camera_3d()
-	var pivot_point_2D: Vector2 = cam.unproject_position(pivot_point.global_position)
+	var pivot_point_2D: Vector2 = cam.unproject_position(PIVOT_POINT.global_position)
 	
 	var vector_to_previous_position: Vector2 = previous_mouse_position - pivot_point_2D
 	var vector_to_current_position: Vector2 = current_mouse_position - pivot_point_2D
