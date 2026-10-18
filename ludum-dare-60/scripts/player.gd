@@ -115,16 +115,18 @@ func _handle_interaction() -> void:
 	if not interact_ray.is_colliding():
 		if focused_object:
 			focused_object.unfocus()
-		focused_object = null
+			focused_object = null
 		return
-		
-	focused_object = interact_ray.get_collider()
 	
-	if focused_object == null:
-		return
-		
+	var new_object: InteractionComponent = interact_ray.get_collider()
+	
+	if focused_object and focused_object != new_object:
+		focused_object.unfocus()
+	
+	focused_object = new_object
 	focused_object.focus()
-	
+	#if focused_object == null:
+		#return	
 	if Input.is_action_just_pressed("interact"):
 		focused_object.interact(self)
 		
