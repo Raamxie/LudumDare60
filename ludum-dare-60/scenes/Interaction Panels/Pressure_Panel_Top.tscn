@@ -27,6 +27,4 @@ transform = Transform3D(1, 0, 0, 0, 0.6233663, 0.78192997, 0, -0.78192997, 0.623
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6731187, 0.0050964355)
 mesh = SubResource("BoxMesh_jwevl")
 
-[connection signal="interacting_with" from="." to="Model/Pressure_Panel/Dial_Right" method="_on_interactable_object_interacting_with"]
-
 [editable path="Model/Pressure_Panel"]

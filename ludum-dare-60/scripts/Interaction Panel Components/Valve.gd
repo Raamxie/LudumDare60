@@ -7,6 +7,7 @@ extends Node
 @export var SMOOTHING_SPEED: float = 10.0    # Higher = snappier, Lower = heavier/smoother
 @export var MESH: StaticBody3D
 @export var PIVOT_POINT: Node3D
+@onready var interactable_object: Node3D = $"../.."
 
 var is_selected: bool = false
 var is_interacting: bool = false
@@ -26,8 +27,13 @@ func _ready() -> void:
 	initial_offset = MESH.position - PIVOT_POINT.position
 	initial_mesh_basis = MESH.transform.basis
 	_apply_pivot_rotation(valve_position)
+	
+	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
+	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
 
 func _process(delta: float) -> void:
+	if not is_selected:
+		return
 	if not is_equal_approx(valve_position, target_valve_position):
 		valve_position = lerpf(valve_position, target_valve_position, 1.0 - exp(-SMOOTHING_SPEED * delta))
 		_apply_pivot_rotation(valve_position)
@@ -40,6 +46,9 @@ func _apply_pivot_rotation(angle_deg: float) -> void:
 	MESH.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
 
 func _input(event: InputEvent) -> void:
+	if not is_selected:
+		return
+		
 	if Input.is_action_just_pressed("control_interaction"):
 		is_interacting = true
 		pre_interact()
@@ -68,3 +77,12 @@ func get_cross_product() -> float:
 	var vector_to_current_position: Vector2 = current_mouse_position - pivot_point_2D
 	
 	return vector_to_previous_position.cross(vector_to_current_position)
+	
+func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
+	if interacted_object == self:
+		is_selected = true
+
+
+func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D) -> void:
+	if interacted_object == self:
+		is_selected = false
