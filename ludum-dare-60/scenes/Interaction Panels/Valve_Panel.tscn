@@ -8,10 +8,7 @@ size = Vector3(1.0922241, 1.0615234, 0.3215332)
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_dufkl")]
 
-[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
-mesh = NodePath("../Model/Valve/Mesh/MeshInstance3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=2047722228]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" parent_id_path=PackedInt32Array(1003491539) index="0" unique_id=2047722228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005218506, -0.0024414063, 0.010864258)
 shape = SubResource("BoxShape3D_g4v7s")
 

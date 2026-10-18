@@ -2,6 +2,7 @@ extends Node
 
 @export var GROUP_NODE: Node3D
 @export var REQUIRED_OBJECT: Node3D
+@onready var interactable_object: Node3D = $"../../.."
 
 var is_selected: bool = false
 
@@ -11,6 +12,8 @@ var screws: Dictionary[Node3D, bool]
 func _ready() -> void:
 	for screw in GROUP_NODE.get_children():
 		screws.set(screw, false)
+	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
+	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
 
 func _input(event: InputEvent) -> void:
 		if not is_selected:
@@ -26,3 +29,8 @@ func screws_left() -> int:
 func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
 	if interacted_object == self.get_parent():
 		is_selected = true
+
+
+func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D) -> void:
+	if interacted_object == self.get_parent():
+		is_selected = false
