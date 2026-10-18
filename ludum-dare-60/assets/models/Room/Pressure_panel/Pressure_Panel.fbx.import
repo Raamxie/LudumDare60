@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvicnjh6j8a6v"
-path="res://.godot/imported/Pressure_Panel.fbx-97746913b3b63d0cd13d0148be33984d.scn"
+uid="uid://dxxx2fbum3vbm"
+path="res://.godot/imported/Pressure_Panel.fbx-e59fb8d1cfa7c1b8316afeaf4e1aa280.scn"
 
 [deps]
 
-source_file="res://assets/models/Room/Pressure_Panel.fbx"
-dest_files=["res://.godot/imported/Pressure_Panel.fbx-97746913b3b63d0cd13d0148be33984d.scn"]
+source_file="res://assets/models/Room/Pressure_panel/Pressure_Panel.fbx"
+dest_files=["res://.godot/imported/Pressure_Panel.fbx-e59fb8d1cfa7c1b8316afeaf4e1aa280.scn"]
 
 [params]
 
