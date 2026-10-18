@@ -26,8 +26,11 @@ mesh = NodePath("../MeshInstance3D")
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1" unique_id=1387480554]
-light_energy = 5.0
-spot_range = 10.0
+light_color = Color(1, 0.9303333, 0.78, 1)
+light_energy = 3.0
+spot_range = 20.0
+spot_attenuation = 2.0
+spot_angle = 25.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=891155389]
 shape = SubResource("SphereShape3D_g4v7s")

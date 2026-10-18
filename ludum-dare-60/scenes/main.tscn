@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c24eum0t5phaq" path="res://scenes/box_item.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://d361sy0nnpy2s" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 
@@ -187,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.0087
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.200536, -0.20550919, 25.000559)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout" unique_id=117953444]
-transform = Transform3D(0.8, 0, 0, 0, -3.4969116e-08, 0.8, 0, -0.8, -3.4969116e-08, 0, 3.7759783, -1.7145996)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.7759783, -1.7145996)
 light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
 light_energy = 0.725
 area_range = 10.469
@@ -225,7 +225,6 @@ mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
-visible = false
 
 [node name="Node3D2" parent="." unique_id=542521742 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.07827355, -0.0444213, -1.9417166e-09, 0, -3.9340247e-09, 0.09, -0.0444213, -0.07827355, -3.4214453e-09, -16.93709, 1.940326, 33.983006)
