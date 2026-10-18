@@ -19,8 +19,8 @@ metadata/_custom_type_script = "uid://bup1f701ht0xs"
 script = ExtResource("2_7qwfo")
 data = SubResource("Resource_7qwfo")
 
-[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
-mesh = NodePath("../MeshInstance3D")
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../MeshInstance3D")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=479496426]
 shape = SubResource("SphereShape3D_g4v7s")

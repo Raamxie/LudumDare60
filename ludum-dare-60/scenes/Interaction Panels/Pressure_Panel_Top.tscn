@@ -11,8 +11,8 @@ size = Vector3(0.29034424, 0.0627594, 0.29083252)
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_41oww")]
 
-[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
-mesh = NodePath("../MeshInstance3D")
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Pressure_Panel/Pressure_Panel_Top"), NodePath("../Model/Pressure_Panel/Pressure_Panel_Screen"), NodePath("../Model/Pressure_Panel/Dial_Right"), NodePath("../Model/Pressure_Panel/Dial_Left")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=1511958580]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016784668, 0.6922642, 0.0032958984)

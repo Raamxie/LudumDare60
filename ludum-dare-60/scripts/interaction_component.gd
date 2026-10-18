@@ -8,7 +8,7 @@ signal unfocused
 
 var is_focusable: bool = true
 
-@export var mesh: MeshInstance3D
+@export var meshes: Array[MeshInstance3D]
 const OBJECT_HIGHLIGHT = preload("uid://c57ilwxn5ebss")
 
 
@@ -19,9 +19,11 @@ func interact(interactor: Node = null) -> void:
 func focus() -> void:
 	if is_focusable:
 		focused.emit()
-		mesh.material_overlay = OBJECT_HIGHLIGHT
+		for mesh in meshes:
+			mesh.material_overlay = OBJECT_HIGHLIGHT
 
 	
 func unfocus() -> void:
 	unfocused.emit()
-	mesh.material_overlay = null
+	for mesh in meshes:
+		mesh.material_overlay = null

@@ -3,23 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_q7rr6"]
 [ext_resource type="PackedScene" uid="uid://dcwltnmkehmtg" path="res://assets/models/Room/Pressure_panel/pressure_bottom.tscn" id="2_d1f0s"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
-size = Vector3(0.37939453, 0.6885376, 0.38238525)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.35699463, 0.6409912, 0.0793457)
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_q7rr6")]
 
-[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
-mesh = NodePath("MeshInstance3D")
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Pressure_Panel/Pressure_Panel_Doors")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionComponent" index="0" unique_id=1663575360]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029296875, 0.34747067, 0.005218506)
-visible = false
-mesh = SubResource("BoxMesh_yf5fn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="1" unique_id=850395120]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=850395120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013122559, 0.3504929, 0.18350548)
 shape = SubResource("BoxShape3D_g4v7s")
 
@@ -27,3 +19,5 @@ shape = SubResource("BoxShape3D_g4v7s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3535123, 0.684385)
 
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_d1f0s")]
+
+[editable path="Model/Pressure_Panel"]

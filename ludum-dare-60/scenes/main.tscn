@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dqkmbtx00qkb4" path="res://scenes/box_object.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c24eum0t5phaq" path="res://scenes/box_item.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="10_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="11_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
@@ -184,7 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.0087
 [node name="Room" type="Node3D" parent="." unique_id=1334907514]
 
 [node name="Room_blockout" parent="Room" unique_id=1735600828 instance=ExtResource("15_jkv2x")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.200536, -0.20550919, 25.000559)
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.2328205, -0.2055093, 25.023802)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout" unique_id=117953444]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.7759783, -1.7145996)
@@ -219,12 +221,21 @@ transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.742
 mesh = SubResource("PlaneMesh_j4j6x")
 surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
 
+[node name="InteractableObject" parent="Room/Room_blockout" unique_id=764223506 instance=ExtResource("10_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.106876, 0.7138964, -0.71494865)
+
+[node name="InteractableObject2" parent="Room/Room_blockout" unique_id=41662392 instance=ExtResource("11_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.118841, 0.7363203, -0.71131897)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
+
+[node name="Flashlight2" parent="." unique_id=21670338 instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.971376, 2.6734576, 27.26478)
 
 [node name="Node3D2" parent="." unique_id=542521742 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.07827355, -0.0444213, -1.9417166e-09, 0, -3.9340247e-09, 0.09, -0.0444213, -0.07827355, -3.4214453e-09, -16.93709, 1.940326, 33.983006)
