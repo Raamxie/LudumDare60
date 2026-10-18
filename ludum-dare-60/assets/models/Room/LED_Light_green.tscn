@@ -5,12 +5,24 @@ top_radius = 0.65
 bottom_radius = 0.65
 height = 0.365
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0a3du"]
+albedo_color = Color(0.5689727, 0.56897277, 0.5689727, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yta21"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4j6x"]
 emission_enabled = true
-emission = Color(0.3268272, 0.6228538, 3.85046e-07, 1)
-emission_energy_multiplier = 1.35
+emission = Color(0, 0.43726265, 0.21714598, 1)
+emission_energy_multiplier = 2.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j4j6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33p2j"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0.33333334, 0.59607846, 0.27450982, 0.60784316)
+refraction_scale = -1.0
 
 [node name="Node3D" type="Node3D" unique_id=52842329]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
@@ -18,8 +30,14 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=687912127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16453397, 0)
 mesh = SubResource("CylinderMesh_yta21")
+surface_material_override/0 = SubResource("StandardMaterial3D_0a3du")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=101817216]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87963384, 0)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0.4364119, 0)
 mesh = SubResource("CapsuleMesh_yta21")
 surface_material_override/0 = SubResource("StandardMaterial3D_j4j6x")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2107160394]
+transform = Transform3D(0.8332499, 0, 0, 0, 0.8332499, 0, 0, 0, 0.8332499, 0, 0.6595055, 0)
+mesh = SubResource("CapsuleMesh_j4j6x")
+surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
