@@ -8,6 +8,7 @@ extends Node
 @export var MESH: StaticBody3D
 @export var PIVOT_POINT: Node3D
 
+var is_selected: bool = false
 var is_interacting: bool = false
 var valve_position: float = 0.0
 var target_valve_position: float = 0.0

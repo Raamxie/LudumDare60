@@ -1,12 +1,16 @@
 extends Node3D
 
 @export var TRANSITION_TIME: float = 0.3
+@onready var model: Node3D = $Model
 
 @onready var interaction_camera: Camera3D = $InteractionCamera
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 var interaction_camera_transform
 var main_camera: Camera3D
+
+signal interacting_with(interacted_object: Node3D)
+signal stopped_interacting_with(interacted_object: Node3D)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_interacted_object(interactor: Node) -> void:
 	print("on_interacted called")    
 	main_camera = get_viewport().get_camera_3d()
-	_set_player_active(false) # Keeps physics space intact
+	_set_player_active(false)
 	
 	interaction_camera.global_transform = main_camera.global_transform
 	interaction_camera.force_update_transform()
@@ -43,6 +47,8 @@ func _on_interacted_object(interactor: Node) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	interaction_component.unfocus()
 	interaction_component.is_focusable = false
+	interacting_with.emit(model.get_child(0))
+	
 
 func _on_return_interacted_object() -> void:
 	if TransitionTween:
@@ -61,6 +67,7 @@ func _on_return_interacted_object() -> void:
 	interaction_component.focus()
 	interaction_component.is_focusable = true
 	print("Returned")
+	stopped_interacting_with.emit(model.get_child(0))
 	
 	
 var TransitionTween: Tween

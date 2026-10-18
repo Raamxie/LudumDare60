@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyfvf6x8grpl7"]
+
+[ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_41oww"]
+[ext_resource type="PackedScene" uid="uid://cm1oiuqrfdtvb" path="res://assets/models/Room/Pressure_panel/pressure_top.tscn" id="2_jwevl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.29864502, 0.1003418, 0.29663086)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jwevl"]
+size = Vector3(0.29034424, 0.0627594, 0.29083252)
+
+[node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_41oww")]
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=1511958580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016784668, 0.6922642, 0.0032958984)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="InteractionCamera" parent="." index="1" unique_id=869435617]
+transform = Transform3D(1, 0, 0, 0, 0.6233663, 0.78192997, 0, -0.78192997, 0.6233663, 0, 0.8727075, 0.1647017)
+
+[node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_jwevl")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=1376014948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6731187, 0.0050964355)
+mesh = SubResource("BoxMesh_jwevl")
+
+[connection signal="interacting_with" from="." to="Model/Pressure_Panel/Dial_Right" method="_on_interactable_object_interacting_with"]
+
+[editable path="Model/Pressure_Panel"]

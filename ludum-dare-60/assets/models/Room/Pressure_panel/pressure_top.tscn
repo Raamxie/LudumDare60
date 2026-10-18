@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdwtfnerjn00c" path="res://scripts/Interaction Panel Components/Dial.gd" id="1_gegvg"]
 [ext_resource type="FontFile" uid="uid://cnqhss4fu8nqk" path="res://assets/fonts/Workbench-Regular.ttf" id="1_ry30i"]
+[ext_resource type="Script" uid="uid://djs0iida47tbk" path="res://scripts/Interaction Panel Components/PressureLabel.gd" id="2_qq50e"]
 [ext_resource type="FontFile" uid="uid://djrka2l4ybg6g" path="res://assets/fonts/Minisystem-Regular.ttf" id="3_p8uqq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcdr0"]
@@ -236,6 +237,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rkpfv")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+
 [node name="Pressure_Panel" type="Node3D" unique_id=1178809638]
 
 [node name="Pressure_Panel_Screen" type="MeshInstance3D" parent="." unique_id=1677342902]
@@ -247,42 +254,64 @@ transform = Transform3D(0.64259243, 0, 0, 0, -7.660299e-08, 2.6717033, 0, -0.642
 mesh = SubResource("ArrayMesh_h5lna")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1340289292]
-transform = Transform3D(0.06642389, 0, 0, 0, 0.043266162, 0.8746196, 0, -0.078054234, 0.48480952, 0, 0.71990293, -0.06366679)
+transform = Transform3D(0.07, 0, 0, 0, 0.030058194, 0.91222835, 0, -0.05422642, 0.50565636, 0, 0.71990293, -0.06366679)
 modulate = Color(0.24659282, 0.8621337, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "Teleporter field is OFFLINE"
 font = ExtResource("1_ry30i")
+script = ExtResource("2_qq50e")
 
 [node name="Dial_Right" type="MeshInstance3D" parent="." unique_id=181807256 node_paths=PackedStringArray("MESH", "PIVOT_POINT", "VALUE_EXPORT")]
 transform = Transform3D(-2.3652122, -2.409733, 5.3097914e-08, 0, 4.025153e-07, 0.89083517, -2.409733, 2.3652122, -1.0619583e-07, 0.062773995, 0.7113012, 0.07751241)
 mesh = SubResource("ArrayMesh_qq50e")
 script = ExtResource("1_gegvg")
 MAXIMUM_ROTATION = 280.0
+GOAL_ROTATION = 69.0
 MESH = NodePath(".")
 PIVOT_POINT = NodePath("Pivot_Right")
-VALUE_EXPORT = NodePath("Label_Right")
+VALUE_EXPORT = NodePath("../Node3D2/MeshInstance3D2/Label_Right")
 INTERACTION_INPUT = &"control_interaction2"
 
 [node name="Pivot_Right" type="Node3D" parent="Dial_Right" unique_id=669757756]
-
-[node name="Label_Right" type="Label3D" parent="Dial_Right" unique_id=1862394319]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.0011777107, 0.009863953)
-text = "0"
-font = ExtResource("3_p8uqq")
 
 [node name="Dial_Left" type="MeshInstance3D" parent="." unique_id=1794683972 node_paths=PackedStringArray("MESH", "PIVOT_POINT", "VALUE_EXPORT")]
 transform = Transform3D(-2.3652122, -2.409733, 5.3097914e-08, 0, 4.025153e-07, 0.89083517, -2.409733, 2.3652122, -1.0619583e-07, -0.06167295, 0.7113012, 0.07751241)
 mesh = SubResource("ArrayMesh_tpsue")
 script = ExtResource("1_gegvg")
 MAXIMUM_ROTATION = 280.0
+GOAL_ROTATION = 42.0
 MESH = NodePath(".")
 PIVOT_POINT = NodePath("Pivot_Left")
-VALUE_EXPORT = NodePath("Label_Left")
+VALUE_EXPORT = NodePath("../Node3D/MeshInstance3D/Label_Left")
 INTERACTION_INPUT = &"control_interaction"
 
 [node name="Pivot_Left" type="Node3D" parent="Dial_Left" unique_id=973616334]
 
-[node name="Label_Left" type="Label3D" parent="Dial_Left" unique_id=731968625]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.0011777107, 0.009863953)
+[node name="Node3D" type="Node3D" parent="." unique_id=87977986]
+transform = Transform3D(0.016, 0, 0, 0, 0.661, 0, 0, 0, 0.008, -0.109837875, 0.71209425, 0.030536473)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=701310653]
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="Label_Left" type="Label3D" parent="Node3D/MeshInstance3D" unique_id=731968625]
+transform = Transform3D(3.9940846, 0, 0, 0, -3.625884e-07, 0.033692706, 0, -8.295055, -1.4727549e-09, 0, 0.001, 0)
+modulate = Color(0.24659282, 0.8621337, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "0"
 font = ExtResource("3_p8uqq")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=437692782]
+transform = Transform3D(0.016, 0, 0, 0, 0.661, 0, 0, 0, 0.008, 0.11, 0.712, 0.031)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D2" unique_id=1687182572]
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="Label_Right" type="Label3D" parent="Node3D2/MeshInstance3D2" unique_id=685363505]
+transform = Transform3D(3.9940846, 0, 0, 0, -3.625884e-07, 0.033692706, 0, -8.295055, -1.4727549e-09, 0, 0.0010000467, 0)
+modulate = Color(0.24659282, 0.8621337, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "0"
+font = ExtResource("3_p8uqq")
+
+[connection signal="finished_interacting" from="Dial_Right" to="Label3D" method="_on_dial_right_finished_interacting"]
+[connection signal="finished_interacting" from="Dial_Left" to="Label3D" method="_on_dial_left_finished_interacting"]
