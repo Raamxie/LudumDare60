@@ -31,6 +31,6 @@ func set_music(track: Track) -> void:
 
         
 # Test keys 1/2/3 to play song normal, tense and supertense respectively
-# func _unhandled_input(e: InputEvent) -> void:
-# 	if e is InputEventKey and e.pressed and not e.echo and e.physical_keycode in [KEY_1, KEY_2, KEY_3]:
-# 		set_music((e.physical_keycode - KEY_1) as Track)
+func _unhandled_input(e: InputEvent) -> void:
+	if e is InputEventKey and e.pressed and not e.echo and e.physical_keycode in [KEY_1, KEY_2, KEY_3]:
+		set_music((e.physical_keycode - KEY_1) as Track)
