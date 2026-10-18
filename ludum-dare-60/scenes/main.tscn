@@ -46,11 +46,21 @@ sky_material = SubResource("ProceduralSkyMaterial_57qmd")
 [sub_resource type="Environment" id="Environment_g4v7s"]
 background_mode = 2
 sky = SubResource("Sky_yf5fn")
+ambient_light_source = 2
+ambient_light_color = Color(0.73, 1, 0.9955, 1)
+ambient_light_energy = 0.0
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.37820002, 0.56363994, 0.61, 1)
+fog_light_energy = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
 [node name="Main" type="Node3D" unique_id=628576902]
 
 [node name="Player" parent="." unique_id=1630401320 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023413122, 1.4007372, 0.24968147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.253009, 1.4007373, 24.458319)
 AIR_CONTROL = 2.0
 
 [node name="Map" type="Node3D" parent="." unique_id=848868923]
@@ -79,9 +89,36 @@ use_collision = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=977028041]
 transform = Transform3D(1, 0, 0, 0, 0.6346844, 0.7727715, 0, -0.7727715, 0.6346844, 0, 0.93603176, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=611473376]
 environment = SubResource("Environment_g4v7s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="World" unique_id=2081159335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3860483, 1.9981183, 20.057615)
+light_color = Color(0.53999996, 0.655, 1, 1)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="World" unique_id=179669134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.12917, 2.7965333, 25.93191)
+light_color = Color(0.6333333, 1, 0.6, 1)
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="World" unique_id=322812333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.059284, 2.7965336, 34.921234)
+light_color = Color(0.6333333, 1, 0.6, 1)
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="World" unique_id=2005140608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.096037, 2.7965336, 28.478294)
+light_color = Color(0.6333333, 1, 0.6, 1)
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="World" unique_id=1415837325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.735273, 2.7965336, 29.642235)
+light_color = Color(0.6333333, 1, 0.6, 1)
+shadow_enabled = true
 
 [node name="BoxObject" parent="." unique_id=2132515151 instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2786644, 1, 3.075509)
@@ -95,38 +132,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9193854, 1.853781, -1.67474
 [node name="InteractableObject" parent="." unique_id=162394750 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.008759)
 
-[node name="Button_OK" parent="." unique_id=1313615649 instance=ExtResource("9_jbj1t")]
+[node name="Room" type="Node3D" parent="." unique_id=1334907514]
+
+[node name="Button_OK" parent="Room" unique_id=1313615649 instance=ExtResource("9_jbj1t")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.15227, 1.4457299, 22.193748)
 
-[node name="Button_Pressure" parent="." unique_id=1900022679 instance=ExtResource("10_muem4")]
+[node name="Button_Pressure" parent="Room" unique_id=1900022679 instance=ExtResource("10_muem4")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.997029, 1.4470888, 22.196085)
 
-[node name="Pressure_Arrow" parent="." unique_id=964362895 instance=ExtResource("11_dp3eg")]
+[node name="Pressure_Arrow" parent="Room" unique_id=964362895 instance=ExtResource("11_dp3eg")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.078606, 1.4445354, 22.080786)
 
-[node name="Pressure_Panel_Doors" parent="." unique_id=1982461232 instance=ExtResource("13_gqmmt")]
+[node name="Pressure_Panel_Doors" parent="Room" unique_id=1982461232 instance=ExtResource("13_gqmmt")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.262167, 1.0071381, 22.36216)
 
-[node name="Screw4" parent="." unique_id=2011695269 instance=ExtResource("14_yc10j")]
+[node name="Screw4" parent="Room" unique_id=2011695269 instance=ExtResource("14_yc10j")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.926992, 0.6882538, 22.33835)
 
-[node name="Screw3" parent="." unique_id=1744910706 instance=ExtResource("14_yc10j")]
+[node name="Screw3" parent="Room" unique_id=1744910706 instance=ExtResource("14_yc10j")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.232584, 0.68805355, 22.33816)
 
-[node name="Screw2" parent="." unique_id=1727111826 instance=ExtResource("14_yc10j")]
+[node name="Screw2" parent="Room" unique_id=1727111826 instance=ExtResource("14_yc10j")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.232874, 1.3264211, 22.339369)
 
-[node name="Screw" parent="." unique_id=1130252916 instance=ExtResource("14_yc10j")]
+[node name="Screw" parent="Room" unique_id=1130252916 instance=ExtResource("14_yc10j")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -7.9267707, 1.3259696, 22.33943)
 
-[node name="Cables_blockout" parent="." unique_id=1264249907 instance=ExtResource("15_jscy8")]
+[node name="Cables_blockout" parent="Room" unique_id=1264249907 instance=ExtResource("15_jscy8")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.077266, 0.6225513, 22.113424)
 
-[node name="Pressure_Panel" parent="." unique_id=1222248090 instance=ExtResource("14_a8y0u")]
+[node name="Pressure_Panel" parent="Room" unique_id=1222248090 instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.078434, 1.0670372, 22.08714)
 
-[node name="Room_blockout" parent="." unique_id=1735600828 instance=ExtResource("15_jkv2x")]
+[node name="Room_blockout" parent="Room" unique_id=1735600828 instance=ExtResource("15_jkv2x")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.4177046, -0.33072412, 22.954878)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 3.772715, 26.27198)
+mesh = SubResource("BoxMesh_g4v7s")
+
 [node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293905, 2.6734576, 2.1744196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
