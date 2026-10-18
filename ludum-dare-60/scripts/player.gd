@@ -29,7 +29,7 @@ extends CharacterBody3D
 
 var held: Pickable
 var tool: Pickable
-var key_items: Dictionary[StringName, bool] = {}
+var key_items: Array[StringName]
 
 var head_bob_time: float = 0.0
 var speed: float = 0.0
@@ -134,7 +134,7 @@ func _handle_interaction() -> void:
 func pick_up(item: Pickable) -> void:
 	match item.data.slot:
 		ItemData.Slot.KEY:
-			key_items[item.data.id] = true
+			key_items.append(item.data.id)
 			item.queue_free()
 		ItemData.Slot.TOOL:
 			if tool: _drop(tool, 1.0)
