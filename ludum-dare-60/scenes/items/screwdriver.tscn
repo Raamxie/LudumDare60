@@ -2,6 +2,37 @@
 
 [ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_m8fr4"]
 [ext_resource type="Script" uid="uid://dcqw14v4ilouk" path="res://scripts/items/screwdriver.gd" id="2_doe80"]
+[ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_doe80"]
+
+[sub_resource type="Resource" id="Resource_g2els"]
+script = ExtResource("3_doe80")
+id = &"screwdriver"
+display_name = "Screwdriver"
+slot = 2
+metadata/_custom_type_script = "uid://bup1f701ht0xs"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.32489014, 0.2821045, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(0.105, 0.07, 0.875)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_doe80"]
+points = PackedVector3Array(0.0525, 0.035, 0.4375, 0.0525, -0.035, 0.4375, 0.0525, 0.035, -0.4375, -0.0525, 0.035, 0.4375, -0.0525, -0.035, 0.4375, 0.0525, -0.035, -0.4375, -0.0525, 0.035, -0.4375, -0.0525, -0.035, -0.4375)
 
 [node name="Screwdriver" unique_id=691295588 instance=ExtResource("1_m8fr4")]
 script = ExtResource("2_doe80")
+data = SubResource("Resource_g2els")
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../MeshInstance3D")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=411986006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00015258789, -0.0099487305, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=646547795]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=592073690]
+shape = SubResource("ConvexPolygonShape3D_doe80")
