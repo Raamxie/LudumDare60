@@ -45,3 +45,4 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_g2els")
 dot_radius = 3.0
+dot_color = Color(0.629675, 0.6296747, 0.6296747, 0.5882353)
