@@ -11,8 +11,10 @@ albedo_color = Color(0.5803922, 0, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6eudm"]
 size = Vector3(0.13269043, 1, 0.117492676)
 
-[node name="Valve" type="Node3D" unique_id=190104565]
+[node name="Valve" type="Node3D" unique_id=190104565 node_paths=PackedStringArray("MESH", "PIVOT_POINT")]
 script = ExtResource("1_s3n6w")
+MESH = NodePath("Mesh")
+PIVOT_POINT = NodePath("PivotPoint")
 
 [node name="Mesh" type="StaticBody3D" parent="." unique_id=678934511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004248917, 0)
