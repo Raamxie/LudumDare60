@@ -7,18 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="10_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="11_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://d361sy0nnpy2s" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
+[ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="17_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://cl8edowc3n1ho" path="res://scenes/Interaction Panels/Lever_Panel_Top.tscn" id="20_gqmmt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -49,7 +48,7 @@ sky_material = SubResource("ProceduralSkyMaterial_57qmd")
 background_mode = 2
 sky = SubResource("Sky_yf5fn")
 ambient_light_source = 2
-ambient_light_color = Color(0.117501564, 0.1262055, 0.10589004, 1)
+ambient_light_color = Color(0.13103917, 0.14159718, 0.11695912, 1)
 ambient_light_energy = 0.51
 tonemap_mode = 3
 ssao_enabled = true
@@ -77,6 +76,19 @@ refraction_scale = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(1, 1, 1.27594)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
+shader = ExtResource("17_0ld40")
+shader_parameter/effect_strength = 0.5610000266475
+shader_parameter/gamma_adjust = 1.2770000131575001
+shader_parameter/desired_screen_width = 1024.0
+shader_parameter/dither_strength = 0.00400000019
+shader_parameter/posterize_luma_levels = 7.3630003022425
+shader_parameter/color_grad_shadows = Color(0, 0.25231484, 0.24134201, 1)
+shader_parameter/color_grad_midtones = Color(0.58395725, 0.0047941115, 1.92523e-07, 1)
+shader_parameter/color_grad_lights = Color(0.9709098, 0.95965904, 0.9087334, 1)
+shader_parameter/color_grad_midpoint = 0.25
+shader_parameter/color_grad_strength = 0.1950000092625
 
 [node name="Main" type="Node3D" unique_id=628576902]
 script = ExtResource("1_muem4")
@@ -157,6 +169,33 @@ light_volumetric_fog_energy = 7.287
 light_specular = 0.0
 omni_range = 5.13
 
+[node name="OmniLight3D7" type="OmniLight3D" parent="World/OmniLight3D7" unique_id=419199091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.249284, 3.3178437, 30.981514)
+light_color = Color(0.961121, 0.40826464, 0.421517, 1)
+light_energy = 0.025
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+omni_range = 5.13
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="World" unique_id=1346069576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632228, 3.1936276, 27.468182)
+light_color = Color(0.961121, 0.40826464, 0.421517, 1)
+light_energy = 0.025
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+omni_range = 5.13
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="World/OmniLight3D9" unique_id=1194776970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.249284, 3.3178437, 30.981514)
+light_color = Color(0.961121, 0.40826464, 0.421517, 1)
+light_energy = 0.025
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+omni_range = 5.13
+
 [node name="OmniLight3D3" type="OmniLight3D" parent="World" unique_id=322812333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.059284, 4.018842, 35.531948)
 light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
@@ -185,7 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.0087
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.2328205, -0.2055093, 25.023802)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout" unique_id=117953444]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.7759783, -1.7145996)
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, 0.8, 0, -0.8, -3.4969112e-08, 0, 3.7759786, 0.09982681)
 light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
 light_energy = 0.725
 area_range = 10.469
@@ -213,10 +252,9 @@ area_range = 61.868
 area_size = Vector2(34.745, 6.123)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Room_blockout" unique_id=658758912]
-transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.74228e-08, -0.13390405, 0, 3.8673937, -1.6795273)
+transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.74228e-08, -0.13390405, 0, 3.867394, 0.13489914)
 mesh = SubResource("PlaneMesh_j4j6x")
 surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
-
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
@@ -256,6 +294,15 @@ transform = Transform3D(0.076604515, -0.047241382, 0, 0, 0, 0.08999998, -0.04724
 [node name="LED4" parent="Room" unique_id=421138743 instance=ExtResource("13_trceg")]
 transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
 
+[node name="LED4" parent="Room/LED4" unique_id=1021202167 instance=ExtResource("13_trceg")]
+transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
+
+[node name="LED5" parent="Room" unique_id=1678000600 instance=ExtResource("13_trceg")]
+transform = Transform3D(-0.0775426, -0.045685276, -1.9969666e-09, 2.5718504e-16, -3.9340238e-09, 0.08999999, -0.045685276, 0.0775426, 3.3894936e-09, 3.7850103, 3.1682844, 27.113287)
+
+[node name="LED4" parent="Room/LED5" unique_id=1416525441 instance=ExtResource("13_trceg")]
+transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
+
 [node name="Monster" type="Node3D" parent="Room" unique_id=1335269822 node_paths=PackedStringArray("closet")]
 script = ExtResource("17_dp3eg")
 closet = NodePath("../Closet")
@@ -263,22 +310,25 @@ tense_track = 1
 supertense_track = 2
 
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
 script = ExtResource("18_dp3eg")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
 
-[editable path="Pressure_Panel/Top"]
-[editable path="Pressure_Panel/Top/Model/Pressure_Panel"]
-[editable path="Pressure_Panel/Bottom"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Screws/screw_1"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_P"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2026261825]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=144202504]
+offset_right = 1903.0
+offset_bottom = 1095.0
+texture = ExtResource("17_gqmmt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=987758756]
+material = SubResource("ShaderMaterial_yta21")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
