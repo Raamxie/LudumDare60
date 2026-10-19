@@ -25,7 +25,6 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 	
 	if is_interacting and event is InputEventMouseMotion:
 		current_mouse_position = event_position
-		var change = 
 		
 	
 func pre_interact() -> void:
