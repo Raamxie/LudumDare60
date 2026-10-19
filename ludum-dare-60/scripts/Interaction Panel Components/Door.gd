@@ -1,6 +1,6 @@
 extends Node
 
-@export var MOVEMENT_SPEED: float = 0.5 # Lowered slightly since 2D pixel deltas are larger than 3D units
+@export var MOVEMENT_SPEED: float = 0.01 # Lowered slightly since 2D pixel deltas are larger than 3D units
 @export var MAX_ROTATION: float
 @export var PIVOT_POINT: Node3D
 @export var DIRECTION: Vector2 = Vector2(-1, 0)
