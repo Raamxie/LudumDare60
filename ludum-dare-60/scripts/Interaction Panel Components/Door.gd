@@ -1,11 +1,12 @@
 extends Node
 
-@export var MOVEMENT_SPEED: float = 0.01 # Lowered slightly since 2D pixel deltas are larger than 3D units
+@export var MAX_STEP_PER_EVENT: float = 0.3
+@export var MOUSE_SENSITIVITY: float = 0.2
 @export var MAX_ROTATION: float
 @export var PIVOT_POINT: Node3D
 @export var DIRECTION: Vector2 = Vector2(-1, 0)
 @export var STARTING_ROTATION = 0
-@export var SMOOTHING_SPEED: float = 10
+@export var SMOOTHING_SPEED: float = 6
 @export var MESH: MeshInstance3D
 @export var INTERACTABLE_OBJECT: Node3D
 @export var SCENE_PARENT: Node3D
@@ -47,14 +48,11 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if is_interacting and event is InputEventMouseMotion:
-		current_mouse_position = get_viewport().get_mouse_position()
+		var change: float = event.relative.dot(DIRECTION.normalized()) * MOUSE_SENSITIVITY
 		
-		var change: float = (current_mouse_position - previous_mouse_position).dot(DIRECTION.normalized())
-		print("Change: ", change)
+		change = clampf(change, -MAX_STEP_PER_EVENT, MAX_STEP_PER_EVENT)
 		
-		target_door_rotation = clampf(target_door_rotation + (change * MOVEMENT_SPEED), 0.0, MAX_ROTATION)
-		
-		previous_mouse_position = current_mouse_position
+		target_door_rotation = clampf(target_door_rotation + change, 0.0, MAX_ROTATION)
 
 func _process(delta: float) -> void:
 	if not is_selected:

@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://cl8edowc3n1ho" path="res://scenes/Interaction Panels/Lever_Panel_Top.tscn" id="20_gqmmt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -216,11 +217,6 @@ transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.742
 mesh = SubResource("PlaneMesh_j4j6x")
 surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
 
-[node name="InteractableObject" parent="Room/Room_blockout" unique_id=764223506 instance=ExtResource("10_a8y0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.106876, 0.7138964, -0.71494865)
-
-[node name="InteractableObject2" parent="Room/Room_blockout" unique_id=41662392 instance=ExtResource("11_jkv2x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.118841, 0.7363203, -0.71131897)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
@@ -269,3 +265,20 @@ supertense_track = 2
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
 script = ExtResource("18_dp3eg")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
+
+[editable path="Pressure_Panel/Top"]
+[editable path="Pressure_Panel/Top/Model/Pressure_Panel"]
+[editable path="Pressure_Panel/Bottom"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Screws/screw_1"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_L"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_P"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_L"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_P"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_L"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_P"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_L"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_P"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_L"]
+[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_P"]

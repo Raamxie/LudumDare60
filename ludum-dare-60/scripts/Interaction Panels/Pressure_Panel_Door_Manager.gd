@@ -13,10 +13,9 @@ var tween_fling_distance: float = 1.5
 
 var screw_statuses: Dictionary[Node3D, bool]
 
-func _ready() -> void:
+func _ready() -> void:	
 	for screw in GROUP_NODE.get_children():
 		screw_statuses.set(screw, false)
-		print(screw)
 	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
 	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
 		
@@ -44,6 +43,8 @@ func unscrewed(screw: Node3D) -> void:
 	await fling_tween.finished
 	
 	screw.queue_free()
+	if door_unlocked():
+		Messenger.teleporter_part_finished.emit(Game.Part.CABLES_DOOR)
 
 	
 func screws_left() -> int:

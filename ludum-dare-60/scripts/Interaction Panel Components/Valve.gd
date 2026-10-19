@@ -3,14 +3,16 @@ extends Node
 @export var MAXIMUM_ROTATION: float = 360.0
 @export var STARTING_POSITION: float = 0.0
 @export var GOAL_ROTATION: float = 360.0
-@export var ROTATION_SPEED: float = 2.5      # Degrees added per mouse event
-@export var SMOOTHING_SPEED: float = 10.0    # Higher = snappier, Lower = heavier/smoother
-@export var MESH: StaticBody3D
+@export var ROTATION_LEEWAY: float = 22.5
+@export var ROTATION_SPEED: float = 2.5    
+@export var SMOOTHING_SPEED: float = 10.0
+@export var MESH: MeshInstance3D
 @export var PIVOT_POINT: Node3D
 @onready var interactable_object: Node3D = $"../.."
 
 var is_selected: bool = false
 var is_interacting: bool = false
+var in_correct: bool = false
 var valve_position: float = 0.0
 var target_valve_position: float = 0.0
 var current_mouse_position: Vector2
@@ -37,6 +39,12 @@ func _process(delta: float) -> void:
 	if not is_equal_approx(valve_position, target_valve_position):
 		valve_position = lerpf(valve_position, target_valve_position, 1.0 - exp(-SMOOTHING_SPEED * delta))
 		_apply_pivot_rotation(valve_position)
+		if _check_correct() and not in_correct:
+			print("In the zone")
+			in_correct = true
+		elif not _check_correct() and in_correct:
+			print("Out of zone")
+			in_correct = false
 
 func _apply_pivot_rotation(angle_deg: float) -> void:
 	var angle_rad: float = deg_to_rad(angle_deg)
@@ -44,6 +52,8 @@ func _apply_pivot_rotation(angle_deg: float) -> void:
 	
 	MESH.position = PIVOT_POINT.position + initial_offset.rotated(axis, angle_rad)
 	MESH.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
+	
+	
 
 func _input(event: InputEvent) -> void:
 	if not is_selected:
@@ -69,6 +79,9 @@ func _input(event: InputEvent) -> void:
 
 func pre_interact() -> void:
 	previous_mouse_position = get_viewport().get_mouse_position()
+	
+func _check_correct() -> bool:
+	return abs(valve_position - GOAL_ROTATION) < ROTATION_LEEWAY
 
 func get_cross_product() -> float:
 	var cam: Camera3D = get_viewport().get_camera_3d()

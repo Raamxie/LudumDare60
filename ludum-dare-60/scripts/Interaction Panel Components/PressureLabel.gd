@@ -24,7 +24,7 @@ func completion_check() -> void:
 	check_tween.tween_interval(3.0)
 	check_tween.tween_callback(func():
 		if check_dials():
-			pressure_complete.emit()
+			Messenger.teleporter_part_finished.emit(Game.Part.DIALS)
 			self.text = "Teleported field is ONLINE"
 			print("Pressure complete")
 		else:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbr83scbn10xt"]
 
 [ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_dufkl"]
+[ext_resource type="Script" uid="uid://dyfq45kfng7h6" path="res://scripts/Interaction Panel Components/Valve.gd" id="3_dufkl"]
 [ext_resource type="PackedScene" uid="uid://dcioj1xxp2ghn" path="res://scenes/Interaction Panel Components/Valve.tscn" id="3_mx05t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
@@ -8,10 +9,25 @@ size = Vector3(1.0922241, 1.0615234, 0.3215332)
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_dufkl")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" parent_id_path=PackedInt32Array(1003491539) index="0" unique_id=2047722228]
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Valve/Valve")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=2047722228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005218506, -0.0024414063, 0.010864258)
 shape = SubResource("BoxShape3D_g4v7s")
 
-[node name="Valve" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=190104565 instance=ExtResource("3_mx05t")]
+[node name="Valve" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=190104565 node_paths=PackedStringArray("MESH", "PIVOT_POINT") instance=ExtResource("3_mx05t")]
+script = ExtResource("3_dufkl")
+MAXIMUM_ROTATION = 720.0
+STARTING_POSITION = -360.0
+GOAL_ROTATION = 90.0
+MESH = NodePath("Valve")
+PIVOT_POINT = NodePath("Pivot_Point")
+
+[node name="Valve" parent="Model/Valve" index="0" unique_id=543544155]
+transform = Transform3D(0.16395283, 0, 0, 0, -7.1666055e-09, -0.16395283, 0, 0.16395283, -7.1666055e-09, 0, 0.18208309, 0)
+
+[node name="Pivot_Point" type="Node3D" parent="Model/Valve" index="1" unique_id=1281547893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18689883, 0)
 
 [editable path="Model/Valve"]

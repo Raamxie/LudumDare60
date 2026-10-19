@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cl8edowc3n1ho"]
+
+[ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_6ycj6"]
+[ext_resource type="PackedScene" uid="uid://bxtkiieb54437" path="res://assets/models/Room/Lever_Panel_Top.tscn" id="2_wmed8"]
+[ext_resource type="Script" uid="uid://blcch3wkv4gbt" path="res://scripts/Interaction Panel Components/Lever.gd" id="3_5mpt3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.2894287, 0.13146973, 0.29742432)
+
+[node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_6ycj6")]
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Lever_Panel/Lever"), NodePath("../Model/Lever_Panel/Lever_Panel_Top")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=334126558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020141602, 0.7681477, 0.002532959)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="InteractionCamera" parent="." index="1" unique_id=869435617]
+transform = Transform3D(1, 0, 0, 0, 0.8810277, 0.47306472, 0, -0.47306472, 0.8810277, 0.035776943, 1.1819516, 0.47734421)
+
+[node name="Lever_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1908723700 node_paths=PackedStringArray("MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT") instance=ExtResource("2_wmed8")]
+script = ExtResource("3_5mpt3")
+MAX_STEP_PER_EVENT = 0.001
+MAX_POSITION = 0.15
+GOAL_POSITION = 0.15
+MOUSE_SENSITIVITY = 0.1
+MESH = NodePath("Lever")
+INTERACTABLE_OBJECT = NodePath("../..")
+SCENE_PARENT = NodePath(".")
+
+[node name="Lever" parent="Model/Lever_Panel" index="0" unique_id=1196848876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.202818e-05, 0.6563908, 0.07443255)
+
+[editable path="Model/Lever_Panel"]

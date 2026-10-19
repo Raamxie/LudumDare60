@@ -105,7 +105,7 @@ func _check_correct() -> bool:
 			print("Invalid Combination")
 			return false
 	print("Valid Combination")
-	Messenger
+	Messenger.teleporter_part_finished.emit(Game.Part.CABLES)
 	return true
 			
 		
