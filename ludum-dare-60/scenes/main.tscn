@@ -14,11 +14,11 @@
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="17_0ld40"]
-[ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="17_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
+[ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="19_0ld40"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -79,9 +79,9 @@ refraction_scale = 1.0
 size = Vector3(1, 1, 1.27594)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
-shader = ExtResource("17_0ld40")
+shader = ExtResource("19_0ld40")
 shader_parameter/effect_strength = 0.5610000266475
-shader_parameter/gamma_adjust = 1.2770000131575001
+shader_parameter/gamma_adjust = 1.2770000131575
 shader_parameter/desired_screen_width = 1024.0
 shader_parameter/dither_strength = 0.00400000019
 shader_parameter/posterize_luma_levels = 7.3630003022425
@@ -225,7 +225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.0087
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.2328205, -0.2055093, 25.023802)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout" unique_id=117953444]
-transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, 0.8, 0, -0.8, -3.4969112e-08, 0, 3.7759786, 0.09982681)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.7759786, 0.09982681)
 light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
 light_energy = 0.725
 area_range = 10.469
@@ -319,11 +319,16 @@ metadata/_custom_type_script = "uid://dw12e73riyac2"
 
 [node name="Screens" parent="." unique_id=752877598 instance=ExtResource("17_0ld40")]
 unique_name_in_owner = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2026261825]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=144202504]
-offset_right = 1903.0
-offset_bottom = 1095.0
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("17_gqmmt")
 expand_mode = 1
 stretch_mode = 5
