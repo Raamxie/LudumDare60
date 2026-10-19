@@ -21,7 +21,6 @@ var is_complete := false
 var _repaired: Dictionary[Game.Part, bool] = {}
 var _intensity := 0.0
 var _fx_tween: Tween
-var _music_tween: Tween
 
 
 func _ready() -> void:
@@ -42,9 +41,12 @@ func repair_part(id: Game.Part) -> bool:
 		return false
 	
 	_repaired[id] = true
+	print(id)
 	
 	if _repaired.size() >= required_parts.size():
 		_complete()
+		print("Teleporter finished!!!")
+
 	else:
 		_tween_intensity(lerpf(intensity_start, 0.8, get_progress()), 1.5)
 	
