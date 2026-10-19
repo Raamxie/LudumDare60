@@ -8,6 +8,7 @@ const FADE_BEATS := 5.0   # fade-out length of the previous track, in beats
 
 var _music := AudioStreamInteractive.new()
 
+
 func _ready() -> void:
 	_music.clip_count = Track.size()
 	for t in Track.size():
@@ -22,6 +23,7 @@ func _ready() -> void:
 	stream = _music
 	playback_type = AudioServer.PLAYBACK_TYPE_STREAM  # required on Web
 
+
 func set_music(track: Track) -> void:
 	if not playing:  # on Web, first call must follow a user gesture
 		_music.initial_clip = track
@@ -29,7 +31,7 @@ func set_music(track: Track) -> void:
 	else:
 		(get_stream_playback() as AudioStreamPlaybackInteractive).switch_to_clip(track)
 
-		
+
 # Test keys 1/2/3 to play song normal, tense and supertense respectively
 func _unhandled_input(e: InputEvent) -> void:
 	if e is InputEventKey and e.pressed and not e.echo and e.physical_keycode in [KEY_1, KEY_2, KEY_3]:

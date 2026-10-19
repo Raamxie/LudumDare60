@@ -5,17 +5,12 @@ extends Node3D
 signal part_repaired(id: StringName, repaired: int, total: int)
 signal completed
 
-
 @export var required_parts: Array = Game.Part.keys()
 @export var music_player: AudioStreamPlayer3D
 @export var ambient_vfx: GPUParticles3D
 @export var completion_vfx: GPUParticles3D
 @export var glow_light: OmniLight3D
 @export var complete_sfx: AudioStreamPlayer3D
-
-@export_group("Music")
-@export_range(-100.0, 0.0) var music_db_min := -24.0
-@export_range(-40.0, 0.0) var music_db_max := 0.0
 
 @export_group("Effect intensity")
 @export_range(0.0, 1.0) var intensity_start := 0.1
@@ -37,7 +32,6 @@ func _ready() -> void:
 		
 	if music_player:
 		music_player.finished.connect(music_player.play)
-		music_player.volume_db = music_db_min
 		music_player.play()
 		
 	_set_intensity(intensity_start)
@@ -48,8 +42,6 @@ func repair_part(id: Game.Part) -> bool:
 		return false
 	
 	_repaired[id] = true
-	part_repaired.emit(id, _repaired.size(), required_parts.size())
-	_update_music()
 	
 	if _repaired.size() >= required_parts.size():
 		_complete()
@@ -65,18 +57,6 @@ func is_part_repaired(id: Game.Part) -> bool:
 
 func get_progress() -> float:
 	return float(_repaired.size()) / maxf(required_parts.size(), 1)
-
-
-func _update_music() -> void:
-	if not music_player:
-		return
-
-	if _music_tween:
-		_music_tween.kill()
-	
-	_music_tween = create_tween()
-	_music_tween.tween_property(music_player, "volume_db",
-			lerpf(music_db_min, music_db_max, get_progress()), 1.5)
 
 
 func _tween_intensity(target: float, time: float) -> void:
