@@ -26,6 +26,9 @@ signal pause_toggled
 
 @onready var settings_menu: MarginContainer = $Control/MarginContainer
 
+@onready var intro: Cutscene = $Intro
+@onready var outro: Cutscene = $Outro
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -68,7 +71,9 @@ func hide_all() -> void:
 	pause_panel.hide()
 	main_menu_panel.hide()
 	settings_menu.hide()
-
+	intro.hide()
+	outro.hide()
+	
 	
 func show_lose() -> void:
 	hide_all()
@@ -88,3 +93,14 @@ func show_main_menu() -> void:
 
 func show_settings() -> void:
 	settings_menu.visible = not settings_menu.visible
+
+
+func play_intro() -> void:
+	hide_all()
+	await intro.play()
+
+
+func play_outro() -> void:
+	hide_all()
+	await outro.play()
+	

@@ -15,12 +15,15 @@ func _ready() -> void:
 	monster.caught_player.connect(_on_caught)
 	Messenger.escaped.connect(_on_escaped)
 	
-	screens.play_pressed.connect(start_game)
+	#screens.play_pressed.connect(start_game)
+	screens.play_pressed.connect(_on_play)
+	
 	screens.restart_pressed.connect(start_game)
 	screens.resume_pressed.connect(_resume)
 	screens.menu_pressed.connect(to_menu)
 	screens.pause_toggled.connect(_on_pause_toggled)
 	
+	#await screens.logo.play()
 	to_menu()
 	
 	
@@ -34,6 +37,11 @@ func _unload_level() -> void:
 	await l.tree_exited
 		
 
+func _on_play() -> void:
+	await screens.play_intro()
+	start_game()
+	
+	
 func start_game() -> void:
 	get_tree().paused = false
 	screens.hide_all()
@@ -97,5 +105,6 @@ func _on_escaped() -> void:
 	_ended = true
 	await screens.fade(Color.WHITE, 2.0)
 	get_tree().paused = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	# part 3: screens.show_outro()
+	
+	await screens.play_outro()
+	to_menu()
