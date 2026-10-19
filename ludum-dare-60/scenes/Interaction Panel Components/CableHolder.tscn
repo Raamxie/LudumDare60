@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://prjgcn0hcm3n"]
+
+[ext_resource type="Script" uid="uid://dxlr3670fpc26" path="res://scripts/Interaction Panel Components/cable_holder.gd" id="1_fchlo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht3ho"]
+resource_name = "Black"
+cull_mode = 2
+albedo_color = Color(0.044295575, 0.044295575, 0.044295575, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ff1xo"]
+_surfaces = [{
+"aabb": AABB(-0.009521127, -0.014291026, -0.016012907, 0.016220003, 0.028582044, 0.032025814),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAABAAHAAYABgAHAAUABAADAAcACAABAAUACQADAAEACQABAAgACgAHAAMACgADAAkACwAFAAcACwAHAAoACAAFAAsACQAMAAoACwANAAgACAAOAAkACQAOAAwACAANAA4ACgAMAA8ACgAPAAsADgAPAAwACwAPAA0ADgANAA8A"),
+"name": "Black",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAAAD/////AAAAAAAA//8AAAAA////////AAAAAP////8AAP//AAAAAAAAAAAAAP//AAD//wAA//8AAP//+ru8OwAA///6u0LEAAD//wNEQsQAAP//A0S8OwAAqMoDRELEAACoyvq7vDsAAKjK+rtCxAAAqMoDRLw7AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8k88c"]
+resource_name = "Cable_Holders_Cylinder_004"
+_surfaces = [{
+"aabb": AABB(-0.009521127, -0.014291026, -0.016012907, 0.016220003, 0.028582044, 0.032025814),
+"attribute_data": PackedByteArray("U5Pn6VaX5+lWl+fpU5Pn6VOTFtZTk+fpU5Pn6VOTFtZWl+fpVpcW1laXFtZWl+fpVpcW1lOTFtZTkxbWVpcW1mSUpOhFlqToRZak6GSUpOhklKToU5MW1mSUWddWlxbWU5Pn6UWWWddFlqToVpfn6UWWWddklKToZJRZ10WWpOhFllnXZJRZ12SUWddFllnXRZak6EWWWddFllnXRZak6GSUWddklKToZJSk6GSUWdc="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFgAVABcAFAAYABUAFgAXABkAGgAYABQAGQAXABsAGgAbABgAGQAbABoAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkA"),
+"material": SubResource("StandardMaterial3D_ht3ho"),
+"name": "Black",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("AAAAAAAA////////AAD//wAA//8AAP////8AAAAA//8AAAAA////v///AAAAAP+/AAAAAAAA/7///wAA////vwAA//8AAP+//////////78AAP//////v/////8AAP+/AAD//////n///wAA///+fwAAAAD///5//////////n///wNEvDv+f6jK+ru8O/5////6u7w7/n+oygNEvDv+f///A0S8O/Ta//8AAP//DtP//wNEQsTLzf///////xDd//8AAAAAEN3///q7QsT02v//+ru8O8vN/////wAADtOoyvq7QsRU1ajKA0S8O1TVqMoDRELEVNWoyvq7vDtU1f//+rtCxP//qMoDRELE/////wNEQsT//6jK+rtCxP/////6u7w7/7+oyvq7QsT/v///+rtCxP+/qMr6u7w7/7///wNEQsT/v6jKA0S8O/+///8DRLw7/7+oygNEQsT/v////3////9/////f////38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f/9/////f////3////9/////f////3////9/////f///UCTXLYItPikZNXMlHCLxLhwi8S5QJNctGTVzJYItPimqKqoqqiqqKqoqqiqqKqoq////f////3////9/////fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ff1xo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dp3pa"]
+size = Vector3(0.016220003, 0.028582044, 0.032025814)
+
+[node name="Cable_holder" type="MeshInstance3D" unique_id=1498592718]
+mesh = SubResource("ArrayMesh_8k88c")
+script = ExtResource("1_fchlo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=644538417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014111251, -3.7252903e-09, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=239867631]
+shape = SubResource("BoxShape3D_dp3pa")
