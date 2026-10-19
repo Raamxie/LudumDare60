@@ -236,6 +236,9 @@ glow_light = NodePath("OmniLight3D")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Room/Teleporter" unique_id=598173444]
 stream = ExtResource("14_dp3eg")
 attenuation_model = 2
+volume_db = -22.5
+max_db = -3.5
+max_distance = 7.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room/Teleporter" unique_id=301854724]
 light_color = Color(0.57, 0.78499997, 1, 1)
@@ -262,8 +265,6 @@ script = ExtResource("17_dp3eg")
 closet = NodePath("../Closet")
 tense_track = 1
 supertense_track = 2
-idle_interval = 60.0
-in_room_time = Vector2(30, 55)
 
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
 script = ExtResource("18_dp3eg")
