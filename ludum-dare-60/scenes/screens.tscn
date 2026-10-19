@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://didl6fht0detw"]
+
+[ext_resource type="Script" uid="uid://m3ksth6yt6wh" path="res://scripts/ui/screens/screens.gd" id="1_e6knl"]
+[ext_resource type="Script" uid="uid://cru7gm0wl5u4w" path="res://scripts/ui/screens/settings.gd" id="2_vh3jh"]
+
+[node name="Screens" type="CanvasLayer" unique_id=752877598]
+process_mode = 3
+layer = 2
+script = ExtResource("1_e6knl")
+
+[node name="Control" type="Control" parent="." unique_id=1112953653]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Fade" type="ColorRect" parent="Control" unique_id=2132915564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2223, 0.359255, 0.39, 0)
+
+[node name="Lose" type="Control" parent="Control" unique_id=1021674571]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Lose" unique_id=1191955021]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -46.5
+offset_right = 38.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Lose/VBoxContainer" unique_id=347779855]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Control/Lose/VBoxContainer" unique_id=238300290]
+layout_mode = 2
+text = "Restart
+"
+
+[node name="Menu" type="Button" parent="Control/Lose/VBoxContainer" unique_id=1766465603]
+layout_mode = 2
+text = "Menu"
+
+[node name="Pause" type="Control" parent="Control" unique_id=403724524]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control/Pause" unique_id=558115794]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.67, 0.67, 0.67, 0.34117648)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pause" unique_id=77655125]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -46.5
+offset_right = 38.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Pause/VBoxContainer" unique_id=89074882]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="Control/Pause/VBoxContainer" unique_id=1186537498]
+layout_mode = 2
+text = "Resume
+"
+
+[node name="Settings" type="Button" parent="Control/Pause/VBoxContainer" unique_id=2073531526]
+layout_mode = 2
+text = "Settings"
+
+[node name="Menu" type="Button" parent="Control/Pause/VBoxContainer" unique_id=1991384036]
+layout_mode = 2
+text = "Menu"
+
+[node name="MainMenu" type="Control" parent="Control" unique_id=1838715985]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainMenu" unique_id=2099252966]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -46.5
+offset_right = 38.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/MainMenu/VBoxContainer" unique_id=960668441]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "GAME MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Control/MainMenu/VBoxContainer" unique_id=2125704208]
+layout_mode = 2
+text = "Play
+"
+
+[node name="Settings" type="Button" parent="Control/MainMenu/VBoxContainer" unique_id=1736298645]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Control/MainMenu/VBoxContainer" unique_id=1706645269]
+layout_mode = 2
+text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1109587948]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Settings" type="VBoxContainer" parent="Control/MarginContainer" unique_id=228329796]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+script = ExtResource("2_vh3jh")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Settings" unique_id=1813742156]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MainVolume" type="HSlider" parent="Control/MarginContainer/Settings" unique_id=183960663]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0

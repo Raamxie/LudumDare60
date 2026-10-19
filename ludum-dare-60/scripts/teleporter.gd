@@ -2,7 +2,6 @@ class_name Teleporter
 extends Node3D
 
 
-signal part_repaired(id: StringName, repaired: int, total: int)
 signal completed
 
 @export var required_parts: Array = Game.Part.keys()
@@ -16,7 +15,6 @@ signal completed
 @export_range(0.0, 1.0) var intensity_start := 0.1
 @export var light_energy_max := 6.0
 
-var can_use := false
 var is_complete := false
 var _repaired: Dictionary[Game.Part, bool] = {}
 var _intensity := 0.0
@@ -80,7 +78,6 @@ func _set_intensity(v: float) -> void:
 
 func _complete() -> void:
 	is_complete = true
-	can_use = true
 	
 	_tween_intensity(1.0, 2.0)
 	
@@ -91,3 +88,10 @@ func _complete() -> void:
 	if complete_sfx:
 		complete_sfx.play()
 	completed.emit()
+
+
+func _on_interacted(interactor: Node) -> void:
+	if not is_complete:
+		return
+		
+	Messenger.escaped.emit()

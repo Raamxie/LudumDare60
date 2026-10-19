@@ -7,18 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="10_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="11_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://d361sy0nnpy2s" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://cl8edowc3n1ho" path="res://scenes/Interaction Panels/Lever_Panel_Top.tscn" id="20_gqmmt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -217,12 +215,12 @@ transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.742
 mesh = SubResource("PlaneMesh_j4j6x")
 surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
 
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Teleporter" type="Node3D" parent="Room" unique_id=467839182 node_paths=PackedStringArray("music_player", "glow_light")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
 script = ExtResource("13_dp3eg")
 required_parts = Array[int]([])
@@ -257,28 +255,16 @@ transform = Transform3D(0.076604515, -0.047241382, 0, 0, 0, 0.08999998, -0.04724
 transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
 
 [node name="Monster" type="Node3D" parent="Room" unique_id=1335269822 node_paths=PackedStringArray("closet")]
+unique_name_in_owner = true
 script = ExtResource("17_dp3eg")
 closet = NodePath("../Closet")
 tense_track = 1
 supertense_track = 2
 
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
 script = ExtResource("18_dp3eg")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
 
-[editable path="Pressure_Panel/Top"]
-[editable path="Pressure_Panel/Top/Model/Pressure_Panel"]
-[editable path="Pressure_Panel/Bottom"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Screws/screw_1"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_1_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_2_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_3_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_4_P"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_L"]
-[editable path="Pressure_Panel/Bottom/Model/Pressure_Panel/Cable Holders/Cable_holder_5_P"]
+[node name="Screens" parent="." unique_id=752877598 instance=ExtResource("17_0ld40")]
+unique_name_in_owner = true

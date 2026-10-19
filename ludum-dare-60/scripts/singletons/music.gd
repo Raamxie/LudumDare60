@@ -3,29 +3,43 @@ extends AudioStreamPlayer
 enum Track { Normal, Tense, SuperTense }  # each value loads res://music/<value in lowercase>.ogg
 
 const BPM := 70.0
-const WAIT_BEATS := 2     # transition snaps to the next multiple of N beats
-const FADE_BEATS := 5.0   # fade-out length of the previous track, in beats
+const WAIT_BEATS := 2
+const FADE_BEATS := 5.0
 
 var _music := AudioStreamInteractive.new()
 
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS
 	_music.clip_count = Track.size()
+	
 	for t in Track.size():
 		var clip: AudioStreamOggVorbis = load("res://assets/audio/%s.ogg" % Track.keys()[t].to_lower())
 		clip.bpm = BPM
 		clip.loop = true
-		if WAIT_BEATS > 1: clip.bar_beats = WAIT_BEATS  # must be >= 2
+		
+		if WAIT_BEATS > 1:
+			clip.bar_beats = WAIT_BEATS
+			
 		_music.set_clip_stream(t, clip)
+	
 	var from := AudioStreamInteractive.TRANSITION_FROM_TIME_NEXT_BEAT if WAIT_BEATS <= 1 else AudioStreamInteractive.TRANSITION_FROM_TIME_NEXT_BAR
-	_music.add_transition(AudioStreamInteractive.CLIP_ANY, AudioStreamInteractive.CLIP_ANY,
-		from, AudioStreamInteractive.TRANSITION_TO_TIME_START, AudioStreamInteractive.FADE_OUT, FADE_BEATS)
+	
+	_music.add_transition(
+		AudioStreamInteractive.CLIP_ANY,
+		AudioStreamInteractive.CLIP_ANY,
+		from,
+		AudioStreamInteractive.TRANSITION_TO_TIME_START,
+		AudioStreamInteractive.FADE_OUT,
+		FADE_BEATS
+	)
+	
 	stream = _music
-	playback_type = AudioServer.PLAYBACK_TYPE_STREAM  # required on Web
+	playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 
 
 func set_music(track: Track) -> void:
-	if not playing:  # on Web, first call must follow a user gesture
+	if not playing:
 		_music.initial_clip = track
 		play()
 	else:
