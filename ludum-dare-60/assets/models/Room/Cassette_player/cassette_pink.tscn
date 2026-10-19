@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b15a4psbb5dw1"]
+
+[ext_resource type="PackedScene" uid="uid://b6uaur8llkgu5" path="res://assets/models/Room/Cassette_player/Cassette.glb" id="1_jr265"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4058p"]
+albedo_color = Color(1, 0.3254902, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgoyc"]
+albedo_color = Color(1, 1, 0.42745098, 1)
+
+[node name="Cassette" unique_id=268660835 instance=ExtResource("1_jr265")]
+
+[node name="Cassete_normal" parent="." index="0" unique_id=1750763778]
+surface_material_override/0 = SubResource("StandardMaterial3D_4058p")
+surface_material_override/1 = SubResource("StandardMaterial3D_kgoyc")
