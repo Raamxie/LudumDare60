@@ -124,9 +124,10 @@ func _handle_interaction() -> void:
 		focused_object.unfocus()
 	
 	focused_object = new_object
+	if focused_object == null:
+		return
 	focused_object.focus()
-	#if focused_object == null:
-		#return	
+	
 	if Input.is_action_just_pressed("interact"):
 		focused_object.interact(self)
 		

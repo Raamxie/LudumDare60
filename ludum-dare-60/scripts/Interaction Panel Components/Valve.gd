@@ -54,6 +54,7 @@ func _input(event: InputEvent) -> void:
 		pre_interact()
 	elif Input.is_action_just_released("control_interaction"):
 		is_interacting = false
+		return
 		
 	if is_interacting and event is InputEventMouseMotion:
 		current_mouse_position = event.position

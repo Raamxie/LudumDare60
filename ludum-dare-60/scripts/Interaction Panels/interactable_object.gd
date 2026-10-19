@@ -49,6 +49,8 @@ func _on_interacted_object(interactor: Node) -> void:
 	interaction_component.is_focusable = false
 	interacting_with.emit(model.get_child(0))
 	
+	interaction_component.set_ray_pickable(false)
+	
 
 func _on_return_interacted_object() -> void:
 	if TransitionTween:
@@ -68,6 +70,8 @@ func _on_return_interacted_object() -> void:
 	interaction_component.is_focusable = true
 	print("Returned")
 	stopped_interacting_with.emit(model.get_child(0))
+	
+	interaction_component.set_ray_pickable(true)
 	
 	
 var TransitionTween: Tween

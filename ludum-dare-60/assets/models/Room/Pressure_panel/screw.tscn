@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cpdvtp47ynucq"]
 
 [ext_resource type="PackedScene" uid="uid://c16tevx4bh3or" path="res://assets/models/Room/Pressure_panel/screw.glb" id="1_sf02l"]
+[ext_resource type="Script" uid="uid://bdetn2ntuohlu" path="res://scripts/Interaction Panel Components/Screw.gd" id="2_tv2tw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
-height = 0.105041504
-radius = 0.018554688
+height = 0.11062622
+radius = 0.0234375
 
 [node name="screw" unique_id=562268006 instance=ExtResource("1_sf02l")]
 
@@ -12,7 +13,8 @@ radius = 0.018554688
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Screw_4" index="0" unique_id=46326220]
+script = ExtResource("2_tv2tw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Screw_4/StaticBody3D" index="0" unique_id=1697460320]
-transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, -0.003036499)
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 6.102893e-11, -0.0016403198)
 shape = SubResource("CylinderShape3D_g4v7s")

@@ -17,8 +17,8 @@ size = Vector3(0.32489014, 0.2821045, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(0.105, 0.07, 0.875)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_doe80"]
-points = PackedVector3Array(0.0525, 0.035, 0.4375, 0.0525, -0.035, 0.4375, 0.0525, 0.035, -0.4375, -0.0525, 0.035, 0.4375, -0.0525, -0.035, 0.4375, 0.0525, -0.035, -0.4375, -0.0525, 0.035, -0.4375, -0.0525, -0.035, -0.4375)
+[sub_resource type="SphereShape3D" id="SphereShape3D_doe80"]
+radius = 0.44437525
 
 [node name="Screwdriver" unique_id=691295588 instance=ExtResource("1_m8fr4")]
 script = ExtResource("2_doe80")
@@ -34,5 +34,5 @@ shape = SubResource("BoxShape3D_g4v7s")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=646547795]
 mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=592073690]
-shape = SubResource("ConvexPolygonShape3D_doe80")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=1702587115]
+shape = SubResource("SphereShape3D_doe80")

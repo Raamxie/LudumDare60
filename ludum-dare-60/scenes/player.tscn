@@ -8,6 +8,7 @@ height = 1.8
 
 [node name="Player" type="CharacterBody3D" unique_id=1630401320 groups=["Player"]]
 collision_layer = 3
+input_ray_pickable = false
 script = ExtResource("1_3vyb7")
 WALK_SPEED = 3.0
 SPRINT_SPEED = 5.0
@@ -46,3 +47,4 @@ mouse_filter = 2
 script = ExtResource("2_g2els")
 dot_radius = 3.0
 dot_color = Color(0.629675, 0.6296747, 0.6296747, 0.5882353)
+metadata/_edit_use_anchors_ = true

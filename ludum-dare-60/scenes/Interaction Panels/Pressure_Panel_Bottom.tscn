@@ -21,3 +21,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3535123, 0.684385)
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_d1f0s")]
 
 [editable path="Model/Pressure_Panel"]
+[editable path="Model/Pressure_Panel/ScrewManager/screw_1"]
