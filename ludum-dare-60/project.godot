@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Music="*res://scripts/singletons/music.gd"
 Messenger="*uid://cdlegbtlxb25i"
+Game="*uid://28urgksekekv"
 
 [display]
 

@@ -1,0 +1,111 @@
+class_name Teleporter
+extends Node3D
+
+
+signal part_repaired(id: StringName, repaired: int, total: int)
+signal completed
+
+
+@export var required_parts: Array = Game.Part.keys()
+@export var music_player: AudioStreamPlayer3D
+@export var ambient_vfx: GPUParticles3D
+@export var completion_vfx: GPUParticles3D
+@export var glow_light: OmniLight3D
+@export var complete_sfx: AudioStreamPlayer3D
+
+@export_group("Music")
+@export_range(-100.0, 0.0) var music_db_min := -24.0
+@export_range(-40.0, 0.0) var music_db_max := 0.0
+
+@export_group("Effect intensity")
+@export_range(0.0, 1.0) var intensity_start := 0.1
+@export var light_energy_max := 6.0
+
+var can_use := false
+var is_complete := false
+var _repaired: Dictionary[Game.Part, bool] = {}
+var _intensity := 0.0
+var _fx_tween: Tween
+var _music_tween: Tween
+
+
+func _ready() -> void:
+	Messenger.teleporter_part_finished.connect(repair_part)
+	
+	if completion_vfx:
+		completion_vfx.emitting = false
+		
+	if music_player:
+		music_player.finished.connect(music_player.play)
+		music_player.volume_db = music_db_min
+		music_player.play()
+		
+	_set_intensity(intensity_start)
+
+
+func repair_part(id: Game.Part) -> bool:
+	if is_complete or not id in required_parts or is_part_repaired(id):
+		return false
+	
+	_repaired[id] = true
+	part_repaired.emit(id, _repaired.size(), required_parts.size())
+	_update_music()
+	
+	if _repaired.size() >= required_parts.size():
+		_complete()
+	else:
+		_tween_intensity(lerpf(intensity_start, 0.8, get_progress()), 1.5)
+	
+	return true
+
+
+func is_part_repaired(id: Game.Part) -> bool:
+	return _repaired.has(id)
+
+
+func get_progress() -> float:
+	return float(_repaired.size()) / maxf(required_parts.size(), 1)
+
+
+func _update_music() -> void:
+	if not music_player:
+		return
+
+	if _music_tween:
+		_music_tween.kill()
+	
+	_music_tween = create_tween()
+	_music_tween.tween_property(music_player, "volume_db",
+			lerpf(music_db_min, music_db_max, get_progress()), 1.5)
+
+
+func _tween_intensity(target: float, time: float) -> void:
+	if _fx_tween:
+		_fx_tween.kill()
+		
+	_fx_tween = create_tween()
+	_fx_tween.tween_method(_set_intensity, _intensity, target, time).set_trans(Tween.TRANS_SINE)
+
+
+func _set_intensity(v: float) -> void:
+	_intensity = v
+	if ambient_vfx:
+		ambient_vfx.amount_ratio = clampf(v, 0.05, 1.0)
+		ambient_vfx.speed_scale = lerpf(0.5, 1.5, v)
+	if glow_light:
+		glow_light.light_energy = v * light_energy_max
+
+
+func _complete() -> void:
+	is_complete = true
+	can_use = true
+	
+	_tween_intensity(1.0, 2.0)
+	
+	if completion_vfx:
+		completion_vfx.restart()
+		completion_vfx.emitting = true
+
+	if complete_sfx:
+		complete_sfx.play()
+	completed.emit()

@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://bbyp32w8jvd3w"]
 
+[ext_resource type="Script" uid="uid://wfq5mpbiou7i" path="res://scripts/main.gd" id="1_muem4"]
 [ext_resource type="PackedScene" uid="uid://bxbc5sp54a44f" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bovt6dxvfuuxj" path="res://addons/godot-prototype-texture/PNG/checker_512x512/checker_blue_512x512.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cdky7ogotuuoq" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_orange_512x512.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
-[ext_resource type="PackedScene" uid="uid://dqkmbtx00qkb4" path="res://scenes/box_object.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://c24eum0t5phaq" path="res://scenes/box_item.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="10_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="11_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
+[ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
+[ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -75,6 +78,7 @@ refraction_scale = 1.0
 size = Vector3(1, 1, 1.27594)
 
 [node name="Main" type="Node3D" unique_id=628576902]
+script = ExtResource("1_muem4")
 
 [node name="Player" parent="." unique_id=1630401320 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.253009, 1.4007373, 24.458319)
@@ -171,15 +175,6 @@ light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
 light_energy = 0.04
 shadow_enabled = true
 
-[node name="BoxObject" parent="." unique_id=2132515151 instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2786644, 1, 3.075509)
-
-[node name="BoxItem" parent="." unique_id=691295588 instance=ExtResource("8_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3757997, 1.9971693, 1.5190607)
-
-[node name="BoxObject2" parent="." unique_id=419380444 instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9193854, 1.853781, -1.6747487)
-
 [node name="InteractableObject" parent="." unique_id=162394750 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.008759)
 
@@ -231,17 +226,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.118841, 0.7363203, -0.71131
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
 mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="Flashlight" parent="." unique_id=1798987676 instance=ExtResource("17_muem4")]
+[node name="Teleporter" type="Node3D" parent="Room" unique_id=467839182 node_paths=PackedStringArray("music_player", "glow_light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
+script = ExtResource("13_dp3eg")
+required_parts = Array[int]([])
+music_player = NodePath("AudioStreamPlayer3D")
+glow_light = NodePath("OmniLight3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Room/Teleporter" unique_id=598173444]
+stream = ExtResource("14_dp3eg")
+attenuation_model = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/Teleporter" unique_id=301854724]
+light_color = Color(0.57, 0.78499997, 1, 1)
+omni_range = 2.0
+omni_attenuation = 2.0
+
+[node name="Flashlight" parent="Room" unique_id=1798987676 instance=ExtResource("17_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
 
-[node name="Node3D2" parent="." unique_id=542521742 instance=ExtResource("12_eb6dy")]
+[node name="LED1" parent="Room" unique_id=542521742 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.07827355, -0.0444213, -1.9417166e-09, 0, -3.9340247e-09, 0.09, -0.0444213, -0.07827355, -3.4214453e-09, -16.93709, 1.940326, 33.983006)
 
-[node name="Node3D3" parent="." unique_id=52842329 instance=ExtResource("11_ya4ey")]
+[node name="LED2" parent="Room" unique_id=52842329 instance=ExtResource("11_ya4ey")]
 transform = Transform3D(0.076604515, -0.047241382, 0, 0, 0, 0.08999998, -0.047241386, -0.0766045, 0, -16.93539, 2.3812864, 33.971653)
 
-[node name="Node3D4" parent="." unique_id=1077252042 instance=ExtResource("11_ya4ey")]
+[node name="LED3" parent="Room" unique_id=1077252042 instance=ExtResource("11_ya4ey")]
 transform = Transform3D(0.076604515, -0.047241382, 0, 0, 0, 0.08999998, -0.047241386, -0.0766045, 0, -16.93539, 2.9077241, 33.971653)
 
-[node name="Node3D" parent="." unique_id=421138743 instance=ExtResource("13_trceg")]
+[node name="LED4" parent="Room" unique_id=421138743 instance=ExtResource("13_trceg")]
 transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
+
+[node name="Monster" type="Node3D" parent="Room" unique_id=1335269822 node_paths=PackedStringArray("closet")]
+script = ExtResource("17_dp3eg")
+closet = NodePath("../Closet")
+tense_track = 1
+supertense_track = 2
+idle_interval = 60.0
+in_room_time = Vector2(30, 55)
+
+[node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
+script = ExtResource("18_dp3eg")
+metadata/_custom_type_script = "uid://dw12e73riyac2"
