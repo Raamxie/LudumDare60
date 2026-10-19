@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://do3ndy3xmcnjv"]
-
-[ext_resource type="PackedScene" uid="uid://dks73i3hpj0wg" path="res://assets/models/Rocks/Rock_Medium_1.gltf" id="1_mek2u"]
-[ext_resource type="Script" path="res://scripts/rock.gd" id="2_ik6fu"]
-
-[node name="Rock" unique_id=1095657617 node_paths=PackedStringArray("mesh") instance=ExtResource("1_mek2u")]
-script = ExtResource("2_ik6fu")
-mesh = NodePath("Rock_Medium_1")
