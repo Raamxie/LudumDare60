@@ -35,10 +35,11 @@ func pressed(side: String, row: int, holder: Node3D, interaction: String) -> voi
 			
 		if current_connection["L"] != null and current_connection["R"] != null:
 			var diff = current_connection["L"][1] - current_connection["R"][1]
-			var cable = cable_connections[diff].duplicate()
+			var cable: Node3D = cable_connections[diff].duplicate()
 			cable.position = current_connection["L"][0].position
+			cable.visible = true
 			
-			active_connections.append()
+			active_connections.append([current_connection["L"][0],current_connection["L"][1], cable])
 			
 		
 			
