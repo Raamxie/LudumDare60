@@ -20,5 +20,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3535123, 0.684385)
 
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_d1f0s")]
 
+[node name="StaticBody3D" parent="Model/Pressure_Panel/Pressure_Panel_Doors" parent_id_path=PackedInt32Array(1178809638, 2083644783) index="0" unique_id=160194826 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT")]
+MOVEMENT_SPEED = 10.0
+MAX_ROTATION = 120.0
+PIVOT_POINT = NodePath("../../PivotPoint")
+MESH = NodePath("..")
+INTERACTABLE_OBJECT = NodePath("../../../..")
+SCENE_PARENT = NodePath("../..")
+
 [editable path="Model/Pressure_Panel"]
-[editable path="Model/Pressure_Panel/ScrewManager/screw_1"]
+[editable path="Model/Pressure_Panel/Screws/screw_1"]

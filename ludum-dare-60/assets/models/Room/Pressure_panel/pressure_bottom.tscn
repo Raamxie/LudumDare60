@@ -781,9 +781,10 @@ mesh = SubResource("ArrayMesh_ea6r5")
 transform = Transform3D(13.886556, 0, 0, 0, -4.1501468e-07, 27.125818, 0, -3.4813952, -3.2336497e-06, -0.1400513, 0.37811705, 0.19895549)
 mesh = SubResource("ArrayMesh_ndqeh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pressure_Panel_Doors" unique_id=160194826]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pressure_Panel_Doors" unique_id=160194826 node_paths=PackedStringArray("SCENE_MANAGER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01009862, -0.0020926483, -1.8626451e-09)
 script = ExtResource("1_8eh2y")
+SCENE_MANAGER = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pressure_Panel_Doors/StaticBody3D" unique_id=2140890099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009171434, -0.000736434, 5.1761977e-05)
@@ -941,5 +942,8 @@ mesh = SubResource("ArrayMesh_vqmgq")
 transform = Transform3D(7.556832, 0, 0, 0, 4.5042228e-07, 7.556832, 0, -7.556832, 4.5042228e-07, 0.0009548997, 0.52877414, 0.07990505)
 visible = false
 mesh = SubResource("ArrayMesh_34i5s")
+
+[node name="PivotPoint" type="Node3D" parent="." unique_id=677737723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.38187036, 0.199)
 
 [editable path="Screws/screw_1"]

@@ -35,7 +35,7 @@ func unscrewed(screw: Node3D) -> void:
 	unscrewing_position_tween.tween_interval(tween_initial_length)
 	
 	await unscrewing_position_tween.finished
-	
+	screw_statuses[screw] = true
 	var fling_tween = create_tween()
 	var fling_offset: Vector3 = move_direction * tween_fling_distance
 	
@@ -44,7 +44,7 @@ func unscrewed(screw: Node3D) -> void:
 	await fling_tween.finished
 	
 	screw.queue_free()
-	screw_statuses[screw] = true
+
 	
 func screws_left() -> int:
 	var remaining = 0

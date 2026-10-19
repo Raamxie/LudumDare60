@@ -21,7 +21,6 @@ func _ready() -> void:
 	shaft_position = STARTING_POSITION
 	target_shaft_position = STARTING_POSITION
 	
-	# Save the starting offset between the Mesh and the PivotPoint
 	initial_offset = $Mesh.position - pivot_point.position
 	initial_mesh_basis = $Mesh.transform.basis
 	_apply_pivot_rotation(shaft_position)
