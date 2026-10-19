@@ -2,6 +2,7 @@ extends Node3D
 
 @export var GROUP_NODE: Node3D
 @onready var interactable_object: Node3D = $"../.."
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../AudioStreamPlayer3D"
 
 var is_selected: bool = false
 
@@ -9,7 +10,7 @@ var tween_fling_length: float = 1.25
 var tween_initial_length: float = 0.5
 var tween_initial_distance: float = 0.002
 var tween_fling_distance: float = 1.5
-
+var screw_sound = preload("res://assets/audio/fx/unscrew.ogg")
 
 var screw_statuses: Dictionary[Node3D, bool]
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 		screw_statuses.set(screw, false)
 	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
 	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
+	audio_stream_player_3d.max_polyphony = 4
+	
 		
 func unscrewed(screw: Node3D) -> void:
 	
@@ -26,14 +29,17 @@ func unscrewed(screw: Node3D) -> void:
 	var step_offset: Vector3 = move_direction * tween_initial_distance
 	
 	var unscrewing_position_tween = create_tween()
-	unscrewing_position_tween.set_loops(4)
+	unscrewing_position_tween.set_loops(3)
 	
 	unscrewing_position_tween.tween_property(screw, "position", step_offset, tween_initial_length).as_relative()
 	
 	unscrewing_position_tween.parallel().tween_property(screw, "rotation_degrees", Vector3(0, 0, 180), tween_initial_length).as_relative()
 	unscrewing_position_tween.tween_interval(tween_initial_length)
 	
+	audio_stream_player_3d.stream = screw_sound
+	audio_stream_player_3d.play()
 	await unscrewing_position_tween.finished
+	audio_stream_player_3d.stop()
 	screw_statuses[screw] = true
 	var fling_tween = create_tween()
 	var fling_offset: Vector3 = move_direction * tween_fling_distance
@@ -45,6 +51,8 @@ func unscrewed(screw: Node3D) -> void:
 	screw.queue_free()
 	if door_unlocked():
 		Messenger.teleporter_part_finished.emit(Game.Part.CABLES_DOOR)
+		
+		
 
 	
 func screws_left() -> int:

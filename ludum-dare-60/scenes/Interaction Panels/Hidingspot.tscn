@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ct34eimy0tqx1"]
+
+[ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_nn6b7"]
+[ext_resource type="PackedScene" uid="uid://8vqdslyuh8tm" path="res://assets/models/Room/hidingspot.tscn" id="2_n5hy1"]
+[ext_resource type="Script" uid="uid://byxoa35hy1xmj" path="res://scripts/Interaction Panel Components/Door.gd" id="3_n5hy1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.78671455, 2.068039, 0.045684814)
+
+[node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_nn6b7")]
+TRANSITION_TIME = 0.1
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Hidingspot2/Hidingspot_door")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=913333225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06179142, 0.9342191, 0.4913783)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="InteractionCamera" parent="." index="1" unique_id=869435617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9863249, 1.4100502)
+
+[node name="Hidingspot2" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=247392362 instance=ExtResource("2_n5hy1")]
+
+[node name="Hidingspot_door" parent="Model/Hidingspot2" index="1" unique_id=1161312962 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT", "COLLISION_SHAPE")]
+script = ExtResource("3_n5hy1")
+MAX_STEP_PER_EVENT = 2.5
+MOUSE_SENSITIVITY = 2.5
+MAX_ROTATION = 140.0
+PIVOT_POINT = NodePath("../PivotPoint")
+MESH = NodePath(".")
+INTERACTABLE_OBJECT = NodePath("../../..")
+SCENE_PARENT = NodePath("..")
+COLLISION_SHAPE = NodePath("../../../InteractionComponent/CollisionShape3D")
+
+[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93914294, 0.9986704)
+light_energy = 0.1
+omni_range = 2.0
+omni_attenuation = 0.25
+
+[editable path="Model/Hidingspot2"]

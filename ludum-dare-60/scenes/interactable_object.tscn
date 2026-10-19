@@ -13,5 +13,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Model" type="Node3D" parent="." unique_id=1685110682]
 
-[connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted"]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=246220112]
+visible = false
+light_energy = 0.2
+omni_range = 1.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1705005566]
+
 [connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted_object"]
+[connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted"]

@@ -30,4 +30,7 @@ transform = Transform3D(0.16395283, 0, 0, 0, -7.1666055e-09, -0.16395283, 0, 0.1
 [node name="Pivot_Point" type="Node3D" parent="Model/Valve" index="1" unique_id=1281547893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18689883, 0)
 
+[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20205551, 0.38130814)
+
 [editable path="Model/Valve"]

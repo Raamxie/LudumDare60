@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b5ttrasay7pds"]
+
+[ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_pniup"]
+[ext_resource type="PackedScene" uid="uid://dgprgt1adpban" path="res://assets/models/Room/cassette_player.tscn" id="2_gdl3r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2.317627, 0.534729, 1.6905518)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hkbbh"]
+size = Vector3(0.60961914, 0.39154053, 0.1784668)
+
+[node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_pniup")]
+
+[node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
+meshes = [NodePath("../Model/Cassette_player/Button_next"), NodePath("../Model/Cassette_player/Button_previous"), NodePath("../Model/Cassette_player/Button_stop_play"), NodePath("../Model/Cassette_player/Cassete_player")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=1064950638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004272461, -0.00064086914, 0.05230713)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="InteractionCamera" parent="." index="1" unique_id=869435617]
+transform = Transform3D(1, 0, 0, 0, 0.96442616, 0.2643523, 0, -0.2643523, 0.96442616, 0, 0.8920382, 2.410254)
+
+[node name="Cassette_player" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=323405038 node_paths=PackedStringArray("INTERACTABLE_OBJECT", "SCENE_PARENT") instance=ExtResource("2_gdl3r")]
+INTERACTABLE_OBJECT = NodePath("../..")
+SCENE_PARENT = NodePath(".")
+
+[node name="StaticBody3D" parent="Model/Cassette_player/Button_next" parent_id_path=PackedInt32Array(323405038, 1263871056) index="0" unique_id=391674742]
+BUTTON_TYPE = "next"
+
+[node name="StaticBody3D" parent="Model/Cassette_player/Button_previous" parent_id_path=PackedInt32Array(323405038, 1806601857) index="0" unique_id=880417106]
+BUTTON_TYPE = "previous"
+
+[node name="StaticBody3D" parent="Model/Cassette_player/Button_stop_play" parent_id_path=PackedInt32Array(323405038, 787301508) index="0" unique_id=2008276590]
+BUTTON_TYPE = "play"
+
+[node name="Label3D" parent="Model/Cassette_player" index="4" unique_id=1604864157]
+transform = Transform3D(0.8412161, 0, 0, 0, 0.78282285, 0, 0, 0, 1, 0.8749567, 0.06111923, 0.8750634)
+text = "15"
+
+[node name="StaticBody3D" parent="Model/Cassette_player" index="5" unique_id=756828378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78819215, 0, 0)
+
+[node name="CollisionShape3D" parent="Model/Cassette_player/StaticBody3D" index="0" unique_id=1818499451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19969624, -0.02578336, 0.76803064)
+shape = SubResource("BoxShape3D_hkbbh")
+
+[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19839323, 2.0405087)
+
+[connection signal="interacting_with" from="." to="Model/Cassette_player" method="_on_interactable_object_interacting_with"]
+[connection signal="stopped_interacting_with" from="." to="Model/Cassette_player" method="_on_interactable_object_stopped_interacting_with"]
+
+[editable path="Model/Cassette_player"]

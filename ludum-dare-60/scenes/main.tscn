@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://deqtmshce2jpd" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dxrlfiupdt3yu" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="5_tipki"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="10_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://00d082wm22h" path="res://scenes/items/screwdriver.tscn" id="10_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
@@ -316,6 +318,15 @@ supertense_track = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
 script = ExtResource("18_dp3eg")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
+
+[node name="InteractableObject" parent="Room" unique_id=2132515151 instance=ExtResource("10_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43255, 1.1627938, 25.332808)
+
+[node name="Screwdriver" parent="Room" unique_id=691295588 instance=ExtResource("10_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3258047, 1.0647001, 25.384727)
+
+[node name="InteractableObject2" parent="Room" unique_id=1424960454 instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.948349, 1.2979445, 23.596462)
 
 [node name="Screens" parent="." unique_id=752877598 instance=ExtResource("17_0ld40")]
 unique_name_in_owner = true

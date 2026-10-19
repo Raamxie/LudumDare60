@@ -6,6 +6,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.35699463, 0.6409912, 0.0793457)
 
+[sub_resource type="AudioStream" id="AudioStream_0khg3"]
+
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_q7rr6")]
 
 [node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
@@ -20,13 +22,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3535123, 0.684385)
 
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_d1f0s")]
 
-[node name="StaticBody3D" parent="Model/Pressure_Panel/Pressure_Panel_Doors" parent_id_path=PackedInt32Array(1178809638, 2083644783) index="0" unique_id=160194826 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT")]
-MOVEMENT_SPEED = 10.0
+[node name="StaticBody3D" parent="Model/Pressure_Panel/Pressure_Panel_Doors" parent_id_path=PackedInt32Array(1178809638, 2083644783) index="0" unique_id=160194826 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT", "COLLISION_SHAPE")]
 MAX_ROTATION = 120.0
 PIVOT_POINT = NodePath("../../PivotPoint")
 MESH = NodePath("..")
 INTERACTABLE_OBJECT = NodePath("../../../..")
 SCENE_PARENT = NodePath("../..")
+COLLISION_SHAPE = NodePath("../../../../InteractionComponent/CollisionShape3D")
+
+[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33720627, 0.69504446)
+omni_range = 1.5
+
+[node name="AudioStreamPlayer3D" parent="." index="4" unique_id=1705005566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14770561, 0.37215087, 0.20099068)
+stream = SubResource("AudioStream_0khg3")
 
 [editable path="Model/Pressure_Panel"]
 [editable path="Model/Pressure_Panel/Screws/screw_1"]

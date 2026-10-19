@@ -27,4 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 0.6233663, 0.78192997, 0, -0.78192997, 0.623
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6731187, 0.0050964355)
 mesh = SubResource("BoxMesh_jwevl")
 
+[node name="OmniLight3D" parent="." index="4" unique_id=246220112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0981768, 0.25266683)
+
 [editable path="Model/Pressure_Panel"]

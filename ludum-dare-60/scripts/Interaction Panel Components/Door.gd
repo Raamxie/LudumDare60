@@ -11,6 +11,8 @@ extends Node
 @export var INTERACTABLE_OBJECT: Node3D
 @export var SCENE_PARENT: Node3D
 @export var SCENE_MANAGER: Node3D
+@export var COLLISION_SHAPE: CollisionShape3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../../../AudioStreamPlayer3D"
 
 var is_selected: bool = false
 var is_interacting: bool = false
@@ -20,6 +22,11 @@ var target_door_rotation: float = 0.0
 var current_door_rotation: float = 0.0
 var initial_offset: Vector3
 var initial_mesh_basis: Basis
+var initial_collider_offset: Vector3
+var initial_collider_basis: Basis
+var last_change: float = -1
+var closing_sound =  preload("res://assets/audio/fx/door_panel_close.ogg")
+var opening_sound = preload("res://assets/audio/fx/door_panel_open.ogg")
 
 func _ready() -> void:
 	current_door_rotation = STARTING_ROTATION
@@ -27,6 +34,11 @@ func _ready() -> void:
 	
 	initial_offset = MESH.position - PIVOT_POINT.position
 	initial_mesh_basis = MESH.transform.basis
+	
+	
+	initial_collider_offset = COLLISION_SHAPE.position - PIVOT_POINT.position
+	initial_collider_basis = COLLISION_SHAPE.transform.basis
+	
 	_apply_pivot_rotation(current_door_rotation)
 	
 	INTERACTABLE_OBJECT.connect("interacting_with", _on_interactable_object_interacting_with)
@@ -40,6 +52,7 @@ func _input(event: InputEvent) -> void:
 		if SCENE_MANAGER != null:
 			if not SCENE_MANAGER.door_unlocked():
 				return
+		print("isinteracting")
 		is_interacting = true
 		previous_mouse_position = get_viewport().get_mouse_position()
 		
@@ -50,9 +63,19 @@ func _input(event: InputEvent) -> void:
 	if is_interacting and event is InputEventMouseMotion:
 		var change: float = event.relative.dot(DIRECTION.normalized()) * MOUSE_SENSITIVITY
 		
+		
 		change = clampf(change, -MAX_STEP_PER_EVENT, MAX_STEP_PER_EVENT)
 		
+		if (change * last_change < 0):
+			if change > 0:
+				audio_stream_player_3d.stream = opening_sound
+				audio_stream_player_3d.play()
+			elif change < 0:
+				audio_stream_player_3d.stream = closing_sound
+				audio_stream_player_3d.play()
+		
 		target_door_rotation = clampf(target_door_rotation + change, 0.0, MAX_ROTATION)
+		last_change = change
 
 func _process(delta: float) -> void:
 	if not is_selected:
@@ -67,6 +90,9 @@ func _apply_pivot_rotation(angle_deg: float) -> void:
 	
 	MESH.transform.basis = initial_mesh_basis.rotated(axis, angle_rad)
 	MESH.position = PIVOT_POINT.position + initial_offset.rotated(axis, angle_rad)
+	
+	COLLISION_SHAPE.transform.basis = initial_collider_basis.rotated(axis, angle_rad)
+	COLLISION_SHAPE.position = PIVOT_POINT.position + initial_collider_offset.rotated(axis, angle_rad)
 	
 func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
 	if interacted_object == SCENE_PARENT:

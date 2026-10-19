@@ -9,6 +9,7 @@ extends Node
 @export var MESH: MeshInstance3D
 @export var PIVOT_POINT: Node3D
 @onready var interactable_object: Node3D = $"../.."
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../AudioStreamPlayer3D"
 
 var is_selected: bool = false
 var is_interacting: bool = false
@@ -19,6 +20,7 @@ var current_mouse_position: Vector2
 var previous_mouse_position: Vector2
 var initial_offset: Vector3
 var initial_mesh_basis: Basis
+var valve_sound = preload("res://assets/audio/fx/wheel.ogg")
 
 
 func _ready() -> void:
@@ -37,6 +39,9 @@ func _process(delta: float) -> void:
 	if not is_selected:
 		return
 	if not is_equal_approx(valve_position, target_valve_position):
+		if not audio_stream_player_3d.playing:
+			audio_stream_player_3d.stream = valve_sound
+			audio_stream_player_3d.play()
 		valve_position = lerpf(valve_position, target_valve_position, 1.0 - exp(-SMOOTHING_SPEED * delta))
 		_apply_pivot_rotation(valve_position)
 		if _check_correct() and not in_correct:
@@ -45,6 +50,8 @@ func _process(delta: float) -> void:
 		elif not _check_correct() and in_correct:
 			print("Out of zone")
 			in_correct = false
+	elif abs(valve_position - target_valve_position) <= 10:
+		audio_stream_player_3d.stop()
 
 func _apply_pivot_rotation(angle_deg: float) -> void:
 	var angle_rad: float = deg_to_rad(angle_deg)
@@ -74,7 +81,8 @@ func _input(event: InputEvent) -> void:
 			target_valve_position = minf(target_valve_position + ROTATION_SPEED, MAXIMUM_ROTATION)
 		elif cross < 0:
 			target_valve_position = maxf(target_valve_position - ROTATION_SPEED, -MAXIMUM_ROTATION)
-				
+		
+		
 		previous_mouse_position = current_mouse_position
 
 func pre_interact() -> void:

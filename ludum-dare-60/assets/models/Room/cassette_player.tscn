@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dgprgt1adpban"]
+
+[ext_resource type="PackedScene" uid="uid://lpg8mq1u4iiy" path="res://assets/models/Room/Cassette_player/Cassette_player.glb" id="1_2oysv"]
+[ext_resource type="Script" uid="uid://tw20lbjond5j" path="res://scripts/Interaction Panels/cassette_player.gd" id="2_yh8xd"]
+[ext_resource type="Script" uid="uid://cq5mjaeea6i73" path="res://scripts/Interaction Panel Components/button.gd" id="3_ryiil"]
+[ext_resource type="FontFile" uid="uid://cnqhss4fu8nqk" path="res://assets/fonts/Workbench-Regular.ttf" id="4_wy3mq"]
+[ext_resource type="Script" uid="uid://duf84hyeikhdx" path="res://scripts/Interaction Panel Components/tape_input.gd" id="5_hkbbh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy3mq"]
+size = Vector3(0.192581, 0.42955118, 0.058723554)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hkbbh"]
+size = Vector3(0.19258097, 0.42955118, 0.058723554)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v7af"]
+size = Vector3(0.19258097, 0.42955118, 0.058723554)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icrfw"]
+transparency = 1
+albedo_color = Color(0.1764706, 0.44705883, 0.6431373, 0.25882354)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.59536743, 0.41532898, 0.08544922)
+
+[node name="Cassette_player" unique_id=323405038 instance=ExtResource("1_2oysv")]
+script = ExtResource("2_yh8xd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button_next" parent_id_path=PackedInt32Array(1263871056) index="0" unique_id=391674742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000111848116, 2.9802322e-08, 0.0006434247)
+script = ExtResource("3_ryiil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button_next/StaticBody3D" index="0" unique_id=755674838]
+shape = SubResource("BoxShape3D_wy3mq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button_previous" parent_id_path=PackedInt32Array(1806601857) index="0" unique_id=880417106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2958727e-05, 2.9802322e-08, 0.0006434247)
+script = ExtResource("3_ryiil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button_previous/StaticBody3D" index="0" unique_id=760494213]
+shape = SubResource("BoxShape3D_hkbbh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button_stop_play" parent_id_path=PackedInt32Array(787301508) index="0" unique_id=2008276590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.693205e-05, -2.9802322e-08, 0.00067608804)
+script = ExtResource("3_ryiil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button_stop_play/StaticBody3D" index="0" unique_id=363940046]
+shape = SubResource("BoxShape3D_3v7af")
+
+[node name="Cassete_player" parent="." index="3" unique_id=106418316]
+surface_material_override/2 = SubResource("StandardMaterial3D_icrfw")
+
+[node name="Label3D" type="Label3D" parent="." index="4" unique_id=1604864157]
+transform = Transform3D(0.8412161, 0, 0, 0, 0.78282285, 0, 0, 0, 1, 0.8803272, 0.06280424, 0.87038314)
+font = ExtResource("4_wy3mq")
+font_size = 25
+outline_size = 4
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="5" unique_id=756828378]
+script = ExtResource("5_hkbbh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1818499451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5852448, -0.01812008, 0.8245124)
+shape = SubResource("BoxShape3D_g4v7s")
