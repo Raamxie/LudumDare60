@@ -160,7 +160,7 @@ func _update_music(track: Music.Track) -> void:
 			2
 		)
 		
-	if track == Music.Track.Tense:
+	elif track == Music.Track.Tense:
 		_music_tween.tween_property(
 			Music,
 			"pitch_scale",
