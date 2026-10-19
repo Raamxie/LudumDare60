@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://wviwg7hkxhig"]
+
+[ext_resource type="PackedScene" uid="uid://cvkwd5na7u8xr" path="res://assets/models/Room/Flashlightl.glb" id="1_pstxw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suk3p"]
+albedo_color = Color(0.3105716, 0.20898238, 0.1843929, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnni6"]
+albedo_color = Color(0.63183933, 0.71503705, 0.7998354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k45qa"]
+albedo_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+
+[node name="Flashlightl" unique_id=822317831 instance=ExtResource("1_pstxw")]
+
+[node name="Cube_022" parent="." index="0" unique_id=219188848]
+surface_material_override/0 = SubResource("StandardMaterial3D_suk3p")
+
+[node name="Cylinder_003" parent="." index="1" unique_id=1542490515]
+surface_material_override/0 = SubResource("StandardMaterial3D_bnni6")
+
+[node name="Cylinder_057" parent="." index="2" unique_id=440503629]
+surface_material_override/0 = SubResource("StandardMaterial3D_k45qa")

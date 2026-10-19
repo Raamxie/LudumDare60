@@ -1,0 +1,113 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cugaexrpi4h7m"
+path="res://.godot/imported/Room.glb-3839fe558e5bf13d5d15864312f3085c.scn"
+
+[deps]
+
+source_file="res://assets/models/Room/Room.glb"
+dest_files=["res://.godot/imported/Room.glb-3839fe558e5bf13d5d15864312f3085c.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Basic": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Basic.tres",
+"use_external/path": "uid://cj02g2386a5dv"
+},
+"Black": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Black.tres",
+"use_external/path": "uid://8sdgocw6pm3q"
+},
+"Glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "",
+"use_external/path": ""
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Material.004.tres",
+"use_external/path": "uid://bufile6gdkrky"
+},
+"Material.007": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Material.007.tres",
+"use_external/path": "uid://020ao2tyun76"
+},
+"Material.008": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Material.008.tres",
+"use_external/path": "uid://do3i1rolcrif1"
+},
+"Material.009": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Material.009.tres",
+"use_external/path": "uid://u4v7ilnmm82p"
+},
+"Slabohneda": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/Slabohneda.tres",
+"use_external/path": "uid://cbrr21lps0iv6"
+},
+"hneda": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/hneda.tres",
+"use_external/path": "uid://v156sr6fvlb6"
+},
+"matel": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/matel.tres",
+"use_external/path": "uid://sp5u45nmyakx"
+},
+"seda": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/seda.tres",
+"use_external/path": "uid://cof6wa0bqvpp2"
+},
+"tmavohneda": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/tmavohneda.tres",
+"use_external/path": "uid://4iun8v4665rm"
+},
+"tmavoseda": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Materials/tmavoseda.tres",
+"use_external/path": "uid://b21aohs885s5f"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

@@ -12,15 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://d361sy0nnpy2s" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="17_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
 [ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="19_0ld40"]
+[ext_resource type="PackedScene" uid="uid://cok72dn724csj" path="res://assets/models/Room/Portal.glb" id="19_jscy8"]
+[ext_resource type="PackedScene" uid="uid://cvsgq0oobo28b" path="res://assets/models/Room/Room.tscn" id="21_yc10j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -44,14 +45,14 @@ uv1_world_triplanar = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
 
-[sub_resource type="Sky" id="Sky_yf5fn"]
+[sub_resource type="Sky" id="Sky_jscy8"]
 sky_material = SubResource("ProceduralSkyMaterial_57qmd")
 
 [sub_resource type="Environment" id="Environment_g4v7s"]
 background_mode = 2
-sky = SubResource("Sky_yf5fn")
+sky = SubResource("Sky_jscy8")
 ambient_light_source = 2
-ambient_light_color = Color(0.13103917, 0.14159718, 0.11695912, 1)
+ambient_light_color = Color(0.10169128, 0.11172085, 0.091659956, 1)
 ambient_light_energy = 0.51
 tonemap_mode = 3
 ssao_enabled = true
@@ -63,6 +64,9 @@ fog_light_color = Color(0.38796708, 0.4915818, 0.43176797, 1)
 fog_light_energy = 0.3
 fog_density = 0.005
 adjustment_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(1, 1, 1.27594)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yta21"]
 
@@ -76,9 +80,6 @@ emission_energy_multiplier = 3.2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33p2j"]
 albedo_color = Color(0.87297064, 0.9184894, 0.9059444, 1)
 refraction_scale = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
-size = Vector3(1, 1, 1.27594)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
 shader = ExtResource("19_0ld40")
@@ -146,22 +147,64 @@ light_volumetric_fog_energy = 7.287
 light_specular = 0.0
 shadow_enabled = true
 
-[node name="OmniLight3D8" type="OmniLight3D" parent="World" unique_id=720808966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.37881, 4.0188417, 32.761135)
-light_color = Color(0.9066097, 0.894429, 0.84362614, 1)
-light_energy = 0.025
-light_indirect_energy = 1.317
-light_volumetric_fog_energy = 7.287
-light_specular = 0.0
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="World" unique_id=478704919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.578074, 2.9156816, 29.68222)
-light_color = Color(0.961121, 0.40826464, 0.421517, 1)
-light_energy = 0.01
+[node name="OmniLight3D2" type="OmniLight3D" parent="World/OmniLight3D2" unique_id=2014613142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.37881, 4.0188417, 29.049616)
+light_color = Color(0.6974831, 0.78235775, 0.64224386, 1)
+light_energy = 0.04
 light_indirect_energy = 1.317
 light_volumetric_fog_energy = 7.287
 light_specular = 0.0
 shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="World" unique_id=832820623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.065207, 3.8108907, 36.500233)
+light_color = Color(0.6974831, 0.78235775, 0.64224386, 1)
+light_energy = 0.04
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="World/OmniLight3D3" unique_id=2128609452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.37881, 4.0188417, 29.049616)
+light_color = Color(0.6974831, 0.78235775, 0.64224386, 1)
+light_energy = 0.04
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="World" unique_id=478704919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.578074, 2.7146688, 29.484127)
+light_color = Color(0.689141, 0.14503077, 0.20330268, 1)
+light_energy = 0.11
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="World/OmniLight3D6" unique_id=114397467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.578074, 2.7146688, 29.484127)
+light_color = Color(0.689141, 0.14503077, 0.20330268, 1)
+light_energy = 0.11
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="World" unique_id=1439943671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.777214, 3.1004012, 30.072916)
+light_color = Color(0.689141, 0.14503077, 0.20330268, 1)
+light_energy = 0.11
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="World/OmniLight3D8" unique_id=177643782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.578074, 2.7146688, 29.484127)
+light_color = Color(0.689141, 0.14503077, 0.20330268, 1)
+light_energy = 0.11
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="World" unique_id=543156539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.249284, 3.3178437, 30.981514)
@@ -182,9 +225,9 @@ light_specular = 0.0
 omni_range = 5.13
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="World" unique_id=1346069576]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632228, 3.1936276, 27.468182)
-light_color = Color(0.961121, 0.40826464, 0.421517, 1)
-light_energy = 0.025
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632228, 3.1462483, 27.648792)
+light_color = Color(0.8910897, 0.24461353, 0.29395986, 1)
+light_energy = 0.28
 light_indirect_energy = 1.317
 light_volumetric_fog_energy = 7.287
 light_specular = 0.0
@@ -199,13 +242,6 @@ light_volumetric_fog_energy = 7.287
 light_specular = 0.0
 omni_range = 5.13
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="World" unique_id=322812333]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.059284, 4.018842, 35.531948)
-light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
-light_energy = 0.01
-shadow_enabled = true
-omni_range = 9.258
-
 [node name="OmniLight3D4" type="OmniLight3D" parent="World" unique_id=2005140608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.096037, 4.018842, 30.980373)
 light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
@@ -218,48 +254,24 @@ light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
 light_energy = 0.04
 shadow_enabled = true
 
+[node name="Node3D" parent="World" unique_id=52842329 instance=ExtResource("12_eb6dy")]
+transform = Transform3D(0.13273798, -0.08933437, -3.9049297e-09, 0, -6.9938224e-09, 0.16, -0.08933437, -0.13273798, -5.802162e-09, -17.261343, 1.4278567, 33.552124)
+
+[node name="Node3D2" parent="World" unique_id=2069286240 instance=ExtResource("13_trceg")]
+transform = Transform3D(0.09613881, -0.07181454, -3.139113e-09, 0, -5.2453664e-09, 0.12, -0.07181454, -0.09613881, -4.202361e-09, -17.272165, 2.9143872, 33.52382)
+
+[node name="Node3D3" parent="World" unique_id=493128478 instance=ExtResource("11_ya4ey")]
+transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-09, 0.135, -0.08115144, -0.10788626, -4.715858e-09, -17.284216, 2.4171114, 33.539165)
+
+[node name="Node3D4" parent="World" unique_id=14138887 instance=ExtResource("11_ya4ey")]
+transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-09, 0.135, -0.08115144, -0.10788626, -4.715858e-09, -17.284216, 1.9280307, 33.539165)
+
 [node name="InteractableObject" parent="." unique_id=162394750 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7163336, 2.312818, -4.008759)
 
 [node name="Room" type="Node3D" parent="." unique_id=1334907514]
 
-[node name="Room_blockout" parent="Room" unique_id=1735600828 instance=ExtResource("15_jkv2x")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -7.2328205, -0.2055093, 25.023802)
-
-[node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout" unique_id=117953444]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.7759786, 0.09982681)
-light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
-light_energy = 0.725
-area_range = 10.469
-area_attenuation = 1.423
-area_size = Vector2(4.56, 0.79)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Room_blockout/AreaLight3D" unique_id=687511740]
-transform = Transform3D(2.1922202, 0, 0, 0, 1.3113412e-07, 0.0189447, 0, -0.9999998, 2.4842974e-09, 0, 0, 0.09752655)
-mesh = SubResource("PlaneMesh_yta21")
-surface_material_override/0 = SubResource("StandardMaterial3D_j4j6x")
-
-[node name="AreaLight3D" type="AreaLight3D" parent="Room/Room_blockout/AreaLight3D" unique_id=542457348]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, 0, -6.866455e-05, 0.01607418)
-light_color = Color(0.68235296, 0.81960785, 1, 1)
-light_energy = 0.345
-area_range = 8.572
-area_attenuation = 1.926
-area_size = Vector2(4.56, 0.039222717)
-
-[node name="AreaLight3D2" type="AreaLight3D" parent="Room/Room_blockout" unique_id=150791411]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.733726, 2.9821777)
-light_color = Color(0.62528825, 0.7377513, 0.6054448, 1)
-light_energy = 0.123
-area_range = 61.868
-area_size = Vector2(34.745, 6.123)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Room_blockout" unique_id=658758912]
-transform = Transform3D(1.8322823, 0, 0, 0, -1.0000001, -1.1706265e-08, 0, 8.74228e-08, -0.13390405, 0, 3.867394, 0.13489914)
-mesh = SubResource("PlaneMesh_j4j6x")
-surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=745919226]
+[node name="Ceiling" type="MeshInstance3D" parent="Room" unique_id=745919226]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
 mesh = SubResource("BoxMesh_g4v7s")
 
@@ -289,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.2647
 [node name="LED1" parent="Room" unique_id=542521742 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.07827355, -0.0444213, -1.9417166e-09, 0, -3.9340247e-09, 0.09, -0.0444213, -0.07827355, -3.4214453e-09, -16.93709, 1.940326, 33.983006)
 
-[node name="LED2" parent="Room" unique_id=52842329 instance=ExtResource("11_ya4ey")]
+[node name="LED2" parent="Room" unique_id=636322911 instance=ExtResource("11_ya4ey")]
 transform = Transform3D(0.076604515, -0.047241382, 0, 0, 0, 0.08999998, -0.047241386, -0.0766045, 0, -16.93539, 2.3812864, 33.971653)
 
 [node name="LED3" parent="Room" unique_id=1077252042 instance=ExtResource("11_ya4ey")]
@@ -327,6 +339,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3258047, 1.0647001, 25.384
 
 [node name="InteractableObject2" parent="Room" unique_id=1424960454 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.948349, 1.2979445, 23.596462)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Room" unique_id=117953444]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.514464, 25.148586)
+light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
+light_energy = 0.725
+area_range = 10.469
+area_attenuation = 1.423
+area_size = Vector2(4.56, 0.79)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/AreaLight3D" unique_id=687511740]
+transform = Transform3D(2.1922202, 0, 0, 0, 1.3113412e-07, 0.0189447, 0, -0.9999998, 2.4842974e-09, 0, 0, 0.09752655)
+mesh = SubResource("PlaneMesh_yta21")
+surface_material_override/0 = SubResource("StandardMaterial3D_j4j6x")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Room/AreaLight3D" unique_id=542457348]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, 0, -6.866455e-05, 0.01607418)
+light_color = Color(0.68235296, 0.81960785, 1, 1)
+light_energy = 0.345
+area_range = 8.572
+area_attenuation = 1.926
+area_size = Vector2(4.56, 0.039222717)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Room" unique_id=150791411]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.4616485, 28.751524)
+light_color = Color(0.62528825, 0.7377513, 0.6054448, 1)
+light_energy = 0.123
+area_range = 61.868
+area_size = Vector2(34.745, 6.123)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room" unique_id=658758912]
+transform = Transform3D(2.2903528, 0, 0, 0, -1.2500001, -1.4632832e-08, 0, 1.09278496e-07, -0.16738006, -7.2328205, 4.628733, 25.192425)
+mesh = SubResource("PlaneMesh_j4j6x")
+surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")
+
+[node name="Room" parent="Room" unique_id=925485642 instance=ExtResource("21_yc10j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.354362, 0.16493583, 25.756756)
+
+[node name="Portal" parent="Room" unique_id=908982504 instance=ExtResource("19_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.229703, 0.21785736, 25.329964)
 
 [node name="Screens" parent="." unique_id=752877598 instance=ExtResource("17_0ld40")]
 unique_name_in_owner = true

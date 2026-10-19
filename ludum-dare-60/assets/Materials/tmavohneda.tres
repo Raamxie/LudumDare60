@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4iun8v4665rm"]
+
+[resource]
+resource_name = "tmavohneda"
+cull_mode = 2
+albedo_color = Color(0.29746234, 0.17203045, 0.08680434, 1)
+roughness = 0.5
