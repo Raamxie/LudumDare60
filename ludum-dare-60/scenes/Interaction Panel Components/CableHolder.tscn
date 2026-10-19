@@ -45,10 +45,10 @@ size = Vector3(0.016220003, 0.028582044, 0.032025814)
 
 [node name="Cable_holder" type="MeshInstance3D" unique_id=1498592718]
 mesh = SubResource("ArrayMesh_8k88c")
-script = ExtResource("1_fchlo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=644538417]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014111251, -3.7252903e-09, 0)
+script = ExtResource("1_fchlo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=239867631]
 shape = SubResource("BoxShape3D_dp3pa")

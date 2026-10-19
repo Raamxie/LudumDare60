@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://dcwltnmkehmtg"]
 
 [ext_resource type="Script" uid="uid://byxoa35hy1xmj" path="res://scripts/Interaction Panel Components/Door.gd" id="1_8eh2y"]
-[ext_resource type="Script" uid="uid://b4cay78umxw84" path="res://scripts/Interaction Panels/Pressure_Panel_Bottom_Manager.gd" id="1_j324x"]
+[ext_resource type="Script" uid="uid://b4cay78umxw84" path="res://scripts/Interaction Panels/Pressure_Panel_Door_Manager.gd" id="1_j324x"]
 [ext_resource type="PackedScene" uid="uid://cpdvtp47ynucq" path="res://assets/models/Room/Pressure_panel/screw.tscn" id="3_6cw38"]
+[ext_resource type="Script" uid="uid://cfmy8252vyybl" path="res://scripts/Interaction Panels/Pressure_Panel_Cable_Manager.gd" id="4_l5kpc"]
 [ext_resource type="PackedScene" uid="uid://prjgcn0hcm3n" path="res://scenes/Interaction Panel Components/CableHolder.tscn" id="4_tcndm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gegvg"]
@@ -430,7 +431,6 @@ mesh = SubResource("ArrayMesh_ea6r5")
 
 [node name="Pressure_Panel_Doors" type="MeshInstance3D" parent="." unique_id=2083644783]
 transform = Transform3D(13.886556, 0, 0, 0, -4.1501468e-07, 27.125818, 0, -3.4813952, -3.2336497e-06, -0.1400513, 0.37811705, 0.19895549)
-visible = false
 mesh = SubResource("ArrayMesh_ndqeh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pressure_Panel_Doors" unique_id=160194826 node_paths=PackedStringArray("SCENE_MANAGER")]
@@ -508,6 +508,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.38187036, 0.199)
 
 [node name="Cable Holders" type="Node3D" parent="." unique_id=914277705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10708703, 0.52835834, 0.07975303)
+script = ExtResource("4_l5kpc")
 
 [node name="Cable_holder_1_L" parent="Cable Holders" unique_id=1498592718 instance=ExtResource("4_tcndm")]
 
