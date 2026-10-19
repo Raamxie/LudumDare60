@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://x710nmjdr60a"]
+
+[ext_resource type="PackedScene" uid="uid://bkhxne615xscu" path="res://assets/models/Room/Pressure_panel/Pressure_cables.glb" id="1_548rh"]
+
+[node name="Pressure_cables" unique_id=1802200738 instance=ExtResource("1_548rh")]
