@@ -25,3 +25,11 @@ func on_dropped(impulse: Vector3) -> void:
 	collision_mask = 1
 	freeze = false
 	apply_central_impulse(impulse)
+
+
+func show_message():
+	Messenger.show_message.emit(data.display_name + "\n[E] Pickup")
+
+
+func clear_message():
+	Messenger.clear_message.emit()

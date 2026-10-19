@@ -9,21 +9,17 @@ extends Node3D
 var interaction_camera_transform
 var main_camera: Camera3D
 
+var TransitionTween: Tween
+
+
 signal interacting_with(interacted_object: Node3D)
 signal stopped_interacting_with(interacted_object: Node3D)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 	interaction_camera_transform = interaction_camera.global_transform
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-
 
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -31,7 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_on_return_interacted_object()
 
 func _on_interacted_object(interactor: Node) -> void:
-	print("on_interacted called")    
+	print("on_interacted called")
 	main_camera = get_viewport().get_camera_3d()
 	_set_player_active(false)
 	
@@ -51,7 +47,9 @@ func _on_interacted_object(interactor: Node) -> void:
 	
 	interaction_component.set_ray_pickable(false)
 	
-
+	show_control_message()
+	
+	
 func _on_return_interacted_object() -> void:
 	if TransitionTween:
 		TransitionTween.kill()
@@ -73,13 +71,28 @@ func _on_return_interacted_object() -> void:
 	
 	interaction_component.set_ray_pickable(true)
 	
+	clear_control_message()
 	
-var TransitionTween: Tween
-
-
 
 func _set_player_active(active: bool) -> void:
 	player.set_process(active)
 	player.set_physics_process(active)
 	player.set_process_input(active)
 	player.set_process_unhandled_input(active)
+
+
+func show_message():
+	Messenger.show_message.emit("[E] Interact")
+
+
+func clear_message():
+	Messenger.clear_message.emit()
+	
+	
+func show_control_message():
+	Messenger.show_control_message.emit("[ESC] Quit")
+
+
+func clear_control_message():
+	Messenger.clear_control_message.emit()
+	

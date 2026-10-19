@@ -128,6 +128,12 @@ func _handle_interaction() -> void:
 		return
 	focused_object.focus()
 	
+	
+	if focused_object == null:
+		return	
+
+	focused_object.focus()
+
 	if Input.is_action_just_pressed("interact"):
 		focused_object.interact(self)
 		

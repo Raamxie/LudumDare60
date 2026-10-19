@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxbc5sp54a44f"]
 
 [ext_resource type="Script" uid="uid://rn8drguiq5c" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://oarpr3rtu2vt" path="res://scripts/reticle.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://nqwrwcepfa77" path="res://scripts/ui/controls_hint.gd" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 height = 1.8
@@ -37,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.65, -0.7)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1617151111]
 
 [node name="Reticle" type="Control" parent="CanvasLayer" unique_id=1653089248]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=253052699]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +45,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+mouse_filter = 2
 script = ExtResource("2_g2els")
 dot_radius = 3.0
 dot_color = Color(0.629675, 0.6296747, 0.6296747, 0.5882353)
 metadata/_edit_use_anchors_ = true
+layout_mode = 2
+script = ExtResource("5_qlg0r")
