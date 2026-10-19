@@ -203,7 +203,14 @@ step = 0.01
 value = 1.0
 
 [node name="Intro" parent="." unique_id=1337110342 instance=ExtResource("3_vh3jh")]
-pages = Array[String](["This is a nice intro hehe", "meow", "woof"])
+pages = Array[String](["Oh oh... an awful alien infiltrated the spaceship!", "The good news: the whole crew successfully escaped through the teleporter.", "Well, except you. That's the bad news. 
+
+Also, the portal seems broken?", "Luckily, they left voice notes on how to repair it!
+
+So, simply follow the plan... easy, right?
+"])
 
 [node name="Outro" parent="." unique_id=77242141 instance=ExtResource("3_vh3jh")]
+pages = Array[String](["Congratulations, you escaped and went home!", "But wait - why did the teleporter buzz twice when you entered?", "The end
+", "The end?"])
 allow_skip = false
