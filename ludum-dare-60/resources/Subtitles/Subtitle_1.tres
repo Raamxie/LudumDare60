@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://dtvdym7rbkf27"]
+
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="1_hbkv3"]
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_iqqks"]
+
+[sub_resource type="Resource" id="Resource_1cvqn"]
+script = ExtResource("1_iqqks")
+text = "Hello and welcome to the Emergency Repair Advisor"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_1t2qe"]
+script = ExtResource("1_iqqks")
+text = "In this guide we will explore...."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_ieyjc"]
+script = ExtResource("1_iqqks")
+text = "Wait, did I ever tell you about that one time when -"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_35x0o"]
+script = ExtResource("1_iqqks")
+text = "*Alice, get back to the point!*"
+typespeed = 25.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_eln35"]
+script = ExtResource("1_iqqks")
+text = "Yes, will do madam"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_iqqks"]
+script = ExtResource("1_iqqks")
+text = "So, where were we..."
+typespeed = 8.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_uydjo"]
+script = ExtResource("1_iqqks")
+text = "Ah, right! The Emergency Repair Advisor"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_7g4rp"]
+script = ExtResource("1_iqqks")
+text = "These tapes are meant to help in emergency situations, where you find yourself stranded on a deserted spaceship."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_hx153"]
+script = ExtResource("1_iqqks")
+text = "As these tapes are limited on storage, the guide will span across mult-"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("1_hbkv3")
+id = 1
+contents = Array[ExtResource("1_iqqks")]([SubResource("Resource_1cvqn"), SubResource("Resource_1t2qe"), SubResource("Resource_ieyjc"), SubResource("Resource_35x0o"), SubResource("Resource_eln35"), SubResource("Resource_iqqks"), SubResource("Resource_uydjo"), SubResource("Resource_7g4rp"), SubResource("Resource_hx153")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

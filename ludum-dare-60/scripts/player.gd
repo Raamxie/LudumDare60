@@ -29,13 +29,14 @@ extends CharacterBody3D
 
 var held: Pickable
 var tool: Pickable
-var key_items: Array[StringName]
+var key_items: Array[ItemData]
 
 var head_bob_time: float = 0.0
 var speed: float = 0.0
 var direction: Vector3
 
 var focused_object: InteractionComponent
+var has_screwdriver: bool = false
 
 
 func _ready() -> void:
@@ -141,7 +142,9 @@ func _handle_interaction() -> void:
 func pick_up(item: Pickable) -> void:
 	match item.data.slot:
 		ItemData.Slot.KEY:
-			key_items.append(item.data.id)
+			key_items.append(item.data)
+			if item.data.display_name == "Screwdriver":
+				has_screwdriver = true
 			item.queue_free()
 		ItemData.Slot.TOOL:
 			if tool: _drop(tool, 1.0)

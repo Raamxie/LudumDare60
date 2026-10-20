@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://dkybvlbs5x41j"]
+
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_yaajf"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="2_fnn1r"]
+
+[sub_resource type="Resource" id="Resource_uqxiw"]
+script = ExtResource("1_yaajf")
+text = "You missed me!"
+hold_time = 3.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_6bql8"]
+script = ExtResource("1_yaajf")
+text = "Thank you for listening to my podcasts. It really makes me happy to know someone is listening."
+hold_time = 5.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_5akni"]
+script = ExtResource("1_yaajf")
+text = "So"
+hold_time = 4.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_2bthu"]
+script = ExtResource("1_yaajf")
+text = "The Advisor says you should now look for a screwdriver around."
+hold_time = 4.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_ts3cb"]
+script = ExtResource("1_yaajf")
+text = "I thought we already replaced them with newer tools, but I am afraid you got stuck with the experience of manual work"
+hold_time = 3.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_23ffw"]
+script = ExtResource("1_yaajf")
+text = "After finding that screwdriver you should be able to find two boxes in front of the Teleport."
+hold_time = 3.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_mn3rg"]
+script = ExtResource("1_yaajf")
+text = "The one on the left should have doors on the bottom, which should be unscrewable with the screwdriver "
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_jos5f"]
+script = ExtResource("1_yaajf")
+text = "After they are all gone, you can open the door. They look light, but the material is very heavy, so don't be afraid to just grab the handle and open them "
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_ey38n"]
+script = ExtResource("1_yaajf")
+text = "(click and drag from right to left pookie)"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_t5qvp"]
+script = ExtResource("1_yaajf")
+text = "Toodaloo!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("2_fnn1r")
+id = 5
+contents = Array[ExtResource("1_yaajf")]([SubResource("Resource_uqxiw"), SubResource("Resource_6bql8"), SubResource("Resource_5akni"), SubResource("Resource_2bthu"), SubResource("Resource_ts3cb"), SubResource("Resource_23ffw"), SubResource("Resource_mn3rg"), SubResource("Resource_jos5f"), SubResource("Resource_ey38n"), SubResource("Resource_t5qvp")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

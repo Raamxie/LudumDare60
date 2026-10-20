@@ -21,11 +21,18 @@ var previous_mouse_position: Vector2
 var initial_offset: Vector3
 var initial_mesh_basis: Basis
 var valve_sound = preload("res://assets/audio/fx/wheel.ogg")
+var success_timer: Timer
 
 
 func _ready() -> void:
 	valve_position = STARTING_POSITION
 	target_valve_position = STARTING_POSITION
+	
+	success_timer = Timer.new()
+	success_timer.wait_time = 2
+	success_timer.one_shot = true
+	add_child(success_timer)
+	success_timer.timeout.connect(_on_success_timer_timeout)
 	
 	# Save the starting offset between the Mesh and the PivotPoint
 	initial_offset = MESH.position - PIVOT_POINT.position
@@ -47,9 +54,11 @@ func _process(delta: float) -> void:
 		if _check_correct() and not in_correct:
 			print("In the zone")
 			in_correct = true
+			success_timer.start()
 		elif not _check_correct() and in_correct:
 			print("Out of zone")
 			in_correct = false
+			success_timer.stop()
 	elif abs(valve_position - target_valve_position) <= 10:
 		audio_stream_player_3d.stop()
 
@@ -108,3 +117,6 @@ func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void
 func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D) -> void:
 	if interacted_object == self:
 		is_selected = false
+		
+func _on_success_timer_timeout() -> void:
+	Messenger.teleporter_part_finished.emit(Game.Part.VALVE)

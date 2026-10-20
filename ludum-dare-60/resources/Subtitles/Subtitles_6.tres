@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://c0dc51ob8u2f2"]
+
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_t5qvp"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="2_thhn2"]
+
+[sub_resource type="Resource" id="Resource_d1fou"]
+script = ExtResource("1_t5qvp")
+text = "*AAAAAAAAAAA*"
+typespeed = 5.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_cyl1i"]
+script = ExtResource("1_t5qvp")
+text = "What's going on out there?"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_ob6hh"]
+script = ExtResource("1_t5qvp")
+text = "Is there another golden hour at the bar?"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_4nhni"]
+script = ExtResource("1_t5qvp")
+text = "That reminds me - gosh, did you see Joanna at the Bar? I couldn't take my eye off her. She was just gorgeous."
+hold_time = 4.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_tu4n5"]
+script = ExtResource("1_t5qvp")
+text = "..."
+typespeed = 0.5
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_tp2uv"]
+script = ExtResource("1_t5qvp")
+text = "*Bang*"
+hold_time = 7.0
+typespeed = 31.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_alslq"]
+script = ExtResource("1_t5qvp")
+text = "That did not sound like the usual golden hour noise"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_cx46w"]
+script = ExtResource("1_t5qvp")
+text = "I should probably get back to the Advisor..."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_g5sei"]
+script = ExtResource("1_t5qvp")
+text = "After the doors are open, there should be just a buch of cables to verify."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_sxugo"]
+script = ExtResource("1_t5qvp")
+text = "No worries, they are usually always there, in perfect condition."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_cft7v"]
+script = ExtResource("1_t5qvp")
+text = "That's why they used screws on the doors anyway."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_lqdp2"]
+script = ExtResource("1_t5qvp")
+text = "But just in case - here is the combination of the cables:"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_gp45w"]
+script = ExtResource("1_t5qvp")
+text = "1-4, 2-2, 3-1, 4-5, 5-3"
+typespeed = 20.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_qht8l"]
+script = ExtResource("1_t5qvp")
+text = "I am sure you won't need that one anyways..."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("2_thhn2")
+id = 6
+contents = Array[ExtResource("1_t5qvp")]([SubResource("Resource_d1fou"), SubResource("Resource_cyl1i"), SubResource("Resource_ob6hh"), SubResource("Resource_4nhni"), SubResource("Resource_tu4n5"), SubResource("Resource_tp2uv"), SubResource("Resource_alslq"), SubResource("Resource_cx46w"), SubResource("Resource_g5sei"), SubResource("Resource_sxugo"), SubResource("Resource_cft7v"), SubResource("Resource_lqdp2"), SubResource("Resource_gp45w"), SubResource("Resource_qht8l")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

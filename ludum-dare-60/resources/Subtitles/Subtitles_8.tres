@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://bu8egm2m6h4a2"]
+
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_wvvbm"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="2_njsxp"]
+
+[sub_resource type="Resource" id="Resource_60ci7"]
+script = ExtResource("1_wvvbm")
+text = "Right one is done, and the left one is kept in secret, so people won't just randomly teleport while drunk."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_d23r8"]
+script = ExtResource("1_wvvbm")
+text = "There are rumors that the number is the Answer to the Ultimate Question of Life, the Universe, and Everything."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_bevf6"]
+script = ExtResource("1_wvvbm")
+text = "I don't know what that means, so I would instead just ask Asha, but she left 100 days ago. The afterparty really pissed her off.."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_kf7hg"]
+script = ExtResource("1_wvvbm")
+text = "And you need to wait for the machine to calibrate!!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_n6fw0"]
+script = ExtResource("1_wvvbm")
+text = "*AAAAAAAAAAAAAAAAAAAA*"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_384ct"]
+script = ExtResource("1_wvvbm")
+text = "After that, you are almost home - just push the lever to the end and the teleport should just spring to life"
+hold_time = 4.0
+typespeed = 25.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_ac742"]
+script = ExtResource("1_wvvbm")
+text = "There's something on the ship!"
+typespeed = 25.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_oie0r"]
+script = ExtResource("1_wvvbm")
+text = "Safe travels hon!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("2_njsxp")
+id = 8
+contents = Array[ExtResource("1_wvvbm")]([SubResource("Resource_60ci7"), SubResource("Resource_d23r8"), SubResource("Resource_bevf6"), SubResource("Resource_kf7hg"), SubResource("Resource_n6fw0"), SubResource("Resource_384ct"), SubResource("Resource_ac742"), SubResource("Resource_oie0r")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

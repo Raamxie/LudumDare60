@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch0u76x48uc5o"]
+
+[ext_resource type="PackedScene" uid="uid://c7e8rtfnll21" path="res://scenes/items/Cassettes/Cassette.tscn" id="1_pgnlh"]
+[ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="2_cafup"]
+
+[sub_resource type="Resource" id="Resource_kkew8"]
+script = ExtResource("2_cafup")
+id = &"6"
+display_name = "Cassette"
+slot = 2
+metadata/_custom_type_script = "uid://bup1f701ht0xs"
+
+[node name="Cassette" unique_id=691295588 instance=ExtResource("1_pgnlh")]
+data = SubResource("Resource_kkew8")
+
+[editable path="Cassette"]

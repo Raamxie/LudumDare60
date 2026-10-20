@@ -13,12 +13,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Model" type="Node3D" parent="." unique_id=1685110682]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=246220112]
-visible = false
-light_energy = 0.2
-omni_range = 1.0
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1705005566]
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1604957350]
+visible = false
+area_range = 1.379
 
 [connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted_object"]
 [connection signal="interacted" from="InteractionComponent" to="." method="_on_interacted"]
