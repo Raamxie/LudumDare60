@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cof6wa0bqvpp2"]
+
+[resource]
+resource_name = "seda"
+cull_mode = 2
+albedo_color = Color(0.49365816, 0.49365816, 0.49365816, 1)
+roughness = 0.5

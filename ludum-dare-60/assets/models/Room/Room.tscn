@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cvsgq0oobo28b"]
+
+[ext_resource type="PackedScene" uid="uid://cugaexrpi4h7m" path="res://assets/models/Room/Room.glb" id="1_bgmyd"]
+[ext_resource type="Material" uid="uid://cj02g2386a5dv" path="res://assets/Materials/Basic.tres" id="1_qjhcd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lakbq"]
+albedo_color = Color(0.3588729, 0.3540886, 0.35408834, 1)
+
+[node name="Room" unique_id=925485642 instance=ExtResource("1_bgmyd")]
+
+[node name="CRT_Monitor_001" parent="." index="1" unique_id=1605470291]
+surface_material_override/0 = ExtResource("1_qjhcd")
+
+[node name="Cube_149" parent="." index="8" unique_id=1376323263]
+transform = Transform3D(0.5868972, 0, -0.4067806, 0, 0.6869125, 0, 0.35693207, 0, 0.6688622, -11.342018, 1.3689389, 11.330139)
+
+[node name="Cube_151" parent="." index="10" unique_id=572782220]
+transform = Transform3D(0.76033646, 0, -0.526992, 0, 0.88990813, 0, 0.46241227, 0, 0.8665238, -15.280776, 1.3128155, 11.8578615)
+
+[node name="Cube_153" parent="." index="12" unique_id=892132724]
+transform = Transform3D(0.46162626, 0, 0.38181782, 0, 0.57038826, 0, -0.3350283, 0, 0.5260963, -14.903411, 1.2902055, 11.943358)
+
+[node name="Cube_155" parent="." index="14" unique_id=994737725]
+transform = Transform3D(0.039195802, 0, 0.06604966, 0, 0.08578419, 0, -0.06604966, 0, 0.039195802, -14.276342, 1.334647, 11.986763)
+
+[node name="Cube_156" parent="." index="15" unique_id=1310511427]
+transform = Transform3D(2.2234344, 0, -0.0020491173, 0, 0.09941457, 0, 0.00823926, 0, 0.5529718, -13.337324, 1.1814404, 11.655037)
+
+[node name="Cube_157" parent="." index="16" unique_id=35167741]
+transform = Transform3D(0.01304681, 0, 0.046915986, 0, 0.0145236105, 0, -0.03154808, 0, 0.01940226, -12.045473, 1.2920191, 11.367308)
+
+[node name="Cube_158" parent="." index="17" unique_id=174542554]
+transform = Transform3D(0.01304681, 0, 0.046915986, 0, 0.0145236105, 0, -0.03154808, 0, 0.01940226, -15.001792, 1.2920191, 11.326509)
+
+[node name="Cube_159" parent="." index="18" unique_id=1051793483]
+transform = Transform3D(0.026615191, 0, 0.04484979, 0, 0.03665122, 0, -0.04484979, 0, 0.026615191, -15.524637, 1.2988429, 11.311637)
+
+[node name="Cube_161" parent="." index="20" unique_id=1911069234]
+transform = Transform3D(0.5045353, 0, -0.6838817, 0, 0.849853, 0, 0.6838817, 0, 0.5045353, -11.542147, 1.3118864, 11.898065)
+
+[node name="Cube_162" parent="." index="21" unique_id=1983477083]
+transform = Transform3D(0.6384663, 0, 0.3881524, 0, 0.74719566, 0, -0.3881524, 0, 0.6384663, -11.140738, 1.3118864, 11.810841)
+
+[node name="Cube_163" parent="." index="22" unique_id=277552392]
+transform = Transform3D(-0.32425386, 0, -0.8245889, 0, 0.7928754, 0, 0.72354054, 0, -0.36953855, -11.250854, 1.3689389, 11.852967)
+
+[node name="Cube_164" parent="." index="23" unique_id=1511949927]
+transform = Transform3D(0.61776996, -0.15025191, 0.5399094, 0.048841186, 0.77047014, 0.2059024, -0.49459705, -0.111586705, 0.6946996, -11.734528, 1.3396348, 11.71692)
+
+[node name="Cube_165" parent="." index="24" unique_id=1213487114]
+transform = Transform3D(0, 0, -0.14709644, 0, 1.3144253, 0, 0.67534506, 0, 0, -16.115688, 1.6290722, 8.776749)
+
+[node name="Cube_166" parent="." index="25" unique_id=109323164]
+transform = Transform3D(0.33916113, 0, 0.12720151, 0, 1.3144253, 0, -0.58400404, 0, 0.07387245, 13.768364, 1.6682208, 7.9674015)
+
+[node name="Cube_177" parent="." index="28" unique_id=1996784341]
+transform = Transform3D(1.2645472, 0, 0, 0, 0.39831614, 0, 0, 0, 0.39831614, -14.507023, 3.904004, 11.828116)
+surface_material_override/0 = SubResource("StandardMaterial3D_lakbq")
+
+[node name="Cube_180" parent="." index="29" unique_id=1479691407]
+transform = Transform3D(0.029726822, 0, 0.024965, 0, 0.0145236105, 0, -0.016787408, 0, 0.044207547, -13.07485, 1.2920191, 11.7745285)
+
+[node name="Cube_184" parent="." index="30" unique_id=211816728]
+transform = Transform3D(0.051121294, 0, 0.08614555, 0, 0.111884415, 0, -0.08614555, 0, 0.051121294, -11.995825, 1.334647, 11.895254)
+
+[node name="Cube_186" parent="." index="31" unique_id=1604932606]
+transform = Transform3D(0.9981299, 0, 0.061128773, 0, 1, 0, -0.061128773, 0, 0.9981299, -11.342018, 1.3118864, 11.330139)
+
+[node name="Cube_190" parent="." index="35" unique_id=1067371072]
+transform = Transform3D(-1.4146191, 0, -0.27753776, 0, 0.09941457, 0, 0.82088053, 0, -0.4782794, -11.355904, 1.1921351, 2.1075053)
+
+[node name="Cylinder_001" parent="." index="37" unique_id=1706740189]
+transform = Transform3D(8.2578094e-10, -0.11320705, -0.0086338455, -0.013854303, -4.0592494e-09, -8.375273e-10, 4.1289047e-10, 0.09020831, -0.010835057, -13.341272, 1.2886782, 11.711439)
+
+[node name="Cylinder_004" parent="." index="38" unique_id=940052641]
+transform = Transform3D(1.6515617e-09, 0.08732311, 0.011049459, -0.013854303, 1.04097255e-08, 1.3171981e-09, 0, -0.11544717, 0.008357702, -13.215795, 1.2886782, 11.711439)
+
+[node name="Cylinder_056" parent="." index="39" unique_id=1349800848]
+transform = Transform3D(3.3031238e-09, 0.10510282, -0.009526289, -0.013854303, 2.5058467e-08, -2.2712443e-09, 0, 0.09953273, 0.010059402, -12.281369, 1.2886782, 11.328573)
+
+[node name="Cylinder_058" parent="." index="40" unique_id=617193895]
+transform = Transform3D(1.6515617e-09, 0.1057707, 0.009458333, -0.013854303, 9.663704e-09, 1.4292197e-09, 4.1289042e-10, -0.09882272, 0.010123325, -14.478198, 1.2886782, 11.969057)
+
+[node name="Cylinder_059" parent="." index="41" unique_id=1654936225]
+transform = Transform3D(0, 0.05781231, 0.012701385, -0.013854303, 0, 0, 0, -0.13270684, 0.005533222, -14.481294, 1.2886782, 11.907175)
+
+[node name="Cylinder_062" parent="." index="44" unique_id=1535423056]
+transform = Transform3D(0.0029453447, -0.10135923, 0.009442207, -0.01351082, -0.028356442, 0.00142607, 0.00085112033, -0.09937599, -0.0100375675, -14.500183, 1.318853, 11.919977)
+
+[node name="Cylinder_069" parent="." index="48" unique_id=864405384]
+transform = Transform3D(0, 0.074387215, -0.011884987, -0.013854303, -3.7007615e-09, -2.1218083e-10, -4.1289042e-10, 0.12417695, 0.007119607, -12.434404, 1.2908483, 11.291639)
+
+[node name="Osciloskop" parent="." index="84" unique_id=1731079647]
+transform = Transform3D(0.21249466, 0, 0.39628994, 0, 0.51870775, 0, -0.25484347, 0, 0.33043614, -12.182345, 1.8089086, 2.6835809)
+
+[node name="Room_blockout_002" parent="." index="86" unique_id=204038454]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.80250996, -0.5134933, -1.2092764)
