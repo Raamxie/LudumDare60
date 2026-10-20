@@ -20,7 +20,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 script = ExtResource("3_dufkl")
 MAXIMUM_ROTATION = 720.0
 STARTING_POSITION = -360.0
-GOAL_ROTATION = 90.0
+GOAL_ROTATION = 45.0
 MESH = NodePath("Valve")
 PIVOT_POINT = NodePath("Pivot_Point")
 
@@ -30,7 +30,9 @@ transform = Transform3D(0.16395283, 0, 0, 0, -7.1666055e-09, -0.16395283, 0, 0.1
 [node name="Pivot_Point" type="Node3D" parent="Model/Valve" index="1" unique_id=1281547893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18689883, 0)
 
-[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20205551, 0.38130814)
+[node name="AreaLight3D" parent="." index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0.615)
+area_range = 0.75
+area_size = Vector2(0.12258035, 0.14267331)
 
 [editable path="Model/Valve"]

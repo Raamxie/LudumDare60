@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://cp51s4202hmw7"]
+
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_gea6h"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="2_v7ja8"]
+
+[sub_resource type="Resource" id="Resource_gea6h"]
+script = ExtResource("1_gea6h")
+text = "Tape 3 - how fun!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_v7ja8"]
+script = ExtResource("1_gea6h")
+text = "So the process of restoring a broken down teleporter starts with releasing coolant into the portal frame"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_bncmp"]
+script = ExtResource("1_gea6h")
+text = "The valve should be on a wall near the colorful lights."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_fcjtg"]
+script = ExtResource("1_gea6h")
+text = "Did you know they were the winners of the Christmas Decorations Innovations? I personally didn't vote for them though."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_n32ga"]
+script = ExtResource("1_gea6h")
+text = "They were nice, but not as nice as the snowman drink maker! "
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_8d2ox"]
+script = ExtResource("1_gea6h")
+text = "Anyways, the if the valve is fully closed then you need to do 2 full spins and then further 45 degrees in the same direction."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_lr5b5"]
+script = ExtResource("1_gea6h")
+text = "If it was not fully closed, then just fully close it and follow instructions silly."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_l8e7e"]
+script = ExtResource("1_gea6h")
+text = "Also, did you know, that there was annual - I mean 500. cycle regular - hide and seek competition?"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_wvvbm"]
+script = ExtResource("1_gea6h")
+text = "The winner was hiding in the old destroyed cabinet in the portal room."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_njsxp"]
+script = ExtResource("1_gea6h")
+text = "We still don't understand how did noone look there."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("2_v7ja8")
+id = 3
+contents = Array[ExtResource("1_gea6h")]([SubResource("Resource_gea6h"), SubResource("Resource_v7ja8"), SubResource("Resource_bncmp"), SubResource("Resource_fcjtg"), SubResource("Resource_n32ga"), SubResource("Resource_8d2ox"), SubResource("Resource_lr5b5"), SubResource("Resource_l8e7e"), SubResource("Resource_wvvbm"), SubResource("Resource_njsxp")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

@@ -2,7 +2,8 @@ extends Node3D
 
 @export var TRANSITION_TIME: float = 0.3
 @onready var model: Node3D = $Model
-@onready var omni_light_3d: OmniLight3D = $OmniLight3D
+@onready var area_light_3d: AreaLight3D = $AreaLight3D
+
 
 @onready var interaction_camera: Camera3D = $InteractionCamera
 @onready var interaction_component: InteractionComponent = $InteractionComponent
@@ -41,13 +42,13 @@ func _on_interacted_object(interactor: Node) -> void:
 	TransitionTween.tween_property(interaction_camera, "global_transform", interaction_camera_transform, TRANSITION_TIME).set_trans(Tween.TRANS_SINE)
 	interaction_camera.make_current()
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	interaction_component.unfocus()
 	interaction_component.is_focusable = false
 	interacting_with.emit(model.get_child(0))
 	
 	interaction_component.set_ray_pickable(false)
-	omni_light_3d.visible = true
+	area_light_3d.visible = true
 	show_control_message()
 	
 	
@@ -71,7 +72,7 @@ func _on_return_interacted_object() -> void:
 	stopped_interacting_with.emit(model.get_child(0))
 	
 	interaction_component.set_ray_pickable(true)
-	omni_light_3d.visible = false
+	area_light_3d.visible = false
 	clear_control_message()
 	
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Subtitle_Atlas" format=3 uid="uid://xdc131fv87t0"]
+
+[ext_resource type="Script" uid="uid://c6gdh7fq07gth" path="res://resources/Subtitle_Atlas.gd" id="1_f4nv4"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="1_xatpp"]
+[ext_resource type="Resource" uid="uid://dtvdym7rbkf27" path="res://resources/Subtitles/Subtitle_1.tres" id="2_xatpp"]
+[ext_resource type="Resource" uid="uid://x4bs6xhcel8t" path="res://resources/Subtitles/Subtitle_2.tres" id="3_6p46i"]
+[ext_resource type="Resource" uid="uid://cp51s4202hmw7" path="res://resources/Subtitles/Subtitle_3.tres" id="4_cegul"]
+
+[resource]
+script = ExtResource("1_f4nv4")
+contents = Array[ExtResource("1_xatpp")]([ExtResource("2_xatpp"), ExtResource("3_6p46i"), ExtResource("4_cegul")])
+metadata/_custom_type_script = "uid://c6gdh7fq07gth"

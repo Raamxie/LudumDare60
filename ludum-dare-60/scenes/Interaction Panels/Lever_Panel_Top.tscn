@@ -32,7 +32,9 @@ SCENE_PARENT = NodePath(".")
 [node name="Lever" parent="Model/Lever_Panel" index="0" unique_id=1196848876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.202818e-05, 0.6563908, 0.07443255)
 
-[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99856555, 0.2842601)
+[node name="AreaLight3D" parent="." index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 0.66694516, 0.7451068, 0, -0.7451068, 0.66694516, 0, 1.0853108, 0.7203653)
+area_range = 0.738
+area_size = Vector2(0.4987378, 0.50481814)
 
 [editable path="Model/Lever_Panel"]

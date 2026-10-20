@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c7e8rtfnll21"]
 
 [ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_ciio0"]
-[ext_resource type="Script" uid="uid://dcqw14v4ilouk" path="res://scripts/items/screwdriver.gd" id="2_lgcaw"]
+[ext_resource type="Script" uid="uid://csep5whq3gvi0" path="res://scripts/items/Cassette.gd" id="2_lgcaw"]
 [ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_llm3b"]
 [ext_resource type="PackedScene" uid="uid://bmh3emgcta2c0" path="res://assets/models/Room/Cassette_player/Cassette_mesh.tscn" id="4_dhnh1"]
+[ext_resource type="FontFile" uid="uid://byic6btlfgio" path="res://assets/fonts/PFPixelscriptPro.woff" id="5_lgcaw"]
 
 [sub_resource type="Resource" id="Resource_g2els"]
 script = ExtResource("3_llm3b")
@@ -18,6 +19,9 @@ size = Vector3(0.47595412, 0.0560334, 0.2868096)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.7272186, 0.2821045, 0.42364502)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.27882662
+
 [node name="Cassette" unique_id=691295588 instance=ExtResource("1_ciio0")]
 script = ExtResource("2_lgcaw")
 data = SubResource("Resource_g2els")
@@ -28,14 +32,18 @@ shape = SubResource("BoxShape3D_lwror")
 
 [node name="Cassette" parent="." index="1" unique_id=268660835 instance=ExtResource("4_dhnh1")]
 
-[node name="Cassete_normal" parent="Cassette" index="0" unique_id=1263182678]
-surface_material_override/0 = null
-
 [node name="InteractionComponent" parent="." index="2" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
 meshes = [NodePath("../Cassette/Cassete_normal")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=411986006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002065897, -0.0099487305, -0.016860366)
 shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Label3D" type="Label3D" parent="." index="3" unique_id=1849697608]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.18181288, 0.022134662, -0.017542176)
+font = ExtResource("5_lgcaw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="4" unique_id=220540082]
+shape = SubResource("SphereShape3D_g4v7s")
 
 [editable path="Cassette"]

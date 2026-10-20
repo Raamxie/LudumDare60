@@ -33,10 +33,9 @@ INTERACTABLE_OBJECT = NodePath("../../..")
 SCENE_PARENT = NodePath("..")
 COLLISION_SHAPE = NodePath("../../../InteractionComponent/CollisionShape3D")
 
-[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93914294, 0.9986704)
-light_energy = 0.1
-omni_range = 2.0
-omni_attenuation = 0.25
+[node name="AreaLight3D" parent="." index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.248062, 1.650832)
+area_range = 1.5
+area_size = Vector2(1, 2.2543237)
 
 [editable path="Model/Hidingspot2"]

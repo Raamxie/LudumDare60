@@ -20,5 +20,8 @@ shape = SubResource("BoxShape3D_g4v7s")
 [node name="Hidingspot_door" parent="InteractableObject3/Model/Hidingspot2" parent_id_path=PackedInt32Array(2132515151, 247392362) index="1" unique_id=1161312962]
 MAX_ROTATION = 120.0
 
+[node name="AreaLight3D" parent="InteractableObject3" index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1653309, 1.5340695)
+
 [editable path="InteractableObject3"]
 [editable path="InteractableObject3/Model/Hidingspot2"]

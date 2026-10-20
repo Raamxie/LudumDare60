@@ -30,13 +30,13 @@ INTERACTABLE_OBJECT = NodePath("../../../..")
 SCENE_PARENT = NodePath("../..")
 COLLISION_SHAPE = NodePath("../../../../InteractionComponent/CollisionShape3D")
 
-[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33720627, 0.69504446)
-omni_range = 1.5
-
-[node name="AudioStreamPlayer3D" parent="." index="4" unique_id=1705005566]
+[node name="AudioStreamPlayer3D" parent="." index="3" unique_id=1705005566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14770561, 0.37215087, 0.20099068)
 stream = SubResource("AudioStream_0khg3")
+
+[node name="AreaLight3D" parent="." index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32391006, 1.0078743)
+area_size = Vector2(0.42339426, 0.7773031)
 
 [editable path="Model/Pressure_Panel"]
 [editable path="Model/Pressure_Panel/Screws/screw_1"]

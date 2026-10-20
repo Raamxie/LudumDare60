@@ -36,7 +36,6 @@ BUTTON_TYPE = "play"
 
 [node name="Label3D" parent="Model/Cassette_player" index="4" unique_id=1604864157]
 transform = Transform3D(0.8412161, 0, 0, 0, 0.78282285, 0, 0, 0, 1, 0.8749567, 0.06111923, 0.8750634)
-text = "15"
 
 [node name="StaticBody3D" parent="Model/Cassette_player" index="5" unique_id=756828378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78819215, 0, 0)
@@ -45,8 +44,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78819215, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19969624, -0.02578336, 0.76803064)
 shape = SubResource("BoxShape3D_hkbbh")
 
-[node name="OmniLight3D" parent="." index="3" unique_id=246220112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19839323, 2.0405087)
+[node name="AreaLight3D" parent="." index="4" unique_id=1604957350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.917264)
+area_range = 1.4
+area_size = Vector2(1, 0.4)
 
 [connection signal="interacting_with" from="." to="Model/Cassette_player" method="_on_interactable_object_interacting_with"]
 [connection signal="stopped_interacting_with" from="." to="Model/Cassette_player" method="_on_interactable_object_stopped_interacting_with"]

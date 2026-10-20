@@ -17,7 +17,6 @@ var collected_tapes: Dictionary
 var latest_id: int = 0
 var current_tape: int
 
-signal play_tape_id(id: int)
 
 func _ready() -> void:
 	
@@ -35,8 +34,7 @@ func button_pressed(button_type: String) -> void:
 	print("button: ", button_type)
 	match button_type:
 		"play":
-			play_tape_id.emit(current_tape)
-			subtitles.play_tape()
+			subtitles.play_tape(current_tape)
 		"previous":
 			current_tape = max(current_tape - 1, 0)
 			if latest_id != 0:
@@ -48,13 +46,19 @@ func button_pressed(button_type: String) -> void:
 
 func insert_tapes() -> void:
 	var sorted_items = player.key_items.duplicate()
-	sorted_items.sort_custom(func(a, b): return a.data.id < b.data.id)
+	sorted_items.sort_custom(func(a, b): return a.id < b.id)
 	
 	for item in sorted_items:
-		if item.data.display_name == "Cassette":
-			if item.data.id == latest_id + 1:
+		if item.display_name == "Cassette":
+			if int(item.id) == latest_id + 1:
 				latest_id += 1
-	
+				current_tape = latest_id
+				print("Added Cassette:", item.id)
+				update_label(str(latest_id))
+					
+
+func update_label(id: String) -> void:
+	player_label.text = id
 func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
 	if interacted_object == SCENE_PARENT:
 		is_selected = true

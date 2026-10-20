@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Subtitles" format=3 uid="uid://c47wxiuxfw5xb"]
+
+[ext_resource type="Script" uid="uid://cnd17qqqjxhr5" path="res://resources/Subtitle.gd" id="1_vw55o"]
+[ext_resource type="Script" uid="uid://p7jm27ayjkgj" path="res://resources/Subtites.gd" id="2_sksfc"]
+
+[sub_resource type="Resource" id="Resource_dd21h"]
+script = ExtResource("1_vw55o")
+text = "Hope you managed well with that valve!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_8ktr2"]
+script = ExtResource("1_vw55o")
+text = "Hope you didn't yank it too hard or it cold get torn off."
+typespeed = 20.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_6yysi"]
+script = ExtResource("1_vw55o")
+text = "Noone really takes care of that valve anymore."
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_j3tgv"]
+script = ExtResource("1_vw55o")
+text = "But I do care about YOU!"
+hold_time = 3.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_h6xx1"]
+script = ExtResource("1_vw55o")
+text = "And what you need in this situation is a goood friend :)"
+typespeed = 10.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_xyywn"]
+script = ExtResource("1_vw55o")
+text = "I am here for you anytime you need me!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_es2te"]
+script = ExtResource("1_vw55o")
+text = "You can replay this cassette at the cassette player, just pick the correct cassette and click play."
+hold_time = 5.0
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[sub_resource type="Resource" id="Resource_xrs2d"]
+script = ExtResource("1_vw55o")
+text = "Hope to see you again soon!"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
+[resource]
+script = ExtResource("2_sksfc")
+id = 4
+contents = Array[ExtResource("1_vw55o")]([SubResource("Resource_dd21h"), SubResource("Resource_8ktr2"), SubResource("Resource_6yysi"), SubResource("Resource_j3tgv"), SubResource("Resource_h6xx1"), SubResource("Resource_xyywn"), SubResource("Resource_es2te"), SubResource("Resource_xrs2d")])
+metadata/_custom_type_script = "uid://p7jm27ayjkgj"

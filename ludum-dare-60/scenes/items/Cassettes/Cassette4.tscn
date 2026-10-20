@@ -1,41 +1,18 @@
 [gd_scene format=3 uid="uid://4b4fu3pnvuut"]
 
-[ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_3lgob"]
-[ext_resource type="Script" uid="uid://dcqw14v4ilouk" path="res://scripts/items/screwdriver.gd" id="2_ce4hq"]
+[ext_resource type="PackedScene" uid="uid://c7e8rtfnll21" path="res://scenes/items/Cassettes/Cassette.tscn" id="1_ieago"]
+[ext_resource type="Script" uid="uid://csep5whq3gvi0" path="res://scripts/items/Cassette.gd" id="2_u1sa4"]
 [ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_8gh3m"]
-[ext_resource type="PackedScene" uid="uid://bmh3emgcta2c0" path="res://assets/models/Room/Cassette_player/Cassette_mesh.tscn" id="4_c4frp"]
 
-[sub_resource type="Resource" id="Resource_g2els"]
+[sub_resource type="Resource" id="Resource_5l7p5"]
 script = ExtResource("3_8gh3m")
 id = &"4"
 display_name = "Cassette"
 slot = 2
 metadata/_custom_type_script = "uid://bup1f701ht0xs"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lwror"]
-size = Vector3(0.47595412, 0.0560334, 0.2868096)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.7272186, 0.2821045, 0.42364502)
-
-[node name="Cassette" unique_id=691295588 instance=ExtResource("1_3lgob")]
-script = ExtResource("2_ce4hq")
-data = SubResource("Resource_g2els")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=749307555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018013865, 0, 0.0019222796)
-shape = SubResource("BoxShape3D_lwror")
-
-[node name="Cassette" parent="." index="1" unique_id=268660835 instance=ExtResource("4_c4frp")]
-
-[node name="Cassete_normal" parent="Cassette" index="0" unique_id=1263182678]
-surface_material_override/0 = null
-
-[node name="InteractionComponent" parent="." index="2" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
-meshes = [NodePath("../Cassette/Cassete_normal")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=411986006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002065897, -0.0099487305, -0.016860366)
-shape = SubResource("BoxShape3D_g4v7s")
+[node name="Cassette" unique_id=691295588 instance=ExtResource("1_ieago")]
+script = ExtResource("2_u1sa4")
+data = SubResource("Resource_5l7p5")
 
 [editable path="Cassette"]
