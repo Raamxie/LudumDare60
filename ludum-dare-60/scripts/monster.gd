@@ -112,13 +112,6 @@ func _leave() -> void:
 		presence_sfx.stop()
 	
 	_timer.start(idle_interval)
-
-
-func _fade_music(time := 0.4) -> void:
-	var bus := AudioServer.get_bus_index("Master")
-	var tw := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tw.tween_method(func(v: float) -> void:
-		AudioServer.set_bus_volume_db(bus, linear_to_db(v)), 1.0, 0.0, time)
 		
 		
 func _catch() -> void:

@@ -12,9 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://d361sy0nnpy2s" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
 [ext_resource type="AudioStream" uid="uid://8012igmnhxml" path="res://assets/audio/monster_breath.ogg" id="16_jscy8"]
 [ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
@@ -337,9 +336,11 @@ super_tense_time = Vector2(10, 10)
 
 [node name="Breathing" type="AudioStreamPlayer3D" parent="Room/Monster" unique_id=1356264149]
 stream = ExtResource("16_jscy8")
+bus = &"SFX"
 
 [node name="GameOver" type="AudioStreamPlayer3D" parent="Room/Monster" unique_id=1403814098]
 stream = ExtResource("17_pm3ni")
+bus = &"SFX"
 
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)

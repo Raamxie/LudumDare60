@@ -27,6 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if interaction_camera.current and (Input.is_action_pressed("return_interact")):
 		_on_return_interacted_object()
 
+
 func _on_interacted_object(interactor: Node) -> void:
 	print("on_interacted called")
 	main_camera = get_viewport().get_camera_3d()

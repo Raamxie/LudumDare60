@@ -15,10 +15,6 @@ const MONSTER_BREATH = preload("uid://8012igmnhxml")
 const UNSCREW = preload("uid://dibfkbscukejh")
 const WHEEL = preload("uid://bvsv6sqmbtqpe")
 const ESCAPE_PORTAL = preload("uid://c87eebnyvtst3")
-
-
-#func _ready() -> void:
-	#process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	
 func reset() -> void:

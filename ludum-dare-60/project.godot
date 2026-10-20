@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [audio]
 
-general/default_playback_type=1
+buses/default_bus_layout="uid://i72kyet26vwt"
+general/default_playback_type.web=0
 
 [autoload]
 

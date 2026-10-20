@@ -1,7 +1,6 @@
 extends Node3D
 
 
-const LEVEL := preload("res://assets/models/Room/Room_blockout.fbx")
 
 @onready var monster: Monster = %Monster
 @onready var screens: CanvasLayer = %Screens
@@ -70,7 +69,7 @@ func to_menu() -> void:
 	
 	
 func _on_pause_toggled() -> void:
-	if level == null or _ended:
+	if _ended:
 		return
 		
 	if get_tree().paused:
