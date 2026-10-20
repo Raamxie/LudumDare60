@@ -41,7 +41,7 @@ func _on_interacted_object(interactor: Node) -> void:
 	TransitionTween.tween_property(interaction_camera, "global_transform", interaction_camera_transform, TRANSITION_TIME).set_trans(Tween.TRANS_SINE)
 	interaction_camera.make_current()
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	interaction_component.unfocus()
 	interaction_component.is_focusable = false
 	interacting_with.emit(model.get_child(0))

@@ -34,6 +34,7 @@ func _ready() -> void:
 		FADE_BEATS
 	)
 	
+	bus = &"Music"
 	stream = _music
 	playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 

@@ -110,25 +110,32 @@ func _leave() -> void:
 	
 	if presence_sfx:
 		presence_sfx.stop()
-
-	#if _pending:
-		#_pending = false
-		#_start_anticipation()
-		#return
 	
 	_timer.start(idle_interval)
 
 
+func _fade_music(time := 0.4) -> void:
+	var bus := AudioServer.get_bus_index("Master")
+	var tw := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tw.tween_method(func(v: float) -> void:
+		AudioServer.set_bus_volume_db(bus, linear_to_db(v)), 1.0, 0.0, time)
+		
+		
 func _catch() -> void:
-	print("CAUGHT!!!")
 	_timer.stop()
-	set_process(false)
-	state = State.DISABLED
+	
+	var tween := create_tween()
+	
+	tween.tween_property(Music, "volume_db", -80.0, 0.3)
+	await  tween.finished
 	
 	if presence_sfx:
 		presence_sfx.stop()
-	if catch_sfx:
-		catch_sfx.play()
+	set_process(false)
+	state = State.DISABLED
+	
+	#if catch_sfx:
+		#catch_sfx.play()
 		
 	caught_player.emit()
 

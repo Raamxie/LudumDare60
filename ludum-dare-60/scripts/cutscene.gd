@@ -26,7 +26,7 @@ func play() -> void:
 	show()
 	
 	if hint:
-		hint.text = "LMB: continue" + ("  |  ESC: skip" if allow_skip else "")
+		hint.text = "[LMB] Continue" + ("\n[Q] Skip" if allow_skip else "")
 	
 	for page in pages:
 		story_text.text = page
@@ -50,16 +50,19 @@ func play() -> void:
 	finished.emit()
 
 
-func _input(e: InputEvent) -> void:
-	if not _playing or not (e is InputEventMouseButton and e.pressed):
+func _input(event: InputEvent) -> void:
+	if not _playing or not (event is InputEventMouseButton and event.pressed):
 		return
 		
-	match e.button_index:
+	match event.button_index:
 		MOUSE_BUTTON_LEFT:
 			_next.emit()
-		KEY_ESCAPE:
+	
+	get_viewport().set_input_as_handled()
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+		if Input.is_action_pressed("return_interact"):
 			if allow_skip:
 				_skipped = true
 				_next.emit()
-				
-	get_viewport().set_input_as_handled()

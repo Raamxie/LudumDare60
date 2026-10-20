@@ -26,7 +26,7 @@ func _ready() -> void:
 	#await screens.logo.play()
 	to_menu()
 	
-	
+
 func _unload_level() -> void:
 	if not level:
 		return
@@ -46,12 +46,12 @@ func start_game() -> void:
 	get_tree().paused = false
 	screens.hide_all()
 	screens.fade(Color.BLACK, 0.0)
-	await _unload_level()
+	#await _unload_level()
 	
 	Game.reset()
 	Music.set_music(chill_track)
-	level = LEVEL.instantiate()
-	add_child(level)
+	#level = LEVEL.instantiate()
+	#add_child(level)
 	_ended = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -61,10 +61,10 @@ func start_game() -> void:
 func to_menu() -> void:
 	_ended = true
 	get_tree().paused = false
-	await _unload_level()
+	#await _unload_level()
 	
 	Game.reset()
-	Music.set_music(chill_track)
+	Music.stop()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	screens.show_main_menu()
 	
@@ -92,7 +92,9 @@ func _on_caught() -> void:
 	if _ended: return
 	_ended = true
 	
-	await get_tree().create_timer(2).timeout
+	Game.play_at(Game.GAMEOVER, monster.global_position)
+	
+	#await get_tree().create_timer(2).timeout
 	await screens.fade(Color.BLACK, 0.5)
 	
 	get_tree().paused = true

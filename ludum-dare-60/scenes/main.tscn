@@ -15,10 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://o2ijm6dmngno" path="res://assets/models/Room/Room_blockout.fbx" id="15_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://8012igmnhxml" path="res://assets/audio/monster_breath.ogg" id="16_jscy8"]
 [ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="17_0ld40"]
 [ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="17_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="17_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="17_muem4"]
+[ext_resource type="AudioStream" uid="uid://c1qv4arqycxy7" path="res://assets/audio/gameover.ogg" id="17_pm3ni"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="18_dp3eg"]
 [ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="19_0ld40"]
 
@@ -97,7 +99,7 @@ shader_parameter/color_grad_strength = 0.1950000092625
 script = ExtResource("1_muem4")
 
 [node name="Player" parent="." unique_id=1630401320 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.253009, 1.4007373, 24.458319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3725867, 1.400737, 32.349827)
 AIR_CONTROL = 2.0
 
 [node name="Map" type="Node3D" parent="." unique_id=848868923]
@@ -307,12 +309,24 @@ transform = Transform3D(-0.0775426, -0.045685276, -1.9969666e-09, 2.5718504e-16,
 [node name="LED4" parent="Room/LED5" unique_id=1416525441 instance=ExtResource("13_trceg")]
 transform = Transform3D(0.07645383, -0.04748486, -2.0756288e-09, 1.2137576e-16, -3.934024e-09, 0.089999996, -0.04748486, -0.07645383, -3.3419025e-09, -16.940157, 1.507951, 33.952408)
 
-[node name="Monster" type="Node3D" parent="Room" unique_id=1335269822 node_paths=PackedStringArray("closet")]
+[node name="Monster" type="Node3D" parent="Room" unique_id=1335269822 node_paths=PackedStringArray("closet", "presence_sfx", "catch_sfx")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.257864, 1.5330868, 29.865458)
 script = ExtResource("17_dp3eg")
 closet = NodePath("../Closet")
+presence_sfx = NodePath("Breathing")
+catch_sfx = NodePath("GameOver")
 tense_track = 1
 supertense_track = 2
+idle_interval = 2
+tense_time = 2
+super_tense_time = Vector2(10, 10)
+
+[node name="Breathing" type="AudioStreamPlayer3D" parent="Room/Monster" unique_id=1356264149]
+stream = ExtResource("16_jscy8")
+
+[node name="GameOver" type="AudioStreamPlayer3D" parent="Room/Monster" unique_id=1403814098]
+stream = ExtResource("17_pm3ni")
 
 [node name="Closet" type="Area3D" parent="Room" unique_id=2022488984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
