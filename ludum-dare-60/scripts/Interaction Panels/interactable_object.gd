@@ -1,24 +1,24 @@
 extends Node3D
 
+
 @export var TRANSITION_TIME: float = 0.3
+@export var CONTROLS_MESSAGE: String = "[Q] Quit"
+
 @onready var model: Node3D = $Model
 @onready var area_light_3d: AreaLight3D = $AreaLight3D
-
 
 @onready var interaction_camera: Camera3D = $InteractionCamera
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
+
 var interaction_camera_transform
 var main_camera: Camera3D
-
 var TransitionTween: Tween
-
 
 signal interacting_with(interacted_object: Node3D)
 signal stopped_interacting_with(interacted_object: Node3D)
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 	interaction_camera_transform = interaction_camera.global_transform
@@ -93,7 +93,7 @@ func clear_message():
 	
 	
 func show_control_message():
-	Messenger.show_control_message.emit("[ESC] Quit")
+	Messenger.show_control_message.emit(CONTROLS_MESSAGE)
 
 
 func clear_control_message():
