@@ -36,7 +36,7 @@ func button_pressed(button_type: String) -> void:
 		"play":
 			subtitles.play_tape(current_tape)
 		"previous":
-			current_tape = max(current_tape - 1, 0)
+			current_tape = max(current_tape - 1, 1)
 			if latest_id != 0:
 				player_label.text = str(current_tape)
 		"next":
