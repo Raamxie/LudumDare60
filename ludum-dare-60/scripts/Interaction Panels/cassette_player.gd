@@ -45,15 +45,19 @@ func button_pressed(button_type: String) -> void:
 				player_label.text = str(current_tape)
 
 func insert_tapes() -> void:
-	var sorted_items = player.key_items.duplicate()
-	sorted_items.sort_custom(func(a, b): return a.id < b.id)
+	var sorted_items: Array = player.key_items.duplicate()
+	
+	sorted_items.sort_custom(func(a: ItemData, b: ItemData) -> bool:
+		return String(a.id).naturalnocasecmp_to(String(b.id)) < 0
+	)
 	
 	for item in sorted_items:
 		if item.display_name == "Cassette":
-			if int(item.id) == latest_id + 1:
+			var tape_id := String(item.id).to_int()
+			if tape_id == latest_id + 1:
 				latest_id += 1
 				current_tape = latest_id
-				print("Added Cassette:", item.id)
+				print("Added Cassette: ", item.id)
 				update_label(str(latest_id))
 					
 
