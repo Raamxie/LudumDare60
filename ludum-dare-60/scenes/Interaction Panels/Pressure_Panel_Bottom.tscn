@@ -22,13 +22,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3535123, 0.684385)
 
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_d1f0s")]
 
-[node name="StaticBody3D" parent="Model/Pressure_Panel/Pressure_Panel_Doors" parent_id_path=PackedInt32Array(1178809638, 2083644783) index="0" unique_id=160194826 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT", "COLLISION_SHAPE")]
+[node name="StaticBody3D" parent="Model/Pressure_Panel/Pressure_Panel_Doors" parent_id_path=PackedInt32Array(1178809638, 2083644783) index="0" unique_id=160194826 node_paths=PackedStringArray("PIVOT_POINT", "MESH", "INTERACTABLE_OBJECT", "SCENE_PARENT", "COLLISION_SHAPE", "audio_stream_player_3d")]
 MAX_ROTATION = 120.0
 PIVOT_POINT = NodePath("../../PivotPoint")
 MESH = NodePath("..")
 INTERACTABLE_OBJECT = NodePath("../../../..")
 SCENE_PARENT = NodePath("../..")
 COLLISION_SHAPE = NodePath("../../../../InteractionComponent/CollisionShape3D")
+audio_stream_player_3d = NodePath("../../../../AudioStreamPlayer3D")
 
 [node name="AudioStreamPlayer3D" parent="." index="3" unique_id=1705005566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14770561, 0.37215087, 0.20099068)

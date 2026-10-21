@@ -9,7 +9,7 @@ size = Vector3(0.29864502, 0.1003418, 0.29663086)
 [sub_resource type="BoxMesh" id="BoxMesh_jwevl"]
 size = Vector3(0.29034424, 0.0627594, 0.29083252)
 
-[node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_41oww")]
+[node name="Pressure_Panel_Top" unique_id=2132515151 instance=ExtResource("1_41oww")]
 
 [node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
 meshes = [NodePath("../Model/Pressure_Panel/Pressure_Panel_Top"), NodePath("../Model/Pressure_Panel/Pressure_Panel_Screen"), NodePath("../Model/Pressure_Panel/Dial_Right"), NodePath("../Model/Pressure_Panel/Dial_Left")]

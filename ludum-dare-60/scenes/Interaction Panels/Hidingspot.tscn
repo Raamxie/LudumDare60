@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://byxoa35hy1xmj" path="res://scripts/Interaction Panel Components/Door.gd" id="3_n5hy1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.78671455, 2.068039, 0.045684814)
+size = Vector3(0.78671455, 2.068039, 0.10585022)
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_nn6b7")]
 TRANSITION_TIME = 0.1
@@ -14,7 +14,7 @@ TRANSITION_TIME = 0.1
 meshes = [NodePath("../Model/Hidingspot2/Hidingspot_door")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=913333225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06179142, 0.9342191, 0.4913783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06179142, 0.9342191, 0.521461)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="InteractionCamera" parent="." index="1" unique_id=869435617]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct34eimy0tqx1" path="res://scenes/Interaction Panels/Hidingspot.tscn" id="2_cyo3h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.7781821, 2.1378236, 0.72397995)
+size = Vector3(0.7781821, 2.1378236, 0.6032009)
 
 [node name="Closet" type="Area3D" unique_id=1654253550]
 collision_mask = 3
@@ -12,7 +12,7 @@ script = ExtResource("1_2nu1c")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
 
 [node name="InsideTrigger" type="CollisionShape3D" parent="." unique_id=595137711]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05924931, 0.9695653, 0.10655826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05924931, 0.9695653, 0.046168745)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="InteractableObject3" parent="." unique_id=2132515151 instance=ExtResource("2_cyo3h")]
