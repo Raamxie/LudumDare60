@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://g0q447400fx4" path="res://scenes/items/interactable_item.tscn" id="1_7qwfo"]
 [ext_resource type="Script" uid="uid://c7a5e8einmfue" path="res://scripts/items/flashlight.gd" id="2_7qwfo"]
 [ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_2d5re"]
+[ext_resource type="PackedScene" uid="uid://wviwg7hkxhig" path="res://assets/models/Room/flashlight.tscn" id="4_87cjg"]
 
 [sub_resource type="Resource" id="Resource_7qwfo"]
 script = ExtResource("3_2d5re")
@@ -13,21 +14,21 @@ metadata/_custom_type_script = "uid://bup1f701ht0xs"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
-radius = 0.1
-height = 0.2
+[sub_resource type="BoxShape3D" id="BoxShape3D_87cjg"]
+size = Vector3(0.07588501, 0.2520508, 0.1604126)
 
 [node name="Flashlight" unique_id=691295588 instance=ExtResource("1_7qwfo")]
 script = ExtResource("2_7qwfo")
 data = SubResource("Resource_7qwfo")
 
 [node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
-meshes = [NodePath("../MeshInstance3D")]
+meshes = [NodePath("../Flashlight/Cube_022"), NodePath("../Flashlight/Cylinder_003"), NodePath("../Flashlight/Cylinder_057")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent" index="0" unique_id=479496426]
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1" unique_id=1387480554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0428562, -0.13578568)
 light_color = Color(1, 0.9303333, 0.78, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -35,8 +36,10 @@ spot_range = 20.0
 spot_attenuation = 2.0
 spot_angle = 25.0
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=891155389]
-shape = SubResource("SphereShape3D_g4v7s")
+[node name="Flashlight" parent="." index="2" unique_id=822317831 instance=ExtResource("4_87cjg")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=2132240319]
-mesh = SubResource("SphereMesh_g4v7s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3" unique_id=115079407]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.013003539, 0.062245853, -0.015003253)
+shape = SubResource("BoxShape3D_87cjg")
+
+[editable path="Flashlight"]
