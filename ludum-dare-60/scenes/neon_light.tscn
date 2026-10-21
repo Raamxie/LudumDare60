@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bu0uutxih3on6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yta21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4j6x"]
+emission_enabled = true
+emission = Color(0.45425892, 0.7017937, 0.8131284, 1)
+emission_energy_multiplier = 3.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j4j6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33p2j"]
+albedo_color = Color(0.87297064, 0.9184894, 0.9059444, 1)
+refraction_scale = 1.0
+
+[node name="NeonLight" type="AreaLight3D" unique_id=1117089152]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.64630365, 0.6895065, 0.90197897, 1)
+light_energy = 0.725
+area_range = 10.469
+area_attenuation = 1.423
+area_size = Vector2(4.56, 0.79)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1707224196]
+transform = Transform3D(2.1922202, 0, 0, 0, 1.3113412e-07, 0.0189447, 0, -0.9999998, 2.4842974e-09, 0, 0, 0.09752655)
+mesh = SubResource("PlaneMesh_yta21")
+surface_material_override/0 = SubResource("StandardMaterial3D_j4j6x")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=352326308]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742279e-08, 0, 8.742279e-08, -1, 0, -6.866455e-05, 0.01607418)
+light_color = Color(0.68235296, 0.81960785, 1, 1)
+light_energy = 0.345
+area_range = 8.572
+area_attenuation = 1.926
+area_size = Vector2(4.56, 0.039222717)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1836969346]
+transform = Transform3D(2.2903528, 0, 0, 0, -5.4639255e-08, 0.16738006, 0, -1.2500001, -7.316417e-09, 0, -0.010789871, 0.11426926)
+mesh = SubResource("PlaneMesh_j4j6x")
+surface_material_override/0 = SubResource("StandardMaterial3D_33p2j")

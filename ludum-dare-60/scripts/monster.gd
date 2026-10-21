@@ -20,7 +20,6 @@ enum State { IDLE, ANTICIPATION, IN_ROOM, DISABLED }
 @export_range(0.01, 4.0, 0.01) var tense_pitch := 1.11
 @export_range(0.01, 4.0, 0.01) var super_tense_pitch := 1.26
 
-
 @export_group("Timing")
 @export var idle_interval := 180
 @export var tense_time := 55

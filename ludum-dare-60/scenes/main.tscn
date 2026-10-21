@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://7ft6bwtny115"]
+
+[ext_resource type="Script" uid="uid://wfq5mpbiou7i" path="res://scripts/main.gd" id="1_jscy8"]
+[ext_resource type="PackedScene" uid="uid://bxbc5sp54a44f" path="res://scenes/player.tscn" id="2_pm3ni"]
+[ext_resource type="Script" uid="uid://dhwbweg4ythdj" path="res://scripts/monster.gd" id="3_y6deb"]
+[ext_resource type="AudioStream" uid="uid://8012igmnhxml" path="res://assets/audio/monster_breath.ogg" id="4_og1vs"]
+[ext_resource type="AudioStream" uid="uid://c1qv4arqycxy7" path="res://assets/audio/gameover.ogg" id="5_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://cvsgq0oobo28b" path="res://assets/models/Room/Room.tscn" id="6_vxglm"]
+[ext_resource type="Texture2D" uid="uid://bovt6dxvfuuxj" path="res://addons/godot-prototype-texture/PNG/checker_512x512/checker_blue_512x512.png" id="7_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://00d082wm22h" path="res://scenes/items/screwdriver.tscn" id="8_yq6so"]
+[ext_resource type="PackedScene" uid="uid://bu0uutxih3on6" path="res://scenes/neon_light.tscn" id="9_fv21b"]
+[ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="10_tel4y"]
+[ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="11_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="12_5q0nq"]
+[ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dgi5k"]
+[ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_j8jky"]
+[ext_resource type="PackedScene" uid="uid://cok72dn724csj" path="res://assets/models/Room/Portal.glb" id="15_kmb1v"]
+[ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="16_fuf3a"]
+[ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="17_pibwh"]
+[ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="18_c6pm6"]
+[ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="19_5he1u"]
+[ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="20_5poiv"]
+[ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="21_2cjbq"]
+[ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="22_chjal"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
+shader = ExtResource("22_chjal")
+shader_parameter/effect_strength = 0.5610000266475
+shader_parameter/gamma_adjust = 1.2770000131575
+shader_parameter/desired_screen_width = 1024.0
+shader_parameter/dither_strength = 0.00400000019
+shader_parameter/posterize_luma_levels = 7.3630003022425
+shader_parameter/color_grad_shadows = Color(0, 0.25231484, 0.24134201, 1)
+shader_parameter/color_grad_midtones = Color(0.58395725, 0.0047941115, 1.92523e-07, 1)
+shader_parameter/color_grad_lights = Color(0.9709098, 0.95965904, 0.9087334, 1)
+shader_parameter/color_grad_midpoint = 0.25
+shader_parameter/color_grad_strength = 0.1950000092625
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_texture = ExtResource("7_2f3dj")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(1, 1, 1.27594)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
+
+[sub_resource type="Sky" id="Sky_jscy8"]
+sky_material = SubResource("ProceduralSkyMaterial_57qmd")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_jscy8")
+ambient_light_source = 2
+ambient_light_color = Color(0.10169128, 0.11172085, 0.091659956, 1)
+ambient_light_energy = 0.51
+tonemap_mode = 3
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.63
+glow_bloom = 0.07
+fog_enabled = true
+fog_light_color = Color(0.38796708, 0.4915818, 0.43176797, 1)
+fog_light_energy = 0.3
+fog_density = 0.005
+adjustment_enabled = true
+
+[node name="Main" type="Node3D" unique_id=628576902]
+script = ExtResource("1_jscy8")
+
+[node name="Screens" parent="." unique_id=752877598 instance=ExtResource("20_5poiv")]
+unique_name_in_owner = true
+
+[node name="DitheringPostprocess" type="CanvasLayer" parent="." unique_id=2026261825]
+
+[node name="TextureRect" type="TextureRect" parent="DitheringPostprocess" unique_id=144202504]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_2cjbq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="DitheringPostprocess" unique_id=987758756]
+material = SubResource("ShaderMaterial_yta21")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Level" type="Node3D" parent="." unique_id=848868923]
+
+[node name="Player" parent="Level" unique_id=1630401320 instance=ExtResource("2_pm3ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.291516, 1.400737, 32.054466)
+AIR_CONTROL = 2.0
+
+[node name="Monster" type="Node3D" parent="Level" unique_id=1335269822 node_paths=PackedStringArray("closet", "presence_sfx", "catch_sfx")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2578645, 1.5330868, 29.865458)
+script = ExtResource("3_y6deb")
+closet = NodePath("../Map/Objects/Closet")
+presence_sfx = NodePath("Breathing")
+catch_sfx = NodePath("GameOver")
+tense_track = 1
+supertense_track = 2
+tense_time = 60
+super_tense_time = Vector2(10, 10)
+
+[node name="Breathing" type="AudioStreamPlayer3D" parent="Level/Monster" unique_id=1356264149]
+stream = ExtResource("4_og1vs")
+bus = &"SFX"
+
+[node name="GameOver" type="AudioStreamPlayer3D" parent="Level/Monster" unique_id=1403814098]
+stream = ExtResource("5_2wyq8")
+bus = &"SFX"
+
+[node name="Map" type="Node3D" parent="Level" unique_id=1334907514]
+
+[node name="Room" parent="Level/Map" unique_id=925485642 instance=ExtResource("6_vxglm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.354362, 0.16493583, 25.756756)
+
+[node name="Floor" type="CSGBox3D" parent="Level/Map" unique_id=1394501222]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_85g3d")
+use_collision = true
+
+[node name="Ceiling" type="MeshInstance3D" parent="Level/Map" unique_id=745919226]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="Lights" type="Node3D" parent="Level/Map" unique_id=1856783885]
+
+[node name="NeonLight" parent="Level/Map/Lights" unique_id=1117089152 instance=ExtResource("9_fv21b")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.514464, 18.930346)
+light_energy = 3.0
+area_attenuation = 2.0
+
+[node name="NeonLight2" parent="Level/Map/Lights" unique_id=1664866988 instance=ExtResource("9_fv21b")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.514464, 23.441584)
+
+[node name="RoomAmbience" type="AreaLight3D" parent="Level/Map/Lights" unique_id=150791411]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.4616485, 28.751524)
+light_color = Color(0.62528825, 0.7377513, 0.6054448, 1)
+light_energy = 0.123
+area_range = 61.868
+area_size = Vector2(34.745, 6.123)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Map/Lights" unique_id=179669134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.37881, 4.0188417, 29.049616)
+light_color = Color(0.6974831, 0.78235775, 0.64224386, 1)
+light_energy = 0.04
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Level/Map/Lights" unique_id=832820623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.065207, 3.960312, 36.46405)
+light_color = Color(0.6974831, 0.78235775, 0.64224386, 1)
+light_energy = 0.05
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Level/Map/Lights" unique_id=478704919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.578074, 2.7146688, 29.484127)
+light_color = Color(0.689141, 0.14503077, 0.20330268, 1)
+light_energy = 0.11
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Level/Map/Lights" unique_id=2005140608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.096037, 4.018842, 30.980373)
+light_color = Color(0.53271604, 0.6225825, 0.53133196, 1)
+light_energy = 0.05
+shadow_enabled = true
+
+[node name="LED5" parent="Level/Map/Lights" unique_id=1678000600 instance=ExtResource("10_tel4y")]
+transform = Transform3D(-0.0775426, -0.045685276, -1.9969666e-09, 2.5718504e-16, -3.9340238e-09, 0.08999999, -0.045685276, 0.0775426, 3.3894936e-09, 3.7850103, 3.1682844, 26.853601)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Level/Map/Lights/LED5" unique_id=1346069576]
+transform = Transform3D(1, -5.888814e-29, -7.673861e-15, 0, 1, -7.673861e-15, 7.673861e-15, 7.673861e-15, 1, 0.0100667775, 0.6131076, -0.0022468567)
+light_color = Color(0.8910897, 0.24461353, 0.29395986, 1)
+light_energy = 0.28
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 5.13
+
+[node name="LED6" parent="Level/Map/Lights" unique_id=52842329 instance=ExtResource("10_tel4y")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -7.5415792, 3.8340187, 30.884752)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Level/Map/Lights/LED6" unique_id=1625178059]
+transform = Transform3D(1, -5.888814e-29, -7.673861e-15, 0, 1, -7.673861e-15, 7.673861e-15, 7.673861e-15, 1, 0.0100667775, 0.6131076, -0.0022468567)
+light_color = Color(0.8910897, 0.24461353, 0.29395986, 1)
+light_energy = 0.4
+light_indirect_energy = 1.317
+light_volumetric_fog_energy = 7.287
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 5.13
+
+[node name="LED" parent="Level/Map/Lights" unique_id=999909546 instance=ExtResource("11_qkpxi")]
+transform = Transform3D(0.13273798, -0.08933437, -3.9049297e-09, 0, -6.9938224e-09, 0.16, -0.08933437, -0.13273798, -5.802162e-09, -17.261343, 1.4278567, 33.552124)
+
+[node name="LED2" parent="Level/Map/Lights" unique_id=2069286240 instance=ExtResource("10_tel4y")]
+transform = Transform3D(0.09613881, -0.07181454, -3.139113e-09, 0, -5.2453664e-09, 0.12, -0.07181454, -0.09613881, -4.202361e-09, -17.272165, 2.9143872, 33.52382)
+
+[node name="LED3" parent="Level/Map/Lights" unique_id=493128478 instance=ExtResource("12_5q0nq")]
+transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-09, 0.135, -0.08115144, -0.10788626, -4.715858e-09, -17.284216, 2.4171114, 33.539165)
+
+[node name="LED4" parent="Level/Map/Lights" unique_id=14138887 instance=ExtResource("12_5q0nq")]
+transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-09, 0.135, -0.08115144, -0.10788626, -4.715858e-09, -17.284216, 1.9280307, 33.539165)
+
+[node name="Objects" type="Node3D" parent="Level/Map" unique_id=2100674420]
+
+[node name="Teleporter" type="Node3D" parent="Level/Map/Objects" unique_id=467839182 node_paths=PackedStringArray("music_player", "glow_light")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
+script = ExtResource("13_dgi5k")
+required_parts = Array[int]([])
+music_player = NodePath("AudioStreamPlayer3D")
+glow_light = NodePath("OmniLight3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Map/Objects/Teleporter" unique_id=598173444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86566544)
+stream = ExtResource("14_j8jky")
+attenuation_model = 2
+volume_db = -31.472
+max_db = -6.304
+max_distance = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level/Map/Objects/Teleporter" unique_id=301854724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23958015, 0, -1.0116234)
+light_color = Color(0.57, 0.78499997, 1, 1)
+shadow_enabled = true
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Portal" parent="Level/Map/Objects/Teleporter" unique_id=908982504 instance=ExtResource("15_kmb1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96854067, -2.1689782, 3.0519638)
+
+[node name="Closet" type="Area3D" parent="Level/Map/Objects" unique_id=2022488984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
+script = ExtResource("16_fuf3a")
+metadata/_custom_type_script = "uid://dw12e73riyac2"
+
+[node name="InteractableObject" parent="Level/Map/Objects" unique_id=2132515151 instance=ExtResource("17_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43255, 1.654463, 25.332808)
+
+[node name="InteractableObject2" parent="Level/Map/Objects" unique_id=1424960454 instance=ExtResource("18_c6pm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.948349, 1.3636677, 23.596462)
+
+[node name="Items" type="Node3D" parent="Level/Map" unique_id=883708986]
+
+[node name="Flashlight" parent="Level/Map/Items" unique_id=1798987676 instance=ExtResource("19_5he1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
+
+[node name="Screwdriver" parent="Level/Map/Items" unique_id=691295588 instance=ExtResource("8_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3258047, 1.0647001, 25.384727)
+
+[node name="Environment" type="Node3D" parent="." unique_id=1367489528]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=611473376]
+environment = SubResource("Environment_g4v7s")
