@@ -9,6 +9,7 @@ extends RigidBody3D
 
 func _on_interacted(interactor: Node) -> void:
 	interactor.pick_up(self)
+	on_picked_up()
 
 
 func on_picked_up() -> void:
