@@ -7,7 +7,6 @@
 
 [node name="Teleporter" type="Node3D" unique_id=1497171574 node_paths=PackedStringArray("music_player", "glow_light", "complete_sfx")]
 script = ExtResource("1_hylqy")
-required_parts = Array[int]([])
 music_player = NodePath("RadioSong")
 glow_light = NodePath("OmniLight3D")
 complete_sfx = NodePath("RepairSfx")

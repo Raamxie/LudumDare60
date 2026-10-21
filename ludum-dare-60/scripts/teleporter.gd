@@ -4,7 +4,7 @@ extends Node3D
 
 signal completed
 
-@export var required_parts: Array = Game.Part.keys()
+@export var required_parts: Array
 @export var music_player: AudioStreamPlayer3D
 @export var ambient_vfx: GPUParticles3D
 @export var completion_vfx: GPUParticles3D
@@ -22,6 +22,7 @@ var _fx_tween: Tween
 
 
 func _ready() -> void:
+	required_parts = Game.Part.keys()
 	Messenger.teleporter_part_finished.connect(repair_part)
 	
 	if completion_vfx:
