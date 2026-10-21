@@ -25,6 +25,8 @@ input_ray_pickable = false
 script = ExtResource("1_3vyb7")
 WALK_SPEED = 3.0
 SPRINT_SPEED = 5.0
+CAMERA_X_ANGLE_MIN = -80
+CAMERA_X_ANGLE_MAX = 80
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1602331488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
