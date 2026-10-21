@@ -297,3 +297,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5220895, 0.7576483, 21.904
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=611473376]
 environment = SubResource("Environment_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1665167354]
+visible = false
