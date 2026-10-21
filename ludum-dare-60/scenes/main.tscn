@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cmndv4p8c072d" path="res://scenes/items/Cassettes/Cassette3.tscn" id="28_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://4b4fu3pnvuut" path="res://scenes/items/Cassettes/Cassette4.tscn" id="29_j8jky"]
 [ext_resource type="PackedScene" uid="uid://b3kwtx0upjn2c" path="res://scenes/items/Cassettes/Cassette5.tscn" id="30_kmb1v"]
+[ext_resource type="Material" uid="uid://dcs4pqev62io0" path="res://resources/skybox.tres" id="33_5q0nq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
 shader = ExtResource("22_chjal")
@@ -49,10 +50,8 @@ shader_parameter/color_grad_strength = 0.1950000092625
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(1, 1, 1.27594)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
-
 [sub_resource type="Sky" id="Sky_jscy8"]
-sky_material = SubResource("ProceduralSkyMaterial_57qmd")
+sky_material = ExtResource("33_5q0nq")
 
 [sub_resource type="Environment" id="Environment_g4v7s"]
 background_mode = 2
@@ -68,6 +67,7 @@ fog_enabled = true
 fog_light_color = Color(0.38796708, 0.4915818, 0.43176797, 1)
 fog_light_energy = 0.3
 fog_density = 0.005
+fog_sky_affect = 0.0
 adjustment_enabled = true
 
 [node name="Main" type="Node3D" unique_id=628576902]
