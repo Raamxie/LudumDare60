@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://8012igmnhxml" path="res://assets/audio/monster_breath.ogg" id="4_og1vs"]
 [ext_resource type="AudioStream" uid="uid://c1qv4arqycxy7" path="res://assets/audio/gameover.ogg" id="5_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://cvsgq0oobo28b" path="res://assets/models/Room/Room.tscn" id="6_vxglm"]
-[ext_resource type="Texture2D" uid="uid://bovt6dxvfuuxj" path="res://addons/godot-prototype-texture/PNG/checker_512x512/checker_blue_512x512.png" id="7_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://00d082wm22h" path="res://scenes/items/screwdriver.tscn" id="8_yq6so"]
 [ext_resource type="PackedScene" uid="uid://bu0uutxih3on6" path="res://scenes/neon_light.tscn" id="9_fv21b"]
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="10_tel4y"]
@@ -35,11 +34,6 @@ shader_parameter/color_grad_midtones = Color(0.58395725, 0.0047941115, 1.92523e-
 shader_parameter/color_grad_lights = Color(0.9709098, 0.95965904, 0.9087334, 1)
 shader_parameter/color_grad_midpoint = 0.25
 shader_parameter/color_grad_strength = 0.1950000092625
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
-albedo_texture = ExtResource("7_2f3dj")
-uv1_triplanar = true
-uv1_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(1, 1, 1.27594)
@@ -126,24 +120,23 @@ bus = &"SFX"
 [node name="Room" parent="Level/Map" unique_id=925485642 instance=ExtResource("6_vxglm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.354362, 0.16493583, 25.756756)
 
-[node name="Floor" type="CSGBox3D" parent="Level/Map" unique_id=1394501222]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_85g3d")
-use_collision = true
-
 [node name="Ceiling" type="MeshInstance3D" parent="Level/Map" unique_id=745919226]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 30, -7.3647604, 5.1588564, 26.589668)
+transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 18, -8.309672, 5.1030197, 27.718914)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="Floor" type="MeshInstance3D" parent="Level/Map" unique_id=1767383924]
+transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 16, -8.246513, -0.12744159, 27.841473)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Lights" type="Node3D" parent="Level/Map" unique_id=1856783885]
 
 [node name="NeonLight" parent="Level/Map/Lights" unique_id=1117089152 instance=ExtResource("9_fv21b")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.514464, 18.930346)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.3526797, 18.930346)
 light_energy = 3.0
 area_attenuation = 2.0
 
 [node name="NeonLight2" parent="Level/Map/Lights" unique_id=1664866988 instance=ExtResource("9_fv21b")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.514464, 23.441584)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.3526797, 23.441584)
 
 [node name="RoomAmbience" type="AreaLight3D" parent="Level/Map/Lights" unique_id=150791411]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.4616485, 28.751524)
