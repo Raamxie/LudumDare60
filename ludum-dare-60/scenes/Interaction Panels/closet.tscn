@@ -4,21 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://ct34eimy0tqx1" path="res://scenes/Interaction Panels/Hidingspot.tscn" id="2_cyo3h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.7781821, 2.0608034, 0.059005737)
+size = Vector3(0.7781821, 2.1378236, 0.72397995)
 
 [node name="Closet" type="Area3D" unique_id=1654253550]
 collision_mask = 3
 script = ExtResource("1_2nu1c")
 metadata/_custom_type_script = "uid://dw12e73riyac2"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=595137711]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05924931, 0.9310552, 0.5040872)
+[node name="InsideTrigger" type="CollisionShape3D" parent="." unique_id=595137711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05924931, 0.9695653, 0.10655826)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="InteractableObject3" parent="." unique_id=2132515151 instance=ExtResource("2_cyo3h")]
 
-[node name="Hidingspot_door" parent="InteractableObject3/Model/Hidingspot2" parent_id_path=PackedInt32Array(2132515151, 247392362) index="1" unique_id=1161312962]
+[node name="Hidingspot_door" parent="InteractableObject3/Model/Hidingspot2" parent_id_path=PackedInt32Array(2132515151, 247392362) index="1" unique_id=1161312962 node_paths=PackedStringArray("audio_stream_player_3d")]
 MAX_ROTATION = 120.0
+audio_stream_player_3d = NodePath("../../../AudioStreamPlayer3D")
 
 [node name="AreaLight3D" parent="InteractableObject3" index="4" unique_id=1604957350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1653309, 1.5340695)

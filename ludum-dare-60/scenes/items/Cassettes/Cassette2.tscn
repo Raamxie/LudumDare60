@@ -10,7 +10,13 @@ display_name = "Cassette"
 slot = 2
 metadata/_custom_type_script = "uid://bup1f701ht0xs"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cqcy"]
+albedo_color = Color(0.7921569, 0.7647059, 0.14117648, 1)
+
 [node name="Cassette" unique_id=691295588 instance=ExtResource("1_x2neu")]
 data = SubResource("Resource_7cqcy")
+
+[node name="Cassete_normal" parent="Cassette" parent_id_path=PackedInt32Array(268660835) index="0" unique_id=1263182678]
+surface_material_override/0 = SubResource("StandardMaterial3D_7cqcy")
 
 [editable path="Cassette"]

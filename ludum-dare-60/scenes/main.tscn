@@ -12,13 +12,26 @@
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="11_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="12_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://cyikjy71qsmhj" path="res://scenes/Interaction Panels/teleporter.tscn" id="14_0ld40"]
-[ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="16_fuf3a"]
+[ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="16_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="17_pibwh"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="18_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://diixd6fgdph0i" path="res://scenes/items/flashlight.tscn" id="19_5he1u"]
+[ext_resource type="PackedScene" uid="uid://b5ttrasay7pds" path="res://scenes/Interaction Panels/Cassette_Player.tscn" id="19_y6deb"]
 [ext_resource type="PackedScene" uid="uid://didl6fht0detw" path="res://scenes/screens.tscn" id="20_5poiv"]
 [ext_resource type="Texture2D" uid="uid://dx78g22s307a7" path="res://assets/models/Room/screenshot_test.png" id="21_2cjbq"]
+[ext_resource type="PackedScene" uid="uid://bmti7e7lh5h44" path="res://scenes/Interaction Panels/closet.tscn" id="21_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://b5w5gk1wn1gyl" path="res://assets/models/Room/lever_panel_bottom.tscn" id="22_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://cl8edowc3n1ho" path="res://scenes/Interaction Panels/Lever_Panel_Top.tscn" id="22_5q0nq"]
 [ext_resource type="Shader" uid="uid://cdibes14kqn3k" path="res://scenes/Postprocess.gdshader" id="22_chjal"]
+[ext_resource type="PackedScene" uid="uid://bsmc3j5jwc0um" path="res://assets/models/Room/control_panel.tscn" id="22_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://c7e8rtfnll21" path="res://scenes/items/Cassettes/Cassette.tscn" id="24_og1vs"]
+[ext_resource type="PackedScene" uid="uid://ch0u76x48uc5o" path="res://scenes/items/Cassettes/Cassette6.tscn" id="24_tel4y"]
+[ext_resource type="PackedScene" uid="uid://4xx7qxxu2m0j" path="res://scenes/items/Cassettes/Cassette2.tscn" id="25_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://dtwu4mnkfvhhv" path="res://scenes/items/Cassettes/Cassette7.tscn" id="25_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://doaqwu6cjyvil" path="res://scenes/items/Cassettes/Cassette8.tscn" id="26_5q0nq"]
+[ext_resource type="PackedScene" uid="uid://cmndv4p8c072d" path="res://scenes/items/Cassettes/Cassette3.tscn" id="28_dgi5k"]
+[ext_resource type="PackedScene" uid="uid://4b4fu3pnvuut" path="res://scenes/items/Cassettes/Cassette4.tscn" id="29_j8jky"]
+[ext_resource type="PackedScene" uid="uid://b3kwtx0upjn2c" path="res://scenes/items/Cassettes/Cassette5.tscn" id="30_kmb1v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yta21"]
 shader = ExtResource("22_chjal")
@@ -219,16 +232,32 @@ transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
 
-[node name="Closet" type="Area3D" parent="Level/Map/Objects" unique_id=2022488984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)
-script = ExtResource("16_fuf3a")
-metadata/_custom_type_script = "uid://dw12e73riyac2"
+[node name="Valve" parent="Level/Map/Objects" unique_id=489023418 instance=ExtResource("18_c6pm6")]
+transform = Transform3D(-0.868782, 0, -0.49519467, 0, 1, 0, 0.49519467, 0, -0.868782, -14.982205, 1.7168412, 31.984129)
 
-[node name="InteractableObject" parent="Level/Map/Objects" unique_id=2132515151 instance=ExtResource("17_pibwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43255, 1.654463, 25.332808)
+[node name="Cassette player" parent="Level/Map/Objects" unique_id=1005564398 instance=ExtResource("19_y6deb")]
+transform = Transform3D(0.7439675, 0, 0.29412997, 0, 0.8, 0, -0.29412997, 0, 0.7439675, -18.973516, 1.6855054, 27.742071)
 
-[node name="InteractableObject2" parent="Level/Map/Objects" unique_id=1424960454 instance=ExtResource("18_c6pm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.948349, 1.3636677, 23.596462)
+[node name="Closet" parent="Level/Map/Objects" unique_id=1654253550 instance=ExtResource("21_pm3ni")]
+transform = Transform3D(-0.9995714, 0, 0.029274076, 0, 1, 0, -0.029274076, 0, -0.9995714, -5.2221165, 0.8677975, 31.15487)
+
+[node name="Control_panel2" parent="Level/Map/Objects" unique_id=2060783808 instance=ExtResource("22_qkpxi")]
+transform = Transform3D(1.111345, 0, -0.6744718, 0, 1.3, 0, 0.6744718, 0, 1.111345, 4.539307, 0.51406837, 27.88778)
+
+[node name="Panels" type="Node3D" parent="Level/Map/Objects" unique_id=990194997]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.5611687, 0.8736449, 23.513)
+
+[node name="Pressure_Panel_Bottom" parent="Level/Map/Objects/Panels" unique_id=2132515151 instance=ExtResource("17_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79558563, -0.3346449, -0.000120162964)
+
+[node name="Pressure_Panel_Top" parent="Level/Map/Objects/Panels" unique_id=1593512511 instance=ExtResource("16_pm3ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79558563, -0.3346449, -0.000120162964)
+
+[node name="Lever_Panel2" parent="Level/Map/Objects/Panels" unique_id=1908723700 instance=ExtResource("22_2wyq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8091977, -0.3346449, 0)
+
+[node name="InteractableObject" parent="Level/Map/Objects/Panels" unique_id=44216965 instance=ExtResource("22_5q0nq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8091977, -0.3346449, 0)
 
 [node name="Items" type="Node3D" parent="Level/Map" unique_id=883708986]
 
@@ -236,7 +265,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.948349, 1.3636677, 23.5964
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
 
 [node name="Screwdriver" parent="Level/Map/Items" unique_id=691295588 instance=ExtResource("8_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3258047, 1.0647001, 25.384727)
+transform = Transform3D(0.999999, 0.0011838716, 0.0006996036, -0.0006406602, -0.04907143, 0.9987951, 0.0012167613, -0.99879456, -0.049070716, -22.631344, 1.8259838, 37.80529)
+
+[node name="Cassettes" type="Node3D" parent="Level/Map/Items" unique_id=2069474559]
+
+[node name="Cassette" parent="Level/Map/Items/Cassettes" unique_id=1219084963 instance=ExtResource("24_tel4y")]
+transform = Transform3D(-0.9731704, -0.022436962, -0.22899073, 0.09459029, 0.8682298, -0.4870627, 0.2097448, -0.49565512, -0.8428127, -8.763655, 0.68563336, 20.684973)
+
+[node name="Cassette3" parent="Level/Map/Items/Cassettes" unique_id=749506031 instance=ExtResource("26_5q0nq")]
+transform = Transform3D(-0.017246695, 0.18761478, -0.98209125, 0.9998513, 0.0032362174, -0.016940348, 1.8626451e-09, -0.98223734, -0.18764268, -10.039262, 0.78024894, 31.586575)
+
+[node name="Cassette4" parent="Level/Map/Items/Cassettes" unique_id=645039438 instance=ExtResource("30_kmb1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4415576, 2.089453, 26.587383)
+
+[node name="Cassette5" parent="Level/Map/Items/Cassettes" unique_id=907239788 instance=ExtResource("24_og1vs")]
+transform = Transform3D(1, 0, 0, 0, 0.92672616, -0.3757375, 0, 0.3757375, 0.92672616, -6.661459, 0.80772966, 22.063927)
+
+[node name="Cassette6" parent="Level/Map/Items/Cassettes" unique_id=325887969 instance=ExtResource("28_dgi5k")]
+transform = Transform3D(0.82492274, -0.5460158, -0.1461826, -0.061837386, 0.16988996, -0.983521, 0.56185293, 0.82036835, 0.10638191, -20.990088, 1.6411295, 28.625465)
+
+[node name="Cassette7" parent="Level/Map/Items/Cassettes" unique_id=617135305 instance=ExtResource("29_j8jky")]
+transform = Transform3D(0.99418217, 0.033061426, -0.102513224, 0.09954108, 0.08161754, 0.9916806, 0.04115327, -0.99611545, 0.077851735, -5.070233, 0.6822284, 31.600742)
+
+[node name="Cassette8" parent="Level/Map/Items/Cassettes" unique_id=1520664542 instance=ExtResource("25_qkpxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.286412, 1.6882923, 29.245893)
+
+[node name="Cassette9" parent="Level/Map/Items/Cassettes" unique_id=297569814 instance=ExtResource("25_2wyq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5220895, 0.7576483, 21.904749)
 
 [node name="Environment" type="Node3D" parent="." unique_id=1367489528]
 

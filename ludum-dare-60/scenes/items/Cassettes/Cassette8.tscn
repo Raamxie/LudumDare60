@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://doaqwu6cjyvil"]
+
+[ext_resource type="PackedScene" uid="uid://c7e8rtfnll21" path="res://scenes/items/Cassettes/Cassette.tscn" id="1_20227"]
+[ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="2_ashfp"]
+
+[sub_resource type="Resource" id="Resource_nwgl6"]
+script = ExtResource("2_ashfp")
+id = &"8"
+display_name = "Cassette"
+slot = 2
+metadata/_custom_type_script = "uid://bup1f701ht0xs"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ashfp"]
+albedo_color = Color(0.6097227, 0.05130905, 1.4439226e-07, 1)
+
+[node name="Cassette" unique_id=691295588 instance=ExtResource("1_20227")]
+data = SubResource("Resource_nwgl6")
+
+[node name="Cassete_normal" parent="Cassette" parent_id_path=PackedInt32Array(268660835) index="0" unique_id=1263182678]
+surface_material_override/0 = SubResource("StandardMaterial3D_ashfp")
+
+[editable path="Cassette"]

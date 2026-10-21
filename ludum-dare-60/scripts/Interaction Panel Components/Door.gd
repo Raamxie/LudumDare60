@@ -12,7 +12,7 @@ extends Node
 @export var SCENE_PARENT: Node3D
 @export var SCENE_MANAGER: Node3D
 @export var COLLISION_SHAPE: CollisionShape3D
-@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../../../AudioStreamPlayer3D"
+@export var audio_stream_player_3d: AudioStreamPlayer3D
 
 var is_selected: bool = false
 var is_interacting: bool = false

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://4b4fu3pnvuut"]
 
 [ext_resource type="PackedScene" uid="uid://c7e8rtfnll21" path="res://scenes/items/Cassettes/Cassette.tscn" id="1_ieago"]
-[ext_resource type="Script" uid="uid://csep5whq3gvi0" path="res://scripts/items/Cassette.gd" id="2_u1sa4"]
 [ext_resource type="Script" uid="uid://bup1f701ht0xs" path="res://resources/item_data.gd" id="3_8gh3m"]
 
 [sub_resource type="Resource" id="Resource_5l7p5"]
@@ -11,8 +10,13 @@ display_name = "Cassette"
 slot = 2
 metadata/_custom_type_script = "uid://bup1f701ht0xs"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l7p5"]
+albedo_color = Color(0.4256817, 0.002334534, 0.8349958, 1)
+
 [node name="Cassette" unique_id=691295588 instance=ExtResource("1_ieago")]
-script = ExtResource("2_u1sa4")
 data = SubResource("Resource_5l7p5")
+
+[node name="Cassete_normal" parent="Cassette" parent_id_path=PackedInt32Array(268660835) index="0" unique_id=1263182678]
+surface_material_override/0 = SubResource("StandardMaterial3D_5l7p5")
 
 [editable path="Cassette"]

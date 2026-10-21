@@ -19,9 +19,6 @@ size = Vector3(0.47595412, 0.0560334, 0.2868096)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.7272186, 0.2821045, 0.42364502)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
-radius = 0.27882662
-
 [node name="Cassette" unique_id=691295588 instance=ExtResource("1_ciio0")]
 script = ExtResource("2_lgcaw")
 data = SubResource("Resource_g2els")
@@ -41,9 +38,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Label3D" type="Label3D" parent="." index="3" unique_id=1849697608]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.18181288, 0.022134662, -0.017542176)
+shaded = true
 font = ExtResource("5_lgcaw")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="4" unique_id=220540082]
-shape = SubResource("SphereShape3D_g4v7s")
 
 [editable path="Cassette"]
