@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="10_tel4y"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="11_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="12_5q0nq"]
-[ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="13_dgi5k"]
-[ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="14_j8jky"]
-[ext_resource type="PackedScene" uid="uid://cok72dn724csj" path="res://assets/models/Room/Portal.glb" id="15_kmb1v"]
+[ext_resource type="PackedScene" uid="uid://cyikjy71qsmhj" path="res://scenes/Interaction Panels/teleporter.tscn" id="14_0ld40"]
 [ext_resource type="Script" uid="uid://dw12e73riyac2" path="res://scripts/Interaction Panel Components/Closet.gd" id="16_fuf3a"]
 [ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="17_pibwh"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="18_c6pm6"]
@@ -217,31 +215,9 @@ transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-0
 
 [node name="Objects" type="Node3D" parent="Level/Map" unique_id=2100674420]
 
-[node name="Teleporter" type="Node3D" parent="Level/Map/Objects" unique_id=467839182 node_paths=PackedStringArray("music_player", "glow_light")]
+[node name="Teleporter" parent="Level/Map/Objects" unique_id=1497171574 instance=ExtResource("14_0ld40")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
-script = ExtResource("13_dgi5k")
-required_parts = Array[int]([])
-music_player = NodePath("AudioStreamPlayer3D")
-glow_light = NodePath("OmniLight3D")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Map/Objects/Teleporter" unique_id=598173444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86566544)
-stream = ExtResource("14_j8jky")
-attenuation_model = 2
-volume_db = -31.472
-max_db = -6.304
-max_distance = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Level/Map/Objects/Teleporter" unique_id=301854724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23958015, 0, -1.0116234)
-light_color = Color(0.57, 0.78499997, 1, 1)
-shadow_enabled = true
-omni_range = 3.0
-omni_attenuation = 2.0
-
-[node name="Portal" parent="Level/Map/Objects/Teleporter" unique_id=908982504 instance=ExtResource("15_kmb1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96854067, -2.1689782, 3.0519638)
 
 [node name="Closet" type="Area3D" parent="Level/Map/Objects" unique_id=2022488984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.712365, 0.5, 23.747688)

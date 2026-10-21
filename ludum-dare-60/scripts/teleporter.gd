@@ -41,6 +41,9 @@ func repair_part(id: Game.Part) -> bool:
 	_repaired[id] = true
 	print(id)
 	
+	if complete_sfx:
+		complete_sfx.play()
+		
 	if _repaired.size() >= required_parts.size():
 		_complete()
 		print("Teleporter finished!!!")
@@ -85,8 +88,6 @@ func _complete() -> void:
 		completion_vfx.restart()
 		completion_vfx.emitting = true
 
-	if complete_sfx:
-		complete_sfx.play()
 	completed.emit()
 
 

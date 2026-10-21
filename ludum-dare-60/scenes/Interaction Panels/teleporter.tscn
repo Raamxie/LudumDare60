@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cyikjy71qsmhj"]
+
+[ext_resource type="Script" uid="uid://dri0bp1ftyj4g" path="res://scripts/teleporter.gd" id="1_hylqy"]
+[ext_resource type="AudioStream" uid="uid://csvww77u4b3ph" path="res://assets/audio/radiosong.ogg" id="2_ygtju"]
+[ext_resource type="PackedScene" uid="uid://cok72dn724csj" path="res://assets/models/Room/Portal.glb" id="3_2g7no"]
+[ext_resource type="AudioStream" uid="uid://dd18u7ddiepbt" path="res://assets/audio/fx_complete_teleporter.ogg" id="3_ygtju"]
+
+[node name="Teleporter" type="Node3D" unique_id=1497171574 node_paths=PackedStringArray("music_player", "glow_light", "complete_sfx")]
+script = ExtResource("1_hylqy")
+required_parts = Array[int]([])
+music_player = NodePath("RadioSong")
+glow_light = NodePath("OmniLight3D")
+complete_sfx = NodePath("RepairSfx")
+
+[node name="RadioSong" type="AudioStreamPlayer3D" parent="." unique_id=2029312664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86566544)
+stream = ExtResource("2_ygtju")
+attenuation_model = 2
+volume_db = -31.472
+max_db = -6.304
+max_distance = 7.0
+
+[node name="RepairSfx" type="AudioStreamPlayer3D" parent="." unique_id=260770143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86566544)
+stream = ExtResource("3_ygtju")
+attenuation_model = 2
+volume_db = -31.472
+max_db = -6.304
+max_distance = 7.0
+bus = &"SFX"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1522993938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23958015, 0, -1.0116234)
+light_color = Color(0.57, 0.78499997, 1, 1)
+shadow_enabled = true
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Portal" parent="." unique_id=772519005 instance=ExtResource("3_2g7no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96854067, -2.1689782, 3.0519638)
