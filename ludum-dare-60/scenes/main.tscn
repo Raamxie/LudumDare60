@@ -47,8 +47,17 @@ shader_parameter/color_grad_lights = Color(0.9709098, 0.95965904, 0.9087334, 1)
 shader_parameter/color_grad_midpoint = 0.25
 shader_parameter/color_grad_strength = 0.1950000092625
 
+[sub_resource type="BoxMesh" id="BoxMesh_j8jky"]
+size = Vector3(1.0083294, 1, 0.43123722)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5q0nq"]
+size = Vector3(0.7920327, 1, 1.8317337)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dgi5k"]
+size = Vector3(0.79291725, 1, 1.8317337)
+
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
-size = Vector3(1, 1, 1.27594)
+size = Vector3(1.0024986, 1, 0.4563837)
 
 [sub_resource type="Sky" id="Sky_jscy8"]
 sky_material = ExtResource("33_5q0nq")
@@ -131,11 +140,19 @@ bus = &"SFX"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.354362, 0.16493583, 25.756756)
 
 [node name="Ceiling" type="MeshInstance3D" parent="Level/Map" unique_id=745919226]
-transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 18, -8.309672, 5.1030197, 27.718914)
-mesh = SubResource("BoxMesh_g4v7s")
+transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 18, -8.233803, 5.095795, 35.382385)
+mesh = SubResource("BoxMesh_j8jky")
+
+[node name="Ceiling2" type="MeshInstance3D" parent="Level/Map" unique_id=897865068]
+transform = Transform3D(28.352777, 0, -10.553765, 0, 1, 0, 20.52121, 0, 14.581429, -5.003969, 5.095795, 26.302456)
+mesh = SubResource("BoxMesh_5q0nq")
+
+[node name="Floor2" type="MeshInstance3D" parent="Level/Map" unique_id=1118231822]
+transform = Transform3D(28.352777, 0, -10.553765, 0, 1, 0, 20.52121, 0, 14.581429, -5.0086913, -0.127, 26.29862)
+mesh = SubResource("BoxMesh_dgi5k")
 
 [node name="Floor" type="MeshInstance3D" parent="Level/Map" unique_id=1767383924]
-transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 16, -8.246513, -0.12744159, 27.841473)
+transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 16, -8.390242, -0.12744159, 35.172295)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Lights" type="Node3D" parent="Level/Map" unique_id=1856783885]
@@ -146,7 +163,7 @@ light_energy = 3.0
 area_attenuation = 2.0
 
 [node name="NeonLight2" parent="Level/Map/Lights" unique_id=1664866988 instance=ExtResource("9_fv21b")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.3526797, 23.441584)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.3526797, 24.303732)
 
 [node name="RoomAmbience" type="AreaLight3D" parent="Level/Map/Lights" unique_id=150791411]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2328205, 4.4616485, 28.751524)
@@ -230,7 +247,7 @@ transform = Transform3D(0.10788626, -0.08115144, -3.547242e-09, 0, -5.9010374e-0
 
 [node name="Teleporter" parent="Level/Map/Objects" unique_id=1497171574 instance=ExtResource("14_0ld40")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2611623, 2.3868356, 22.278)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.357351, 2.3868356, 22.759926)
 
 [node name="Valve" parent="Level/Map/Objects" unique_id=489023418 instance=ExtResource("18_c6pm6")]
 transform = Transform3D(-0.868782, 0, -0.49519467, 0, 1, 0, 0.49519467, 0, -0.868782, -14.982205, 1.7168412, 31.984129)
@@ -262,7 +279,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8091977, -0.3346449, 0)
 [node name="Items" type="Node3D" parent="Level/Map" unique_id=883708986]
 
 [node name="Flashlight" parent="Level/Map/Items" unique_id=1798987676 instance=ExtResource("19_5he1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 2.6734576, 27.26478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 1.062917, 27.26478)
 
 [node name="Screwdriver" parent="Level/Map/Items" unique_id=691295588 instance=ExtResource("8_yq6so")]
 transform = Transform3D(0.999999, 0.0011838716, 0.0006996036, -0.0006406602, -0.04907143, 0.9987951, 0.0012167613, -0.99879456, -0.049070716, -22.631344, 1.8259838, 37.80529)
@@ -279,7 +296,7 @@ transform = Transform3D(-0.017246695, 0.18761478, -0.98209125, 0.9998513, 0.0032
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4415576, 2.089453, 26.587383)
 
 [node name="Cassette5" parent="Level/Map/Items/Cassettes" unique_id=907239788 instance=ExtResource("24_og1vs")]
-transform = Transform3D(1, 0, 0, 0, 0.92672616, -0.3757375, 0, 0.3757375, 0.92672616, -6.661459, 0.80772966, 22.063927)
+transform = Transform3D(1, 0, 0, 0, 0.983943, -0.17848302, 0, 0.17848302, 0.983943, -6.661459, 0.70663863, 22.496384)
 
 [node name="Cassette6" parent="Level/Map/Items/Cassettes" unique_id=325887969 instance=ExtResource("28_dgi5k")]
 transform = Transform3D(0.82492274, -0.5460158, -0.1461826, -0.061837386, 0.16988996, -0.983521, 0.56185293, 0.82036835, 0.10638191, -20.990088, 1.6411295, 28.625465)
@@ -291,7 +308,7 @@ transform = Transform3D(0.99418217, 0.033061426, -0.102513224, 0.09954108, 0.081
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.286412, 1.6882923, 29.245893)
 
 [node name="Cassette9" parent="Level/Map/Items/Cassettes" unique_id=297569814 instance=ExtResource("25_2wyq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5220895, 0.7576483, 21.904749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5790105, 0.8151677, 22.298717)
 
 [node name="Environment" type="Node3D" parent="." unique_id=1367489528]
 
