@@ -318,7 +318,3 @@ environment = SubResource("Environment_g4v7s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1665167354]
 visible = false
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=114197201]
-omni_range = 3694.904
-omni_attenuation = -0.307
