@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://brbi1rpopq5h0"]
+
+[ext_resource type="Shader" uid="uid://qi8feh2xouq8" path="res://scenes/vfx/portal_vfx.tres" id="1_0xicq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+render_priority = 0
+shader = ExtResource("1_0xicq")
+shader_parameter/ColorIntensity = 3.0
+shader_parameter/Color = Color(0, 0.3333335, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+orientation = 2
+
+[node name="PortalVfx" type="MeshInstance3D" unique_id=241523413]
+material_override = SubResource("ShaderMaterial_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
