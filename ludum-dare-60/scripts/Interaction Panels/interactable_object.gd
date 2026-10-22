@@ -20,7 +20,6 @@ signal stopped_interacting_with(interacted_object: Node3D)
 
 
 func _ready() -> void:
-	pass # Replace with function body.
 	interaction_camera_transform = interaction_camera.global_transform
 
 	
@@ -37,8 +36,10 @@ func _on_interacted_object(interactor: Node) -> void:
 	interaction_camera.global_transform = main_camera.global_transform
 	interaction_camera.force_update_transform()
 	interaction_camera.reset_physics_interpolation()
+	
 	if TransitionTween:
 		TransitionTween.kill()
+		
 	TransitionTween = create_tween()
 	TransitionTween.tween_property(interaction_camera, "global_transform", interaction_camera_transform, TRANSITION_TIME).set_trans(Tween.TRANS_SINE)
 	interaction_camera.make_current()

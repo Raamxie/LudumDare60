@@ -63,6 +63,7 @@ func insert_tapes() -> void:
 
 func update_label(id: String) -> void:
 	player_label.text = id
+	
 func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
 	if interacted_object == SCENE_PARENT:
 		is_selected = true
