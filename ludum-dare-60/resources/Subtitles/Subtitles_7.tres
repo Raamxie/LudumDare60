@@ -97,6 +97,11 @@ script = ExtResource("1_20io6")
 text = "And you need to wait for the machine to calibrate!!"
 metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
 
+[sub_resource type="Resource" id="Resource_u1l8g"]
+script = ExtResource("1_20io6")
+text = "(use left and right mouse click to rotate the dials)"
+metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
+
 [sub_resource type="Resource" id="Resource_oodg5"]
 script = ExtResource("1_20io6")
 text = "*AAAAAAAAAAAAAAAAAAAA*"
@@ -111,5 +116,5 @@ metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
 [resource]
 script = ExtResource("2_eypue")
 id = 7
-contents = Array[ExtResource("1_20io6")]([SubResource("Resource_t5qvp"), SubResource("Resource_thhn2"), SubResource("Resource_d1fou"), SubResource("Resource_20io6"), SubResource("Resource_eypue"), SubResource("Resource_6bcmo"), SubResource("Resource_x7ohj"), SubResource("Resource_54baw"), SubResource("Resource_kydxw"), SubResource("Resource_e6gl6"), SubResource("Resource_ij386"), SubResource("Resource_ou8ml"), SubResource("Resource_8ya0k"), SubResource("Resource_h0nlu"), SubResource("Resource_jfu7f"), SubResource("Resource_7xy76"), SubResource("Resource_76aor"), SubResource("Resource_oodg5"), SubResource("Resource_7ifye")])
+contents = Array[ExtResource("1_20io6")]([SubResource("Resource_t5qvp"), SubResource("Resource_thhn2"), SubResource("Resource_d1fou"), SubResource("Resource_20io6"), SubResource("Resource_eypue"), SubResource("Resource_6bcmo"), SubResource("Resource_x7ohj"), SubResource("Resource_54baw"), SubResource("Resource_kydxw"), SubResource("Resource_e6gl6"), SubResource("Resource_ij386"), SubResource("Resource_ou8ml"), SubResource("Resource_8ya0k"), SubResource("Resource_h0nlu"), SubResource("Resource_jfu7f"), SubResource("Resource_7xy76"), SubResource("Resource_76aor"), SubResource("Resource_u1l8g"), SubResource("Resource_oodg5"), SubResource("Resource_7ifye")])
 metadata/_custom_type_script = "uid://p7jm27ayjkgj"
