@@ -33,11 +33,11 @@ func _ready() -> void:
 		
 	_set_intensity(intensity_start)
 
-
 func repair_part(id: Game.Part) -> bool:
-	if is_complete or not id in required_parts or is_part_repaired(id):
+	if is_complete or not required_parts.has(Game.Part.find_key(id)) or is_part_repaired(id):
 		return false
 	
+	print("Repaired")
 	_repaired[id] = true
 	print(id)
 	

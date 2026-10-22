@@ -10,6 +10,7 @@ extends Node
 @export var PIVOT_POINT: Node3D
 @onready var interactable_object: Node3D = $"../.."
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../AudioStreamPlayer3D"
+@onready var main: Node3D = $"../../../../../.."
 
 var is_selected: bool = false
 var is_interacting: bool = false
@@ -22,6 +23,8 @@ var initial_offset: Vector3
 var initial_mesh_basis: Basis
 var valve_sound = preload("res://assets/audio/fx/wheel.ogg")
 var success_timer: Timer
+var screwdriver: Pickable
+
 
 
 func _ready() -> void:
@@ -39,10 +42,14 @@ func _ready() -> void:
 	initial_mesh_basis = MESH.transform.basis
 	_apply_pivot_rotation(valve_position)
 	
+	screwdriver = main.get_node("%Screwdriver")
+	
 	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
 	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
 
 func _process(delta: float) -> void:
+	if abs(valve_position - target_valve_position) <= 10:
+		audio_stream_player_3d.stop()
 	if not is_selected:
 		return
 	if not is_equal_approx(valve_position, target_valve_position):
@@ -59,8 +66,6 @@ func _process(delta: float) -> void:
 			print("Out of zone")
 			in_correct = false
 			success_timer.stop()
-	elif abs(valve_position - target_valve_position) <= 10:
-		audio_stream_player_3d.stop()
 
 func _apply_pivot_rotation(angle_deg: float) -> void:
 	var angle_rad: float = deg_to_rad(angle_deg)
@@ -120,3 +125,7 @@ func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D)
 		
 func _on_success_timer_timeout() -> void:
 	Messenger.teleporter_part_finished.emit(Game.Part.VALVE)
+	print("Valve done")
+	if screwdriver:
+		screwdriver.apply_impulse(Vector3(0,0, -3), screwdriver.position)
+		screwdriver = null

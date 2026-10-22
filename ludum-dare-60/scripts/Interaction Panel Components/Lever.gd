@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	
 func _apply_position(position: float) -> void:
 	MESH.position.z = initial_offset.z - position
-	if _check_correct() and not is_finished:
+	if _check_correct() and not is_finished and Teleporter.is_part_repaired(Game.Part.DIALS):
 		print("Lever complete")
 		Messenger.teleporter_part_finished.emit(Game.Part.LEVER)
 		is_finished = true

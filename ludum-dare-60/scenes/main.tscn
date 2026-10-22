@@ -282,7 +282,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8091977, -0.3346449, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 1.062917, 27.26478)
 
 [node name="Screwdriver" parent="Level/Map/Items" unique_id=691295588 instance=ExtResource("8_yq6so")]
-transform = Transform3D(0.999999, 0.0011838716, 0.0006996036, -0.0006406602, -0.04907143, 0.9987951, 0.0012167613, -0.99879456, -0.049070716, -22.631344, 1.8259838, 37.80529)
+unique_name_in_owner = true
+transform = Transform3D(0.050801158, -0.067421496, 0.99643064, -0.99851835, -0.022922697, 0.04935637, 0.019513192, -0.9974615, -0.068486296, -10.491197, 3.4403725, 31.579142)
 
 [node name="Cassettes" type="Node3D" parent="Level/Map/Items" unique_id=2069474559]
 
@@ -317,3 +318,7 @@ environment = SubResource("Environment_g4v7s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1665167354]
 visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=114197201]
+omni_range = 3694.904
+omni_attenuation = -0.307

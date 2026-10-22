@@ -5,8 +5,13 @@
 [ext_resource type="Resource" uid="uid://dtvdym7rbkf27" path="res://resources/Subtitles/Subtitle_1.tres" id="2_xatpp"]
 [ext_resource type="Resource" uid="uid://x4bs6xhcel8t" path="res://resources/Subtitles/Subtitle_2.tres" id="3_6p46i"]
 [ext_resource type="Resource" uid="uid://cp51s4202hmw7" path="res://resources/Subtitles/Subtitle_3.tres" id="4_cegul"]
+[ext_resource type="Resource" uid="uid://c47wxiuxfw5xb" path="res://resources/Subtitles/Subtitles_4.tres" id="5_ketxm"]
+[ext_resource type="Resource" uid="uid://dkybvlbs5x41j" path="res://resources/Subtitles/Subtitles_5.tres" id="6_cprim"]
+[ext_resource type="Resource" uid="uid://c0dc51ob8u2f2" path="res://resources/Subtitles/Subtitles_6.tres" id="7_0s1cm"]
+[ext_resource type="Resource" uid="uid://b5l08e4hd6mvl" path="res://resources/Subtitles/Subtitles_7.tres" id="8_bl7av"]
+[ext_resource type="Resource" uid="uid://bu8egm2m6h4a2" path="res://resources/Subtitles/Subtitles_8.tres" id="9_g2j67"]
 
 [resource]
 script = ExtResource("1_f4nv4")
-contents = Array[ExtResource("1_xatpp")]([ExtResource("2_xatpp"), ExtResource("3_6p46i"), ExtResource("4_cegul")])
+contents = Array[ExtResource("1_xatpp")]([ExtResource("2_xatpp"), ExtResource("3_6p46i"), ExtResource("4_cegul"), ExtResource("5_ketxm"), ExtResource("6_cprim"), ExtResource("7_0s1cm"), ExtResource("8_bl7av"), ExtResource("9_g2j67")])
 metadata/_custom_type_script = "uid://c6gdh7fq07gth"

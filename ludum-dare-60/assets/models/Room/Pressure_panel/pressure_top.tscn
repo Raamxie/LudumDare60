@@ -257,7 +257,6 @@ mesh = SubResource("ArrayMesh_h5lna")
 transform = Transform3D(0.07, 0, 0, 0, 0.030058194, 0.91222835, 0, -0.05422642, 0.50565636, 0, 0.71990293, -0.06366679)
 modulate = Color(0.24659282, 0.8621337, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
-text = "Teleporter field is OFFLINE"
 font = ExtResource("1_ry30i")
 script = ExtResource("2_qq50e")
 

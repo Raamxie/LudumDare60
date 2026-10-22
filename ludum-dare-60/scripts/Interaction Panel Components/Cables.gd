@@ -5,6 +5,8 @@ extends Node3D
 @onready var interactable_object: Node3D = $"../../.."
 @onready var interaction_with: Node3D = $".."
 @export var GOAL_CONNECTIONS: Array
+@onready var pressure: Node3D = $"../../../../Pressure_Panel_Top"
+
 # 1, 4
 # 2, 2
 # 3, 1
@@ -105,7 +107,10 @@ func _check_correct() -> bool:
 			print("Invalid Combination")
 			return false
 	print("Valid Combination")
+	print("Cables done")
 	Messenger.teleporter_part_finished.emit(Game.Part.CABLES)
+	print(Teleporter.is_part_repaired(Game.Part.CABLES))
+	pressure.get_node("Model/Pressure_Panel/Label3D").text = "Teleporter field is OFFLINE"
 	return true
 			
 		

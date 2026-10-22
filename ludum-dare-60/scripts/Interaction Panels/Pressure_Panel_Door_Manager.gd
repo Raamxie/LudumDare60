@@ -51,6 +51,7 @@ func unscrewed(screw: Node3D) -> void:
 	screw.queue_free()
 	if door_unlocked():
 		Messenger.teleporter_part_finished.emit(Game.Part.CABLES_DOOR)
+		print("Doors unlocked")
 		
 		
 

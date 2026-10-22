@@ -3,8 +3,6 @@ extends Label3D
 @onready var dial_right: MeshInstance3D = $"../Dial_Right"
 @onready var dial_left: MeshInstance3D = $"../Dial_Left"
 
-signal pressure_complete
-
 var check_tween: Tween
 
 func _on_dial_right_finished_interacting() -> void:
@@ -16,6 +14,10 @@ func _on_dial_left_finished_interacting() -> void:
 func completion_check() -> void:
 	if check_tween and check_tween.is_running():
 		check_tween.kill()
+		
+	if not Teleporter.is_part_repaired(Game.Part.CABLES):
+		print("Cables not done")
+		return
 	
 	check_tween = create_tween()	
 	self.text = ""
