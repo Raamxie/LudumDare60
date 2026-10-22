@@ -88,7 +88,8 @@ func _resume() -> void:
 	
 	
 func _on_caught() -> void:
-	if _ended: return
+	if _ended:
+		return
 	_ended = true
 	
 	Game.play_at(Game.GAMEOVER, monster.global_position)
@@ -102,10 +103,12 @@ func _on_caught() -> void:
 
 
 func _on_escaped() -> void:
-	if _ended: return
+	if _ended:
+		return
+		
 	_ended = true
 	await screens.fade(Color.WHITE, 2.0)
-	get_tree().paused = true
 	
+	get_tree().paused = true	
 	await screens.play_outro()
 	to_menu()
