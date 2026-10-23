@@ -32,13 +32,25 @@
 [sub_resource type="BoxMesh" id="BoxMesh_j8jky"]
 size = Vector3(1.0083294, 1, 0.43123722)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_556r4"]
+size = Vector3(1.0083294, 1, 0.43123722)
+
 [sub_resource type="BoxMesh" id="BoxMesh_5q0nq"]
+size = Vector3(0.7920327, 1, 1.8317337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7agi7"]
 size = Vector3(0.7920327, 1, 1.8317337)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgi5k"]
 size = Vector3(0.79291725, 1, 1.8317337)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kih21"]
+size = Vector3(0.79291725, 1, 1.8317337)
+
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(1.0024986, 1, 0.4563837)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3o6u"]
 size = Vector3(1.0024986, 1, 0.4563837)
 
 [node name="Level" type="Node3D" unique_id=1720791076]
@@ -54,15 +66,9 @@ script = ExtResource("2_7agi7")
 closet = NodePath("../Map/Objects/Closet")
 presence_sfx = NodePath("Breathing")
 catch_sfx = NodePath("GameOver")
-chill_track = null
 tense_track = 1
 supertense_track = 2
-tense_pitch = null
-super_tense_pitch = null
-idle_interval = null
-tense_time = 60
-super_tense_time = Vector2(10, 10)
-exposed_coyote_time = null
+super_tense_time = Vector2(30, 60)
 
 [node name="Breathing" type="AudioStreamPlayer3D" parent="Monster" unique_id=1804044283]
 stream = ExtResource("3_kih21")
@@ -81,17 +87,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.354362, 0.16493583, 25.756
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 18, -8.233803, 5.095795, 35.382385)
 mesh = SubResource("BoxMesh_j8jky")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Ceiling" unique_id=1198256407]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Ceiling/StaticBody3D" unique_id=1896876163]
+shape = SubResource("BoxShape3D_556r4")
+
 [node name="Ceiling2" type="MeshInstance3D" parent="Map" unique_id=1154588057]
 transform = Transform3D(28.352777, 0, -10.553765, 0, 1, 0, 20.52121, 0, 14.581429, -5.003969, 5.095795, 26.302456)
 mesh = SubResource("BoxMesh_5q0nq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Ceiling2" unique_id=1483387142]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Ceiling2/StaticBody3D" unique_id=190737541]
+shape = SubResource("BoxShape3D_7agi7")
 
 [node name="Floor2" type="MeshInstance3D" parent="Map" unique_id=7070475]
 transform = Transform3D(28.352777, 0, -10.553765, 0, 1, 0, 20.52121, 0, 14.581429, -5.0086913, -0.127, 26.29862)
 mesh = SubResource("BoxMesh_dgi5k")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Floor2" unique_id=1886921385]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor2/StaticBody3D" unique_id=698817318]
+shape = SubResource("BoxShape3D_kih21")
+
 [node name="Floor" type="MeshInstance3D" parent="Map" unique_id=504094990]
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 16, -8.390242, -0.12744159, 35.172295)
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Floor" unique_id=846740122]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D" unique_id=1874857212]
+shape = SubResource("BoxShape3D_w3o6u")
 
 [node name="Lights" type="Node3D" parent="Map" unique_id=1082391657]
 

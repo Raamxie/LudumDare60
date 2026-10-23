@@ -95,11 +95,14 @@ func _enter_room() -> void:
 	set_process(true)
 
 	_exposed = 0.0
+	get_tree().create_timer(exposed_coyote_time, false).timeout.connect(_play_presence)
 	
-	if presence_sfx:
-		presence_sfx.play()
-		
 	_timer.start(randf_range(super_tense_time.x, super_tense_time.y))
+
+
+func _play_presence() -> void:
+	if state == State.IN_ROOM and presence_sfx:
+		presence_sfx.play()
 
 
 func _leave() -> void:
@@ -117,8 +120,10 @@ func _leave() -> void:
 		
 		
 func _catch() -> void:
+	set_process(false)
 	_timer.stop()
-	
+	state = State.DISABLED
+
 	var tween := create_tween()
 	
 	tween.tween_property(Music, "volume_db", -80.0, 0.3)
@@ -126,8 +131,6 @@ func _catch() -> void:
 	
 	if presence_sfx:
 		presence_sfx.stop()
-	set_process(false)
-	state = State.DISABLED
 	
 	#if catch_sfx:
 		#catch_sfx.play()
@@ -142,7 +145,7 @@ func disable() -> void:
 
 	if presence_sfx:
 		presence_sfx.stop()
-		
+
 
 func _track_length(t: Music.Track) -> float:
 	return 55

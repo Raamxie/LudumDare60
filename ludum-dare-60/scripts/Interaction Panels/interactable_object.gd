@@ -2,7 +2,7 @@ extends Node3D
 
 
 @export var TRANSITION_TIME: float = 0.3
-@export var CONTROLS_MESSAGE: String = "[Q] Quit"
+@export_multiline var CONTROLS_MESSAGE: String = "[Q] Quit"
 
 @onready var model: Node3D = $Model
 @onready var area_light_3d: AreaLight3D = $AreaLight3D

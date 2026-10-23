@@ -18,8 +18,8 @@ const ESCAPE_PORTAL = preload("uid://c87eebnyvtst3")
 	
 func reset() -> void:
 	Music.stop()
-	Music.volume_db = 0
-	
+	Music.volume_db = -10
+
 
 func play_at(stream: AudioStream, pos: Vector3) -> void:
 	var p := AudioStreamPlayer3D.new()

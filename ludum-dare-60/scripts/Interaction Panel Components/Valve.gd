@@ -26,7 +26,6 @@ var success_timer: Timer
 var screwdriver: Pickable
 
 
-
 func _ready() -> void:
 	valve_position = STARTING_POSITION
 	target_valve_position = STARTING_POSITION
@@ -42,7 +41,7 @@ func _ready() -> void:
 	initial_mesh_basis = MESH.transform.basis
 	_apply_pivot_rotation(valve_position)
 	
-	screwdriver = main.get_node("%Screwdriver")
+	screwdriver = main.get_node("Level/%Screwdriver")
 	
 	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
 	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)

@@ -159,7 +159,7 @@ func _attach(item: Pickable, hand: Marker3D) -> void:
 
 
 func _drop(item: Pickable, strength: float) -> void:
-	item.reparent(get_tree().current_scene)
+	item.reparent(owner)
 	item.on_dropped(-camera.global_basis.z * strength)
 
 

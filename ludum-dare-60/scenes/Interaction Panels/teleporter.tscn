@@ -8,7 +8,8 @@ height = 0.5871582
 radius = 1.7822266
 
 [node name="InteractableObject" unique_id=2132515151 instance=ExtResource("1_ydgpx")]
-CONTROLS_MESSAGE = "[LMB] ESCAPE!!!\\n[Q] Quit"
+CONTROLS_MESSAGE = "[LMB] ESCAPE!!!
+[Q] Quit"
 
 [node name="InteractionComponent" parent="." index="0" unique_id=1003491539 node_paths=PackedStringArray("meshes")]
 meshes = [NodePath("../Model/Teleporter/PortalVfx")]
@@ -25,6 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18210214, 0, 0)
 
 [node name="PortalVfx" parent="Model/Teleporter" index="0" unique_id=241523413]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.16472578, 0, -0.0046895444)
+
+[node name="RepairSfx" parent="Model/Teleporter" index="2" unique_id=260770143]
+volume_db = -10.0
+max_db = 0.0
 
 [node name="Cylinder_063" parent="Model/Teleporter/Portal" parent_id_path=PackedInt32Array(1497171574, 772519005) index="0" unique_id=2065777309]
 transform = Transform3D(2.1239414, 0, 0, 0, 0, -2.1239414, 0, 0.29741758, 0, 0.7879423, 2.1991634, -3.068828)
