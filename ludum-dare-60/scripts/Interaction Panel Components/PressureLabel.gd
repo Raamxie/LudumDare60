@@ -2,6 +2,7 @@ extends Label3D
 
 @onready var dial_right: MeshInstance3D = $"../Dial_Right"
 @onready var dial_left: MeshInstance3D = $"../Dial_Left"
+@onready var Teleporter = get_tree().get_nodes_in_group("Teleporter")[0]
 
 var check_tween: Tween
 

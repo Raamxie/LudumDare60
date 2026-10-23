@@ -11,6 +11,7 @@ extends Node
 @export var MESH: MeshInstance3D
 @export var INTERACTABLE_OBJECT: Node3D
 @export var SCENE_PARENT: Node3D
+@onready var Teleporter = get_tree().get_nodes_in_group("Teleporter")[0]
 
 var is_selected: bool = false
 var is_interacting: bool = false

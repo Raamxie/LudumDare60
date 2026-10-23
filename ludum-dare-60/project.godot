@@ -25,7 +25,6 @@ general/default_playback_type.web=0
 Messenger="*uid://cdlegbtlxb25i"
 Game="*uid://28urgksekekv"
 Music="*uid://cxarglrg707gm"
-Teleporter="*uid://dri0bp1ftyj4g"
 
 [display]
 
@@ -47,6 +46,7 @@ folder_colors={
 [global_group]
 
 Player="Contains player"
+Teleporter=""
 
 [input]
 

@@ -3,7 +3,8 @@ extends Node
 
 signal completed
 
-enum Part { BATTERY, CABLES, DIALS, LEVER, CABLES_DOOR, VALVE}
+#Battery planned, not implemented
+enum Part {CABLES, DIALS, LEVER, CABLES_DOOR, VALVE}
 
 const SETTINGS_PATH := "user://settings.cfg"
 

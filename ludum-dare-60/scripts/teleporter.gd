@@ -9,6 +9,9 @@ signal completed
 @export var completion_vfx: GPUParticles3D
 @export var glow_light: OmniLight3D
 @export var complete_sfx: AudioStreamPlayer3D
+@onready var interactable_object: Node3D = $"../.."
+@onready var interaction_with: Node3D = $"."
+
 
 @export_group("Effect intensity")
 @export_range(0.0, 1.0) var intensity_start := 0.1
@@ -17,6 +20,7 @@ signal completed
 @onready var portal_vfx: MeshInstance3D = $PortalVfx
 
 var is_complete := false
+var is_selected := false
 var _repaired: Dictionary[Game.Part, bool] = {}
 var _intensity := 0.0
 
@@ -33,6 +37,8 @@ func _ready() -> void:
 		music_player.play()
 		
 	_set_intensity(intensity_start)
+	interactable_object.connect("interacting_with", _on_interactable_object_interacting_with)
+	interactable_object.connect("stopped_interacting_with", _on_interactable_object_stopped_interacting_with)
 		
 		
 func repair_part(id: Game.Part) -> bool:
@@ -41,7 +47,9 @@ func repair_part(id: Game.Part) -> bool:
 	
 	print("Repaired")
 	_repaired[id] = true
-	print(id)
+	print(_repaired)
+	print(required_parts)
+	print(_repaired.size()," ", required_parts.size())
 	
 	if complete_sfx:
 		complete_sfx.play()
@@ -86,3 +94,22 @@ func on_interacted() -> void:
 		return
 		
 	Messenger.escaped.emit()
+
+
+func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event.is_action_pressed("control_interaction"):
+		print("clicked on portal")
+		if not is_selected:
+			return
+		print("clicked on portal")
+		if completed:
+			print("WIN")
+		
+func _on_interactable_object_interacting_with(interacted_object: Node3D) -> void:
+	if interacted_object == interaction_with:
+		is_selected = true
+
+
+func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D) -> void:
+	if interacted_object == interaction_with:
+		is_selected = false

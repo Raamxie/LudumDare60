@@ -6,6 +6,7 @@ extends Node3D
 @onready var interaction_with: Node3D = $".."
 @export var GOAL_CONNECTIONS: Array
 @onready var pressure: Node3D = $"../../../../Pressure_Panel_Top"
+@onready var Teleporter = get_tree().get_nodes_in_group("Teleporter")[0]
 
 # 1, 4
 # 2, 2
