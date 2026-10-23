@@ -26,6 +26,9 @@ enum State { IDLE, ANTICIPATION, IN_ROOM, DISABLED }
 @export var super_tense_time := Vector2(30, 55)
 @export var exposed_coyote_time := 5.0
 
+@onready var teleporter: Teleporter = $"../Map/Objects/Portal/Model/Teleporter"
+
+
 var state := State.IDLE
 var _exposed := 0.0
 var _timer := Timer.new()
@@ -43,7 +46,7 @@ func _ready() -> void:
 	Music.set_music(chill_track)
 
 	Messenger.teleporter_part_finished.connect(_on_teleporter_part_finished)
-	Game.completed.connect(disable)
+	teleporter.completed.connect(disable)
 	closet.player_left_closet.connect(func(): _player_left_closet = true if state == State.IN_ROOM else false)
 
 

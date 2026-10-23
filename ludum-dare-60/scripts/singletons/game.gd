@@ -1,8 +1,6 @@
 extends Node
 
 
-signal completed
-
 #Battery planned, not implemented
 enum Part {CABLES, DIALS, LEVER, CABLES_DOOR, VALVE}
 

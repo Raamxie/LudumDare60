@@ -28,7 +28,7 @@ texture_type = 1
 input_name = "time"
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ck3s6"]
-default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.2, 0.2)]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.1, 0.1)]
 op_type = 0
 operator = 2
 

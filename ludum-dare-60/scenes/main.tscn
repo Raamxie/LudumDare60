@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1ruo2haqqkw" path="res://assets/models/Room/LED_Light_red.tscn" id="10_tel4y"]
 [ext_resource type="PackedScene" uid="uid://dm4uaqpxfwxts" path="res://assets/models/Room/LED_Light_green.tscn" id="11_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://b182lyb1nrcc" path="res://assets/models/Room/LED_Light_yellow.tscn" id="12_5q0nq"]
-[ext_resource type="PackedScene" uid="uid://d2dat4o80p2q6" path="res://scenes/Interaction Panels/Teleporter.tscn" id="15_5q0nq"]
+[ext_resource type="PackedScene" uid="uid://d2dat4o80p2q6" path="res://scenes/Interaction Panels/teleporter.tscn" id="15_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://cyfvf6x8grpl7" path="res://scenes/Interaction Panels/Pressure_Panel_Top.tscn" id="16_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://cvsf74gr1v8hf" path="res://scenes/Interaction Panels/Pressure_Panel_Bottom.tscn" id="17_pibwh"]
 [ext_resource type="PackedScene" uid="uid://bbr83scbn10xt" path="res://scenes/Interaction Panels/Valve_Panel.tscn" id="18_c6pm6"]
@@ -121,10 +121,15 @@ script = ExtResource("3_y6deb")
 closet = NodePath("../Map/Objects/Closet")
 presence_sfx = NodePath("Breathing")
 catch_sfx = NodePath("GameOver")
+chill_track = null
 tense_track = 1
 supertense_track = 2
+tense_pitch = null
+super_tense_pitch = null
+idle_interval = null
 tense_time = 60
 super_tense_time = Vector2(10, 10)
+exposed_coyote_time = null
 
 [node name="Breathing" type="AudioStreamPlayer3D" parent="Level/Monster" unique_id=1356264149]
 stream = ExtResource("4_og1vs")
@@ -278,7 +283,7 @@ transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, -7.5
 [node name="Items" type="Node3D" parent="Level/Map" unique_id=883708986]
 
 [node name="Flashlight" parent="Level/Map/Items" unique_id=1798987676 instance=ExtResource("19_5he1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528329, 1.062917, 27.26478)
+transform = Transform3D(0.41082305, -0.9117151, 0, 0.9117151, 0.41082305, 0, 0, 0, 1, -7.6094265, 1.062917, 24.680847)
 
 [node name="Screwdriver" parent="Level/Map/Items" unique_id=691295588 instance=ExtResource("8_yq6so")]
 unique_name_in_owner = true
