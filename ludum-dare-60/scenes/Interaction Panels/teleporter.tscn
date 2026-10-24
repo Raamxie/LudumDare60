@@ -27,9 +27,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18210214, 0, 0)
 [node name="PortalVfx" parent="Model/Teleporter" index="0" unique_id=241523413]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.16472578, 0, -0.0046895444)
 
+[node name="StaticBody3D" parent="Model/Teleporter/PortalVfx" index="0" unique_id=670368528]
+collision_layer = 4
+collision_mask = 0
+script = null
+
+[node name="RadioSong" parent="Model/Teleporter" index="1" unique_id=2029312664]
+volume_db = -30.0
+unit_size = 20.0
+max_db = -6.0
+max_distance = 9.0
+
 [node name="RepairSfx" parent="Model/Teleporter" index="2" unique_id=260770143]
 volume_db = -10.0
+unit_size = 20.0
 max_db = 0.0
+max_distance = 20.0
 
 [node name="Cylinder_063" parent="Model/Teleporter/Portal" parent_id_path=PackedInt32Array(1497171574, 772519005) index="0" unique_id=2065777309]
 transform = Transform3D(2.1239414, 0, 0, 0, 0, -2.1239414, 0, 0.29741758, 0, 0.7879423, 2.1991634, -3.068828)

@@ -9,7 +9,7 @@ signal unfocused
 var is_focusable: bool = true
 
 @export var meshes: Array[MeshInstance3D]
-const OBJECT_HIGHLIGHT = preload("uid://c57ilwxn5ebss")
+static var OBJECT_HIGHLIGHT = preload("uid://c57ilwxn5ebss")
 
 
 func interact(interactor: Node = null) -> void:

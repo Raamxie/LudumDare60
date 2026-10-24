@@ -2,9 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://c3e2rdxjy70iq" path="res://scenes/interactable_object.tscn" id="1_41oww"]
 [ext_resource type="PackedScene" uid="uid://cm1oiuqrfdtvb" path="res://assets/models/Room/Pressure_panel/pressure_top.tscn" id="2_jwevl"]
+[ext_resource type="PackedScene" uid="uid://b6y7nl7qsqql5" path="res://scenes/interaction_component.tscn" id="3_kqvx0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.29864502, 0.1003418, 0.29663086)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
+height = 0.014916992
+radius = 0.03564453
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vist8"]
+height = 0.014916992
+radius = 0.03564453
 
 [sub_resource type="BoxMesh" id="BoxMesh_jwevl"]
 size = Vector3(0.29034424, 0.0627594, 0.29083252)
@@ -23,13 +32,27 @@ transform = Transform3D(1, 0, 0, 0, 0.6233663, 0.78192997, 0, -0.78192997, 0.623
 
 [node name="Pressure_Panel" parent="Model" parent_id_path=PackedInt32Array(1685110682) index="0" unique_id=1178809638 instance=ExtResource("2_jwevl")]
 
+[node name="InteractionComponent" parent="Model/Pressure_Panel" index="7" unique_id=1340639925 node_paths=PackedStringArray("meshes") instance=ExtResource("3_kqvx0")]
+meshes = [NodePath("../Dial_Left")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Pressure_Panel/InteractionComponent" index="0" unique_id=1740847320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06119161, 0.71331507, 0.07733279)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="InteractionComponent2" parent="Model/Pressure_Panel" index="8" unique_id=1574555542 node_paths=PackedStringArray("meshes") instance=ExtResource("3_kqvx0")]
+meshes = [NodePath("../Dial_Right")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Model/Pressure_Panel/InteractionComponent2" index="0" unique_id=1161409234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06275014, 0.71331507, 0.07733279)
+shape = SubResource("CylinderShape3D_vist8")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=1376014948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6731187, 0.0050964355)
 mesh = SubResource("BoxMesh_jwevl")
 
 [node name="AreaLight3D" parent="." index="5" unique_id=1604957350]
-transform = Transform3D(1, 0, 0, 0, 0.9660646, 0.2583008, 0, -0.2583008, 0.9660646, 0, 0.9879252, 0.44436228)
-area_range = 0.7
+transform = Transform3D(1, 0, 0, 0, 0.9660646, 0.2583008, 0, -0.2583008, 0.9660646, 0, 0.8859364, 0.44436228)
+area_range = 1.0
 area_size = Vector2(0.29945368, 0.2301929)
 
 [editable path="Model/Pressure_Panel"]

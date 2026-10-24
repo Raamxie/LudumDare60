@@ -125,6 +125,7 @@ func _on_interactable_object_stopped_interacting_with(interacted_object: Node3D)
 func _on_success_timer_timeout() -> void:
 	Messenger.teleporter_part_finished.emit(Game.Part.VALVE)
 	print("Valve done")
+	
 	if screwdriver:
 		screwdriver.apply_impulse(Vector3(0,0, -3), screwdriver.position)
 		screwdriver = null

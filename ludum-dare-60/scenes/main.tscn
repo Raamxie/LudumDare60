@@ -79,4 +79,5 @@ visible = false
 
 [node name="RadioSong" type="AudioStreamPlayer" parent="." unique_id=1176604217]
 stream = ExtResource("7_o6xl0")
+volume_db = -10.0
 bus = &"Music"

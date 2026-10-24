@@ -30,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_interacted_object(interactor: Node) -> void:
 	print("on_interacted called")
+	#interaction_component.collision_layer = 0
 	main_camera = get_viewport().get_camera_3d()
 	_set_player_active(false)
 	

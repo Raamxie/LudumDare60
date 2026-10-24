@@ -202,8 +202,14 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="Label2" type="Label" parent="Control/MarginContainer/Settings" unique_id=371629567]
+layout_mode = 2
+text = "
+Controls:
+[F] Flashlight toggle"
+
 [node name="Intro" parent="." unique_id=1337110342 instance=ExtResource("3_vh3jh")]
-pages = Array[String](["Oh oh... an awful alien infiltrated the spaceship!", "The good news: the whole crew successfully escaped through the teleporter.", "Well, except you. That's the bad news. 
+pages = Array[String](["Uh oh... an awful alien infiltrated the spaceship!", "The good news: the whole crew successfully escaped through the teleporter.", "Well, except you. That's the bad news. 
 
 Also, the portal seems broken?", "Luckily, they left voice notes on how to repair it!
 

@@ -8,14 +8,17 @@ data = PackedVector3Array(-0.28059998, -0.8196, -0.2932, 0.28059998, 0.8196, -0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_k68h5"]
 size = Vector3(0.47571152, 1.4746816, 0.0402536)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1.1428833, 0.05419922, 0.4496765)
+
 [node name="Hidingspot2" unique_id=247392362 instance=ExtResource("1_4vavt")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Hidingspot" parent_id_path=PackedInt32Array(1559219370) index="0" unique_id=531956054]
+[node name="StaticBody3D" type="StaticBody3D" parent="Hidingspot" parent_id_path=PackedInt32Array(722054773) index="0" unique_id=531956054]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hidingspot/StaticBody3D" index="0" unique_id=866749094]
 shape = SubResource("ConcavePolygonShape3D_4vavt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Hidingspot_door" parent_id_path=PackedInt32Array(1161312962) index="0" unique_id=350171941]
+[node name="StaticBody3D" type="StaticBody3D" parent="Hidingspot_door" parent_id_path=PackedInt32Array(1863002496) index="0" unique_id=350171941]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hidingspot_door/StaticBody3D" index="0" unique_id=1335438720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2373308, -0.025996864, 0.006099373)
@@ -23,3 +26,9 @@ shape = SubResource("BoxShape3D_k68h5")
 
 [node name="PivotPoint" type="Node3D" parent="." index="2" unique_id=1154352904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3345869, 0.9893468, 0.5283881)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=2122605728]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1909188450]
+transform = Transform3D(1, 0, 0, 0, 0.76940596, -0.63876003, 0, 0.63876003, 0.76940596, 0.050918505, -0.25152874, 0.65095943)
+shape = SubResource("BoxShape3D_g4v7s")

@@ -70,13 +70,14 @@ metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
 
 [sub_resource type="Resource" id="Resource_gp45w"]
 script = ExtResource("1_t5qvp")
-text = "1-4, 2-2, 3-1, 4-5, 5-3"
+text = "1-4,  2-2,  3-1,  4-5,  5-3"
+hold_time = 4.0
 typespeed = 20.0
 metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
 
 [sub_resource type="Resource" id="Resource_qht8l"]
 script = ExtResource("1_t5qvp")
-text = "I am sure you won't need that one anyways..."
+text = "I am sure you won't need it anyways..."
 metadata/_custom_type_script = "uid://cnd17qqqjxhr5"
 
 [resource]

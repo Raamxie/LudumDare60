@@ -42,40 +42,9 @@ func _unload_level() -> void:
 
 func _on_play() -> void:
 	screens.play_intro()
-	#await get_tree().process_frame
-	#await get_tree().process_frame
-	#_preload_level()
 	await screens.intro.finished
 	start_game()
 	
-	
-#func _on_play() -> void:
-	#screens.hide_all()
-	#await get_tree().process_frame
-	#await get_tree().process_frame
-	#_preload_level()
-	#await _prewarm(_next_level)
-	#await screens.play_intro()
-	#start_game()
-#
-#
-#func _prewarm(l: Node) -> void:
-	#var emitting_before := {}
-	#for p: GPUParticles3D in l.find_children("*", "GPUParticles3D", true, false):
-		#emitting_before[p] = p.emitting
-		#p.emitting = true
-	#var turned_on: Array[Light3D] = []
-	#for light: Light3D in l.find_children("*", "Light3D", true, false):
-		#if not light.visible:
-			#light.visible = true
-			#turned_on.append(light)
-	#for i in 3:
-		#await get_tree().process_frame
-	#for p: GPUParticles3D in emitting_before:
-		#p.emitting = emitting_before[p]
-	#for light in turned_on:
-		#light.visible = false
-		
 	
 func _preload_level() -> void:
 	if _next_level:

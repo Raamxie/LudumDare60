@@ -8,3 +8,6 @@ signal clear_control_message
 
 signal teleporter_part_finished(part: Game.Part)
 signal escaped
+
+signal monster_lurking
+signal monster_hide
